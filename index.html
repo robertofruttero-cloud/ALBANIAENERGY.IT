@@ -1,0 +1,1618 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="page-title">Albania Energy — Energjia Elektrike dhe Gaz në Itali për Shqiptarë</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { font-family: 'Inter', system-ui, sans-serif; }
+  html { scroll-behavior: smooth; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px);} to { opacity: 1; transform: translateY(0);} }
+  .animate-fadeIn { animation: fadeIn .25s ease-out; }
+  @keyframes bounceShort { 0%,100% { transform: translateY(0);} 50% { transform: translateY(-4px);} }
+  .animate-bounce-short { animation: bounceShort 2.2s ease-in-out infinite; }
+  .line-clamp-2 { display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+  .line-clamp-6 { display:-webkit-box; -webkit-line-clamp:6; -webkit-box-orient:vertical; overflow:hidden; }
+  .hidden-important { display: none !important; }
+  .lang-btn { cursor:pointer; transition: all .15s; }
+  .nav-link { padding: 0.375rem 0.625rem; border-radius: 0.5rem; font-size: 0.75rem; font-weight: 600; color: rgb(51 65 85); transition: all .15s; cursor: pointer; display:flex; align-items:center; gap:0.375rem; }
+  .nav-link:hover { color: rgb(220 38 38); background: rgb(254 242 242); }
+  .mobile-link { display:block; width:100%; text-align:left; padding: 0.5rem 0.75rem; border-radius: 0.5rem; font-size: 0.875rem; font-weight: 600; color: rgb(51 65 85); cursor:pointer; }
+  .mobile-link:hover { color: rgb(220 38 38); background: rgb(254 242 242); }
+  ::selection { background: #dc2626; }
+</style>
+</head>
+<body class="antialiased text-slate-900 bg-white">
+
+<!-- ============ NAVBAR ============ -->
+<header id="navbar-header" class="sticky top-0 z-50 w-full shadow-sm">
+  <div class="bg-gradient-to-r from-red-800 via-red-800 to-red-950 text-xs py-1.5 px-4 text-white shadow-inner">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-2">
+        <span class="inline-flex items-center gap-1 bg-white/20 text-white font-semibold px-2 py-0.5 rounded-full border border-white/30 text-[11px]">
+          <span>🇦🇱</span><span>🇮🇹</span><span data-i18n="topbar.badge">Komuniteti Shqiptar në Itali</span>
+        </span>
+        <span class="hidden md:inline text-red-100">• <strong class="text-amber-200 font-bold" data-i18n="topbar.slogan">Sa më shumë jemi, aq më lirë do të jemi</strong></span>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="tel:+3901721860282" class="hidden sm:flex items-center gap-1.5 text-white/90 hover:text-white transition-colors text-xs font-mono">
+          <i data-lucide="phone" class="w-3.5 h-3.5"></i><span>+39 0172 1860282</span>
+        </a>
+        <button onclick="openWhatsApp()" class="flex items-center gap-1.5 bg-emerald-500 hover:bg-emerald-600 text-white px-2.5 py-0.5 rounded-full border border-emerald-400/50 transition-all font-semibold text-xs shadow-sm cursor-pointer">
+          <i data-lucide="message-circle" class="w-3.5 h-3.5"></i><span>WhatsApp: +39 393 3192262</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <nav id="main-nav" class="transition-all duration-300 bg-white/90 backdrop-blur-sm border-b border-red-100/80 py-4">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+      <button onclick="scrollToId('hero')" class="flex items-center group text-left cursor-pointer py-1">
+        <span class="text-xl sm:text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-red-700 via-red-800 to-red-950 group-hover:from-red-700 group-hover:to-red-800 transition-all"><img src="logo.png" alt="Albania Energy" class="h-[120px] w-auto object-contain"></span>
+      </button>
+
+      <div class="hidden lg:flex items-center gap-1 xl:gap-2">
+        <button onclick="scrollToId('hero')" class="nav-link" data-i18n="nav.home">Ballina</button>
+        <button onclick="scrollToId('luz-section')" class="nav-link" data-i18n="nav.luz">Ofertat e Dritës</button>
+        <button onclick="scrollToId('gas-section')" class="nav-link" data-i18n="nav.gas">Ofertat e Gazit</button>
+        <button onclick="scrollToId('calculadora-section')" class="nav-link" data-i18n="nav.calc">Simulatori</button>
+        <button onclick="scrollToId('guia-section')" class="nav-link" data-i18n="nav.guide">Udhëzues Fature</button>
+        <button onclick="scrollToId('faq-section')" class="nav-link flex items-center gap-1.5"><span data-i18n="nav.docs">Dok. Shqipëria vs Italia</span><span class="text-[10px] px-1.5 py-0.2 rounded bg-amber-100 text-amber-800 font-bold border border-amber-300">🇦🇱</span></button>
+        <button onclick="scrollToId('faq-section')" class="nav-link" data-i18n="nav.faq">Pyetje të Shpeshta</button>
+        <button onclick="scrollToId('contacto-section')" class="nav-link" data-i18n="nav.contact">Na Kontaktoni</button>
+      </div>
+
+      <div class="hidden sm:flex items-center gap-3">
+        <div class="flex items-center gap-0.5 bg-red-50 border border-red-200 rounded-full p-0.5" role="group" aria-label="Lingua / Gjuha">
+          <button onclick="setLanguage('sq')" id="lang-btn-sq" class="lang-btn px-2.5 py-1 rounded-full text-xs font-black bg-red-800 text-white shadow-sm">SQ</button>
+          <button onclick="setLanguage('it')" id="lang-btn-it" class="lang-btn px-2.5 py-1 rounded-full text-xs font-black text-red-800">IT</button>
+        </div>
+        <button onclick="openAuditModal()" class="flex items-center gap-2 px-3.5 py-2 text-xs font-bold rounded-lg bg-red-50 text-red-700 hover:bg-red-100 border border-red-200 shadow-sm transition-all cursor-pointer">
+          <i data-lucide="file-search" class="w-3.5 h-3.5 text-amber-500"></i><span data-i18n="nav.audit">Kontrollo Faturën</span>
+        </button>
+        <button onclick="scrollToId('contacto-section')" class="flex items-center gap-2 px-4 py-2 text-xs font-bold rounded-lg bg-gradient-to-r from-red-700 to-red-900 hover:from-red-700 hover:to-red-800 text-white shadow-md shadow-red-500/25 transition-all transform hover:-translate-y-0.5 cursor-pointer">
+          <span data-i18n="nav.asesoria">Kerko Këshillim</span><i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+        </button>
+      </div>
+
+      <div class="flex lg:hidden items-center gap-2">
+        <div class="flex items-center gap-0.5 bg-red-50 border border-red-200 rounded-full p-0.5">
+          <button onclick="setLanguage('sq')" class="lang-btn px-2 py-1 rounded-full text-[11px] font-black bg-red-800 text-white shadow-sm">SQ</button>
+          <button onclick="setLanguage('it')" class="lang-btn px-2 py-1 rounded-full text-[11px] font-black text-red-800">IT</button>
+        </div>
+        <button onclick="toggleMobileMenu()" class="p-2 rounded-lg bg-red-50 text-slate-700 hover:text-red-600 hover:bg-red-100 border border-red-200">
+          <i data-lucide="menu" id="menu-icon-open" class="w-6 h-6"></i>
+          <i data-lucide="x" id="menu-icon-close" class="w-6 h-6 hidden"></i>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobile-menu" class="lg:hidden hidden bg-white border-b border-red-100 px-4 pt-3 pb-6 mt-2 space-y-2 animate-fadeIn shadow-xl">
+      <div class="grid grid-cols-2 gap-2 mb-3">
+        <button onclick="scrollToId('luz-section'); toggleMobileMenu();" class="flex items-center gap-2 p-2.5 rounded-lg bg-red-50 border border-red-200 text-red-800 text-xs font-bold"><i data-lucide="zap" class="w-4 h-4 text-amber-500"></i><span data-i18n="nav.luz">Ofertat e Dritës</span></button>
+        <button onclick="scrollToId('gas-section'); toggleMobileMenu();" class="flex items-center gap-2 p-2.5 rounded-lg bg-amber-50 border border-amber-200 text-amber-800 text-xs font-bold"><i data-lucide="flame" class="w-4 h-4 text-orange-500"></i><span data-i18n="nav.gas">Ofertat e Gazit</span></button>
+      </div>
+      <div class="grid grid-cols-2 gap-2 mb-3">
+        <button onclick="setLanguage('sq'); toggleMobileMenu();" class="lang-btn flex items-center justify-center gap-1.5 p-2.5 rounded-lg bg-red-800 text-white text-xs font-black border border-red-800">🇦🇱 Shqip</button>
+        <button onclick="setLanguage('it'); toggleMobileMenu();" class="lang-btn flex items-center justify-center gap-1.5 p-2.5 rounded-lg bg-white text-red-800 text-xs font-black border border-red-200">🇮🇹 Italiano</button>
+      </div>
+      <button onclick="scrollToId('hero'); toggleMobileMenu();" class="mobile-link" data-i18n="nav.home">Ballina</button>
+      <button onclick="scrollToId('calculadora-section'); toggleMobileMenu();" class="mobile-link" data-i18n="nav.calc">Simulatori</button>
+      <button onclick="scrollToId('guia-section'); toggleMobileMenu();" class="mobile-link" data-i18n="nav.guide">Udhëzues Fature</button>
+      <button onclick="scrollToId('faq-section'); toggleMobileMenu();" class="mobile-link"><span data-i18n="nav.docs">Dok. Shqipëria vs Italia</span> 🇦🇱</button>
+      <button onclick="scrollToId('faq-section'); toggleMobileMenu();" class="mobile-link" data-i18n="nav.faq">Pyetje të Shpeshta</button>
+      <button onclick="scrollToId('contacto-section'); toggleMobileMenu();" class="mobile-link" data-i18n="nav.contact">Na Kontaktoni</button>
+      <div class="pt-3 border-t border-red-100 flex flex-col gap-2">
+        <button onclick="openAuditModal(); toggleMobileMenu();" class="w-full flex items-center justify-center gap-2 py-2.5 text-sm font-bold rounded-lg bg-red-50 text-red-800 border border-red-200"><i data-lucide="file-search" class="w-4 h-4 text-amber-500"></i><span data-i18n="mobile.audit">Analizo Faturën Falas</span></button>
+        <button onclick="openWhatsApp()" class="w-full flex items-center justify-center gap-2 py-2.5 text-sm font-bold rounded-lg bg-emerald-500 hover:bg-emerald-600 text-white shadow-md"><i data-lucide="message-circle" class="w-4 h-4"></i><span data-i18n="mobile.wa">Pyetni përmes WhatsApp</span></button>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- ============ HERO ============ -->
+<section id="hero" class="relative pt-8 pb-16 md:pt-14 md:pb-24 overflow-hidden bg-cover bg-center" style="background-image: linear-gradient(rgba(240,249,255,0.93), rgba(255,255,255,0.88), rgba(240,249,255,0.90)), url('https://picsum.photos/seed/albania-hero/1920/1080');">
+  <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] md:w-[1000px] h-[450px] bg-gradient-to-tr from-[#74acdf]/30 via-amber-300/20 to-[#74acdf]/20 rounded-full blur-3xl pointer-events-none -z-10"></div>
+  <div class="absolute top-0 right-0 w-96 h-96 bg-[#74acdf]/25 rounded-full blur-3xl pointer-events-none -z-10"></div>
+  <div class="absolute bottom-0 left-0 w-96 h-96 bg-[#74acdf]/20 rounded-full blur-3xl pointer-events-none -z-10"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-4xl mx-auto space-y-6">
+      <div class="inline-block mx-auto">
+        <img src="logo.png" alt="Albania Energy" class="mx-auto mb-4 h-24 sm:h-32 w-auto object-contain drop-shadow-lg">
+        <div class="bg-gradient-to-r from-red-600 via-red-800 to-red-900 text-white px-4 sm:px-6 py-2 sm:py-2.5 rounded-xl sm:rounded-2xl border border-red-800 shadow-md shadow-red-500/20 flex flex-wrap items-center justify-center gap-2 sm:gap-2.5">
+          <span class="text-base sm:text-lg">🇦🇱</span>
+          <h2 class="text-xs sm:text-sm md:text-base font-extrabold tracking-tight text-white" data-i18n="hero.badge">Albania Energy <span class="text-red-200 font-normal mx-1">-</span> Energjia elektrike dhe gazi në Itali për shqiptarët</h2>
+          <span class="text-base sm:text-lg">🇮🇹</span>
+        </div>
+      </div>
+
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-slate-900 leading-tight">
+        <span data-i18n="hero.title1">Zgjidhni ofertën tuaj.</span> <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-800 via-red-800 to-amber-600" data-i18n="hero.title2">Energji e drejtë dhe pa burokraci.</span>
+      </h1>
+
+      <p class="text-base sm:text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed" data-i18n="hero.sub">
+        Zgjidhni shërbimin për të cilin dëshironi informacion. Ju kujtojmë se në këtë fazë po vihemi në kontakt:
+        <span class="text-red-800 font-bold"> sa më shumë jemi, aq më lirë do të jemi!</span> Krahasojmë tarifat, menaxhojmë ndryshimin dhe kujdesemi për xhepin tuaj.
+      </p>
+
+      <div class="flex flex-wrap justify-center items-center gap-3 pt-2 text-xs sm:text-sm text-slate-700 font-medium">
+        <div class="flex items-center gap-1.5 bg-white px-3.5 py-1.5 rounded-full border border-red-200 shadow-sm"><i data-lucide="check-circle-2" class="w-4 h-4 text-red-600"></i><span data-i18n="hero.pill1">Pa ndërprerje shërbimi</span></div>
+        <div class="flex items-center gap-1.5 bg-white px-3.5 py-1.5 rounded-full border border-red-200 shadow-sm"><i data-lucide="check-circle-2" class="w-4 h-4 text-amber-500"></i><span data-i18n="hero.pill2">0€ kosto menaxhimi</span></div>
+        <div class="flex items-center gap-1.5 bg-white px-3.5 py-1.5 rounded-full border border-red-200 shadow-sm"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600"></i><span data-i18n="hero.pill3">Menaxhimi i Voltura &amp; Subentro</span></div>
+      </div>
+    </div>
+
+    <div class="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div onclick="selectService('luz')" class="group relative bg-white hover:bg-red-50/40 rounded-2xl p-6 border-2 border-red-200 hover:border-red-400 transition-all duration-300 shadow-md hover:shadow-xl cursor-pointer flex flex-col justify-between">
+        <span class="absolute top-4 right-4 text-[10px] font-bold px-2 py-0.5 rounded-full bg-red-100 text-red-800 border border-red-300">Port-4</span>
+        <div>
+          <div class="w-12 h-12 rounded-xl bg-red-100 border border-red-300 flex items-center justify-center mb-4 group-hover:scale-110 transition-all"><i data-lucide="zap" class="w-6 h-6 text-red-600"></i></div>
+          <h3 class="text-lg font-bold text-slate-900 group-hover:text-red-600 transition-colors" data-i18n="hero.card1.title">Oferta për Energji Elektrike Shtëpiake</h3>
+          <p class="text-xs text-slate-600 mt-2 line-clamp-2 leading-relaxed" data-i18n="hero.card1.desc">Tarifa drite transparente, fikse ose të indeksuara në PUN pa shpenzime të fshehura.</p>
+          <div class="mt-4 pt-3 border-t border-red-100 flex items-center gap-2 text-xs text-red-800 font-bold"><i data-lucide="trending-down" class="w-4 h-4 text-emerald-600"></i><span data-i18n="hero.saving">Kursim mesatar: <strong class="text-emerald-700">-20€ deri -45€</strong> / muaj</span></div>
+        </div>
+        <div class="mt-6"><button onclick="event.stopPropagation(); selectService('luz')" class="w-full py-2.5 px-4 rounded-xl bg-red-50 hover:bg-red-700 hover:text-white text-red-800 font-bold text-xs flex items-center justify-center gap-2 border border-red-300 transition-all shadow-sm cursor-pointer"><span data-i18n="hero.ctaInfo">Kontaktoni për më shumë informacion</span><i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></button></div>
+      </div>
+
+      <div onclick="selectService('gas')" class="group relative bg-white hover:bg-amber-50/40 rounded-2xl p-6 border-2 border-amber-200 hover:border-amber-400 transition-all duration-300 shadow-md hover:shadow-xl cursor-pointer flex flex-col justify-between">
+        <span class="absolute top-4 right-4 text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 border border-amber-300">Port-5</span>
+        <div>
+          <div class="w-12 h-12 rounded-xl bg-amber-100 border border-amber-300 flex items-center justify-center mb-4 group-hover:scale-110 transition-all"><i data-lucide="flame" class="w-6 h-6 text-amber-600"></i></div>
+          <h3 class="text-lg font-bold text-slate-900 group-hover:text-amber-600 transition-colors" data-i18n="hero.card2.title">Oferta për Gaz Shtëpiak</h3>
+          <p class="text-xs text-slate-600 mt-2 line-clamp-2 leading-relaxed" data-i18n="hero.card2.desc">Tarifa gazi metani të kalibruara për dimrin italian me çmim Smc të qartë dhe të kontrollueshëm.</p>
+          <div class="mt-4 pt-3 border-t border-amber-100 flex items-center gap-2 text-xs text-amber-800 font-bold"><i data-lucide="trending-down" class="w-4 h-4 text-emerald-600"></i><span data-i18n="hero.saving2">Kursim mesatar: <strong class="text-emerald-700">-30€ deri -60€</strong> / muaj</span></div>
+        </div>
+        <div class="mt-6"><button onclick="event.stopPropagation(); selectService('gas')" class="w-full py-2.5 px-4 rounded-xl bg-amber-50 hover:bg-amber-500 hover:text-white text-amber-900 font-bold text-xs flex items-center justify-center gap-2 border border-amber-300 transition-all shadow-sm cursor-pointer"><span data-i18n="hero.ctaInfo">Kontaktoni për më shumë informacion</span><i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></button></div>
+      </div>
+
+      <div onclick="selectService('ambos')" class="group relative bg-gradient-to-b from-red-50 to-white hover:from-red-100/70 rounded-2xl p-6 border-2 border-red-400 hover:border-red-500 transition-all duration-300 shadow-lg cursor-pointer flex flex-col justify-between">
+        <span class="absolute -top-3 left-1/2 -translate-x-1/2 text-[10px] font-black px-3 py-1 rounded-full bg-gradient-to-r from-amber-400 to-red-400 text-slate-950 shadow-md uppercase tracking-wider" data-i18n="hero.card3.badge">KOMBO MË I ZGJEDHUR</span>
+        <div>
+          <div class="w-12 h-12 rounded-xl bg-red-200 border border-red-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-all"><i data-lucide="layers" class="w-6 h-6 text-red-700"></i></div>
+          <h3 class="text-lg font-bold text-slate-900 group-hover:text-red-700 transition-colors" data-i18n="hero.card3.title">Paketa Dyfishe: Dritë + Gaz Shtëpie</h3>
+          <p class="text-xs text-slate-600 mt-2 line-clamp-2 leading-relaxed" data-i18n="hero.card3.desc">Bashkoni dy furnizimet nën të njëjtin këshilltar në gjuhën shqipe me bonus të dyfishtë komuniteti.</p>
+          <div class="mt-4 pt-3 border-t border-red-200 flex items-center gap-2 text-xs text-red-900 font-bold"><i data-lucide="sparkles" class="w-4 h-4 text-amber-500"></i><span data-i18n="hero.savingDual">Zbritje dyfishe: <strong class="text-emerald-700">Deri -75€</strong> / muaj</span></div>
+        </div>
+        <div class="mt-6"><button onclick="event.stopPropagation(); selectService('ambos')" class="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-red-700 to-red-900 hover:from-red-700 hover:to-red-800 text-white font-extrabold text-xs flex items-center justify-center gap-2 shadow-md transition-all cursor-pointer"><span data-i18n="hero.card3.cta">Dua Këshillim të Dyfishtë</span><i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></button></div>
+      </div>
+
+      <div onclick="selectService('empresa')" class="group relative bg-white hover:bg-rose-50/40 rounded-2xl p-6 border-2 border-rose-200 hover:border-rose-400 transition-all duration-300 shadow-md hover:shadow-xl cursor-pointer flex flex-col justify-between">
+        <span class="absolute top-4 right-4 text-[10px] font-bold px-2 py-0.5 rounded-full bg-rose-100 text-rose-800 border border-rose-300">B2B &amp; SME</span>
+        <div>
+          <div class="w-12 h-12 rounded-xl bg-rose-100 border border-rose-300 flex items-center justify-center mb-4 group-hover:scale-110 transition-all"><i data-lucide="building" class="w-6 h-6 text-rose-600"></i></div>
+          <h3 class="text-lg font-bold text-slate-900 group-hover:text-rose-700 transition-colors" data-i18n="hero.card4.title">Oferta për Biznese &amp; Lokale</h3>
+          <p class="text-xs text-slate-600 mt-2 line-clamp-2 leading-relaxed" data-i18n="hero.card4.desc">Gastronomi, punishte, zyra dhe të vetëpunësuar. Ulje e kostove të fuqisë dhe TVSH e zbritshme.</p>
+          <div class="mt-4 pt-3 border-t border-rose-100 flex items-center gap-2 text-xs text-rose-900 font-bold"><i data-lucide="trending-down" class="w-4 h-4 text-emerald-600"></i><span data-i18n="hero.saving4">Kursim mesatar: <strong class="text-emerald-700">-100€ deri -350€</strong> / muaj</span></div>
+        </div>
+        <div class="mt-6"><button onclick="event.stopPropagation(); selectService('empresa')" class="w-full py-2.5 px-4 rounded-xl bg-rose-50 hover:bg-rose-600 hover:text-white text-rose-800 font-bold text-xs flex items-center justify-center gap-2 border border-rose-300 transition-all shadow-sm cursor-pointer"><span data-i18n="hero.card4.cta">Kontakto për Biznes</span><i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></button></div>
+      </div>
+    </div>
+
+    <div class="mt-10 p-4 sm:p-6 rounded-2xl bg-white border border-red-200 shadow-md flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-4 text-left">
+        <div class="p-3 rounded-xl bg-amber-100 border border-amber-300 shrink-0"><i data-lucide="users" class="w-6 h-6 text-amber-600"></i></div>
+        <div>
+          <h4 class="text-sm sm:text-base font-bold text-slate-900" data-i18n="hero.audit.title">A e keni faturën tuaj të fundit (bolletta) pranë?</h4>
+          <p class="text-xs text-slate-600" data-i18n="hero.audit.sub">Ngarkojeni ose dërgojeni një foto përmes WhatsApp dhe do t'ju bëjmë një krahasim falas brenda 24 orëve.</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-3 w-full md:w-auto shrink-0">
+        <button onclick="openAuditModal()" class="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-slate-950 font-bold text-xs sm:text-sm shadow-md transition-all cursor-pointer" data-i18n="hero.audit.cta1">Kontrollo Faturën Time Falas</button>
+        <button onclick="scrollToId('calculadora-section')" class="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-red-50 hover:bg-red-100 text-red-800 font-bold text-xs sm:text-sm border border-red-200 transition-all cursor-pointer shadow-sm" data-i18n="hero.audit.cta2">Simulo Kursimin</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS ============ -->
+<section class="py-12 border-y border-red-100 bg-cover bg-fixed bg-center" style="background-image: linear-gradient(rgba(255,255,255,0.96), rgba(255,255,255,0.94)), url('https://picsum.photos/seed/albania-stats/1920/1080');">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-10">
+      <p class="text-xs font-bold uppercase tracking-widest text-red-600" data-i18n="stats.label">Fuqia e blerjes kolektive për bashkëkombasit</p>
+      <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mt-1" data-i18n="stats.title">Rezultate reale të komunitetit në Itali</h2>
+      <p class="text-sm text-slate-600 mt-2" data-i18n="stats.sub">Të bashkuar arrijmë kushte më të mira ndaj kompanive të mëdha energjetike italiane.</p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="p-6 rounded-2xl relative overflow-hidden bg-gradient-to-b from-red-50 to-white border-2 border-red-300 shadow-md">
+        <div class="flex items-center justify-between mb-4"><span class="text-3xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-red-700 to-red-800">2100+</span><div class="p-2.5 rounded-xl bg-red-50 border border-red-200"><i data-lucide="users" class="w-5 h-5 text-red-600"></i></div></div>
+        <h3 class="text-base font-bold text-slate-900 mb-1" data-i18n="stats.s1.title">Familje të Shërbyera</h3>
+        <p class="text-xs text-slate-600 mb-4 min-h-[32px]" data-i18n="stats.s1.desc">Shqiptarë që banojnë në të gjithë Italinë</p>
+        <div class="pt-3 border-t border-red-100 flex items-center justify-between text-xs"><span class="text-slate-600" data-i18n="stats.savingLabel">Kursim mesatar:</span><span class="font-extrabold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded-md border border-emerald-300" data-i18n="stats.s1.badge">-20€/muaj</span></div>
+      </div>
+      <div class="p-6 rounded-2xl relative overflow-hidden bg-white border border-red-200/80 shadow-sm hover:shadow-md transition-all">
+        <div class="flex items-center justify-between mb-4"><span class="text-3xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-red-700 to-red-800">780</span><div class="p-2.5 rounded-xl bg-red-50 border border-red-200"><i data-lucide="building-2" class="w-5 h-5 text-rose-600"></i></div></div>
+        <h3 class="text-base font-bold text-slate-900 mb-1" data-i18n="stats.s2.title">Biznese &amp; SME</h3>
+        <p class="text-xs text-slate-600 mb-4 min-h-[32px]" data-i18n="stats.s2.desc">Biznese me kosto të optimizuara</p>
+        <div class="pt-3 border-t border-red-100 flex items-center justify-between text-xs"><span class="text-slate-600" data-i18n="stats.savingLabel">Kursim mesatar:</span><span class="font-extrabold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded-md border border-emerald-300" data-i18n="stats.s2.badge">-100€/muaj</span></div>
+      </div>
+      <div class="p-6 rounded-2xl relative overflow-hidden bg-white border border-red-200/80 shadow-sm hover:shadow-md transition-all">
+        <div class="flex items-center justify-between mb-4"><span class="text-3xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-red-700 to-red-800">98%</span><div class="p-2.5 rounded-xl bg-red-50 border border-red-200"><i data-lucide="heart-handshake" class="w-5 h-5 text-amber-500"></i></div></div>
+        <h3 class="text-base font-bold text-slate-900 mb-1" data-i18n="stats.s3.title">Procedura pa Ndërprerje</h3>
+        <p class="text-xs text-slate-600 mb-4 min-h-[32px]" data-i18n="stats.s3.desc">Ndryshime furnizuesi pa ndërprerje të shërbimit</p>
+        <div class="pt-3 border-t border-red-100 flex items-center justify-between text-xs"><span class="text-slate-600" data-i18n="stats.actLabel">Aktivizimi:</span><span class="font-extrabold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded-md border border-emerald-300" data-i18n="stats.s3.badge">10-15 ditë</span></div>
+      </div>
+      <div class="p-6 rounded-2xl relative overflow-hidden bg-gradient-to-b from-red-50 to-white border-2 border-red-300 shadow-md">
+        <div class="flex items-center justify-between mb-4"><span class="text-3xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-red-700 to-red-800">4.9★</span><div class="p-2.5 rounded-xl bg-red-50 border border-red-200"><i data-lucide="shield-check" class="w-5 h-5 text-emerald-600"></i></div></div>
+        <h3 class="text-base font-bold text-slate-900 mb-1" data-i18n="stats.s4.title">Kënaqësia e Klientit</h3>
+        <p class="text-xs text-slate-600 mb-4 min-h-[32px]" data-i18n="stats.s4.desc">Vlerësim i komunitetit shqiptar</p>
+        <div class="pt-3 border-t border-red-100 flex items-center justify-between text-xs"><span class="text-slate-600" data-i18n="stats.footerService">Shërbimi:</span><span class="font-extrabold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded-md border border-emerald-300" data-i18n="stats.inAlbanian">100% në shqip</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ELECTRICITY SECTION ============ -->
+<section id="luz-section" class="py-16 md:py-24 relative overflow-hidden bg-cover bg-fixed bg-center" style="background-image: linear-gradient(rgba(255,255,255,0.95), rgba(255,255,255,0.93)), url('https://picsum.photos/seed/albania-luz/1920/1080');">
+  <div class="absolute top-10 left-0 w-96 h-96 bg-red-200/40 rounded-full blur-3xl pointer-events-none"></div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+    <div class="max-w-4xl mx-auto text-center mb-14">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-red-100 border border-red-300 text-red-800 text-xs font-bold uppercase tracking-wider mb-4"><i data-lucide="zap" class="w-4 h-4 text-red-600"></i><span data-i18n="elec.badge">Shërbime Elektrike në Itali</span></div>
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight">Oferta për shërbime të <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-700 to-red-800" data-i18n="elec.titleHighlight">Energjisë Elektrike</span></h2>
+      <div class="mt-6 text-base sm:text-lg text-slate-600 leading-relaxed space-y-4 max-w-3xl mx-auto">
+        <p data-i18n="elec.intro1">Në <strong class="text-red-800 font-bold">Albania Energy</strong> ndihmojmë qytetarët shqiptarë që jetojnë në Itali të kenë akses në shërbime drite dhe gazi të besueshëm, me çmime të drejta dhe pa komplikime.</p>
+        <p class="text-slate-500 text-sm sm:text-base" data-i18n="elec.intro2">E dimë se shumë bashkëkombas përballen me vështirësi kur duan të kontraktojnë, kuptojnë ose krahasojnë tarifat energjetike në Itali. Prandaj, qëllimi ynë është t'jua lehtësojmë gjithë procesin, duke u kujdesur për xhepin dhe qetësinë tuaj.</p>
+      </div>
+    </div><div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+      <div class="bg-red-50/50 rounded-2xl p-7 border-2 border-red-200 hover:border-red-400 transition-all hover:shadow-lg flex flex-col justify-between group">
+        <div>
+          <div class="flex items-center justify-between mb-4"><span class="text-3xl font-black text-red-300 group-hover:text-red-600 transition-colors">01.</span><div class="p-2.5 rounded-xl bg-white border border-red-200 shadow-sm"><i data-lucide="trending-down" class="w-5 h-5 text-red-600"></i></div></div>
+          <h3 class="text-lg font-bold text-slate-900 mb-2.5" data-i18n="elec.b1.title">Kursim real në faturën tuaj</h3>
+          <p class="text-xs sm:text-sm text-slate-700 leading-relaxed" data-i18n="elec.b1.p1">Krahasojmë tarifat më të mira të tregut dhe ju ndihmojmë të ulni koston e dritës dhe gazit pa sakrifikuar cilësinë.</p>
+          <p class="text-xs text-slate-500 mt-3" data-i18n="elec.b1.p2">Marrëveshjet tona me furnizues të besueshëm na lejojnë të ofrojmë çmime ekskluzive dhe transparente, pa kosto të fshehura dhe pa klauzola mashtruese.</p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-red-200 flex items-center gap-2 text-xs font-bold text-red-800"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0"></i><span data-i18n="elec.b1.check">Auditim i faturës suaj të mëparshme pa pagesë</span></div>
+      </div>
+      <div class="bg-red-50/50 rounded-2xl p-7 border-2 border-red-200 hover:border-red-400 transition-all hover:shadow-lg flex flex-col justify-between group">
+        <div>
+          <div class="flex items-center justify-between mb-4"><span class="text-3xl font-black text-red-300 group-hover:text-red-600 transition-colors">02.</span><div class="p-2.5 rounded-xl bg-white border border-red-200 shadow-sm"><i data-lucide="messages-square" class="w-5 h-5 text-red-600"></i></div></div>
+          <h3 class="text-lg font-bold text-slate-900 mb-2.5" data-i18n="elec.b2.title">Këshillim në gjuhën tuaj</h3>
+          <p class="text-xs sm:text-sm text-slate-700 leading-relaxed" data-i18n="elec.b2.p1">Flisim shqip dhe kuptojmë nevojat e shqiptarëve në Itali.</p>
+          <p class="text-xs text-slate-500 mt-3" data-i18n="elec.b2.p2">Ju shpjegojmë çdo detaj të kontratës suaj në mënyrë të thjeshtë, të qartë dhe njerëzore, që të merrni vendime me besim të plotë pa u marrë me terma teknike konfuze italiane.</p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-red-200 flex items-center gap-2 text-xs font-bold text-red-800"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0"></i><span data-i18n="elec.b2.check">Shërbim direkt përmes WhatsApp dhe telefonit</span></div>
+      </div>
+      <div class="bg-red-50/50 rounded-2xl p-7 border-2 border-red-200 hover:border-red-400 transition-all hover:shadow-lg flex flex-col justify-between group">
+        <div>
+          <div class="flex items-center justify-between mb-4"><span class="text-3xl font-black text-red-300 group-hover:text-red-600 transition-colors">03.</span><div class="p-2.5 rounded-xl bg-white border border-red-200 shadow-sm"><i data-lucide="file-check-2" class="w-5 h-5 text-red-600"></i></div></div>
+          <h3 class="text-lg font-bold text-slate-900 mb-2.5" data-i18n="elec.b3.title">Procedura të lehta, të shpejta dhe pa stres</h3>
+          <p class="text-xs sm:text-sm text-slate-700 leading-relaxed" data-i18n="elec.b3.p1">Kujdesemi për të gjithë procesin për ju: analizë faturash, ndryshim furnizuesi, aktivizim shërbimi dhe asistencë e vazhdueshme.</p>
+          <p class="text-xs text-slate-500 mt-3" data-i18n="elec.b3.p2">Harrojeni burokracinë italiane — me <strong class="text-red-700">Albania Energy</strong>, energjia juaj menaxhohet në minuta dhe pa komplikime.</p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-red-200 flex items-center gap-2 text-xs font-bold text-red-800"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0"></i><span data-i18n="elec.b3.check">Voltura, Subentro dhe Allaccio pa radhë</span></div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-14">
+      <div class="p-6 rounded-2xl bg-gradient-to-r from-red-100 to-red-50 border border-red-200 flex items-center justify-between shadow-sm">
+        <div class="flex items-center gap-4"><div class="p-3.5 rounded-xl bg-red-200 text-red-800"><i data-lucide="users" class="w-7 h-7"></i></div><div><p class="text-3xl font-black text-slate-900">1320</p><p class="text-sm font-bold text-red-900" data-i18n="elec.res.title">Përdorues Rezidencialë</p><p class="text-xs text-slate-600" data-i18n="elec.res.desc">Familje shqiptare të mbrojtura</p></div></div>
+        <div class="text-right"><span class="text-2xl sm:text-3xl font-black text-emerald-700 block">-20 €</span><span class="text-xs text-slate-600 font-semibold" data-i18n="elec.perBill">Euro në faturë mesatarisht</span></div>
+      </div>
+      <div class="p-6 rounded-2xl bg-gradient-to-r from-rose-100 to-rose-50 border border-rose-200 flex items-center justify-between shadow-sm">
+        <div class="flex items-center gap-4"><div class="p-3.5 rounded-xl bg-rose-200 text-rose-800"><i data-lucide="building-2" class="w-7 h-7"></i></div><div><p class="text-3xl font-black text-slate-900">780</p><p class="text-sm font-bold text-rose-900" data-i18n="elec.biz.title">Biznese &amp; SME</p><p class="text-xs text-slate-600" data-i18n="elec.biz.desc">Biznese me kosto të optimizuar</p></div></div>
+        <div class="text-right"><span class="text-2xl sm:text-3xl font-black text-emerald-700 block">-100 €</span><span class="text-xs text-slate-600 font-semibold" data-i18n="elec.perBill">Euro në faturë mesatarisht</span></div>
+      </div>
+    </div>
+
+    <div class="mt-8">
+      <div class="flex items-center justify-between mb-6 flex-wrap gap-3">
+        <div>
+          <h3 class="text-xl font-black text-slate-900" data-i18n="elec.plansTitle">Planet e Dritës Në Dispozicion për Ju</h3>
+          <p class="text-xs text-slate-600" data-i18n="elec.plansSub">Zgjidhni planin që i përshtatet më mirë konsumit tuaj ose konsultohuni me ne për t'ju rekomanduar idealin.</p>
+        </div>
+        <button onclick="openAuditModal()" class="hidden sm:inline-flex text-xs font-bold text-red-700 hover:text-red-900 underline underline-offset-4 cursor-pointer" data-i18n="elec.plansLink">A nuk e dini sa konsumoni? Analizojmë faturën tuaj falas →</button>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="p-7 rounded-2xl border-2 bg-gradient-to-b from-red-50 to-white border-red-400 shadow-lg">
+          <div class="flex justify-between items-start mb-4">
+            <div><span class="text-[10px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-red-100 text-red-800 border border-red-300" data-i18n="elec.p1.badge">ÇMIM FIKES</span><h4 class="text-lg font-bold text-slate-900 mt-2" data-i18n="elec.p1.title">Tarifa Dritë Fikse 12 Muaj</h4></div>
+            <div class="text-right"><span class="text-2xl font-black text-red-700">0,129 €</span><span class="text-xs text-slate-500 block">/ kWh</span></div>
+          </div>
+          <p class="text-xs text-slate-600 mb-5 leading-relaxed" data-i18n="elec.p1.desc">Çmim i bllokuar për 12 muaj: paguani gjithmonë të njëjtën gjë për kWh, pavarësisht se sa rritet tregu shumicë italian.</p>
+          <ul class="space-y-2 mb-6 text-xs text-slate-700">
+            <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-red-600 shrink-0 mt-0.5"></i><span data-i18n="elec.p1.f1">Çmim kWh fiks për 12 muaj</span></li>
+            <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-red-600 shrink-0 mt-0.5"></i><span data-i18n="elec.p1.f2">Energji 100% nga burime të çertifikuara</span></li>
+            <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-red-600 shrink-0 mt-0.5"></i><span data-i18n="elec.p1.f3">Pa kohëzgjatje minimale të detyrueshme</span></li>
+          </ul>
+          <div class="pt-4 border-t border-red-100 flex items-center justify-between"><span class="text-xs font-bold text-emerald-700" data-i18n="elec.p1.save">Kurseni deri -45€/muaj</span><button onclick="selectPlan('luz-fissa', planName('luz-fissa'))" class="px-4 py-2 rounded-xl bg-gradient-to-r from-red-700 to-red-900 hover:from-red-700 hover:to-red-800 text-white text-xs font-bold flex items-center gap-1.5 transition-all shadow-md cursor-pointer"><span data-i18n="cta.choosePlan">Zgjidh Planin</span><i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></button></div>
+        </div>
+
+        <div class="p-7 rounded-2xl border-2 bg-white border-slate-200 hover:border-red-300 shadow-sm transition-all">
+          <div class="flex justify-between items-start mb-4">
+            <div><span class="text-[10px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-red-100 text-red-800 border border-red-300" data-i18n="elec.p2.badge">E INDEKSUAR PUN</span><h4 class="text-lg font-bold text-slate-900 mt-2" data-i18n="elec.p2.title">Tarifa Dritë e Indeksuar PUN</h4></div>
+            <div class="text-right"><span class="text-2xl font-black text-red-700">PUN+0,018€</span><span class="text-xs text-slate-500 block">/ kWh</span></div>
+          </div>
+          <p class="text-xs text-slate-600 mb-5 leading-relaxed" data-i18n="elec.p2.desc">Ndiqni çmimin zyrtar shumicë (PUN) me një diferencë transparente dhe të ulët. Ideale nëse konsumi juaj është fleksibël dhe doni të përfitoni nga uljet e tregut.</p>
+          <ul class="space-y-2 mb-6 text-xs text-slate-700">
+            <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-red-600 shrink-0 mt-0.5"></i><span data-i18n="elec.p2.f1">Diferencë fikse dhe transparente mbi PUN</span></li>
+            <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-red-600 shrink-0 mt-0.5"></i><span data-i18n="elec.p2.f2">Pa kosto aktivizimi</span></li>
+            <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-red-600 shrink-0 mt-0.5"></i><span data-i18n="elec.p2.f3">Ideale për konsume të ulëta ose të ndryshueshme</span></li>
+          </ul>
+          <div class="pt-4 border-t border-red-100 flex items-center justify-between"><span class="text-xs font-bold text-emerald-700" data-i18n="elec.p2.save">Kurseni deri -25€/muaj</span><button onclick="selectPlan('luz-pun', planName('luz-pun'))" class="px-4 py-2 rounded-xl bg-gradient-to-r from-red-700 to-red-900 hover:from-red-700 hover:to-red-800 text-white text-xs font-bold flex items-center gap-1.5 transition-all shadow-md cursor-pointer"><span data-i18n="cta.choosePlan">Zgjidh Planin</span><i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GAS SECTION ============ -->
+<section id="gas-section" class="py-16 md:py-24 relative overflow-hidden bg-cover bg-fixed bg-center" style="background-image: linear-gradient(rgba(255,255,255,0.95), rgba(255,251,240,0.93), rgba(255,255,255,0.95)), url('https://picsum.photos/seed/albania-gas/1920/1080');">
+  <div class="absolute bottom-10 right-0 w-96 h-96 bg-amber-200/40 rounded-full blur-3xl pointer-events-none"></div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+    <div class="max-w-4xl mx-auto text-center mb-14">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-100 border border-amber-300 text-amber-900 text-xs font-bold uppercase tracking-wider mb-4"><i data-lucide="flame" class="w-4 h-4 text-amber-600"></i><span data-i18n="gas.badge">Shërbime të Gazit Metani në Itali</span></div>
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight">Oferta për shërbime të <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-600 via-orange-600 to-amber-700" data-i18n="gas.titleHighlight">Gazit Shtëpiak &amp; Bizneseve</span></h2>
+      <div class="mt-6 text-base sm:text-lg text-slate-600 leading-relaxed space-y-4 max-w-3xl mx-auto">
+        <p data-i18n="gas.intro1">Në <strong class="text-amber-800 font-bold">Albania Energy</strong> ndihmojmë qytetarët shqiptarë që jetojnë në Itali të kenë akses në shërbime drite dhe gazi të besueshëm, me çmime të drejta dhe pa komplikime.</p>
+        <p class="text-slate-500 text-sm sm:text-base" data-i18n="gas.intro2">E dimë se shumë bashkëkombas përballen me vështirësi kur duan të kontraktojnë, kuptojnë ose krahasojnë tarifat energjetike në Itali. Prandaj, qëllimi ynë është t'jua lehtësojmë gjithë procesin, duke u kujdesur për xhepin dhe qetësinë tuaj.</p>
+      </div>
+    </div><div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+      <div class="bg-amber-50/40 rounded-2xl p-7 border-2 border-amber-200 hover:border-amber-400 transition-all hover:shadow-lg flex flex-col justify-between group">
+        <div>
+          <div class="flex items-center justify-between mb-4"><span class="text-3xl font-black text-amber-300 group-hover:text-amber-600 transition-colors">01.</span><div class="p-2.5 rounded-xl bg-white border border-amber-200 shadow-sm"><i data-lucide="trending-down" class="w-5 h-5 text-amber-600"></i></div></div>
+          <h3 class="text-lg font-bold text-slate-900 mb-2.5" data-i18n="gas.b1.title">Kursim real në faturën tuaj</h3>
+          <p class="text-xs sm:text-sm text-slate-700 leading-relaxed" data-i18n="gas.b1.p1">Krahasojmë tarifat më të mira të tregut dhe ju ndihmojmë të ulni koston e dritës dhe gazit pa sakrifikuar cilësinë.</p>
+          <p class="text-xs text-slate-500 mt-3" data-i18n="gas.b1.p2">Marrëveshjet tona me furnizues të besueshëm na lejojnë të ofrojmë çmime ekskluzive dhe transparente, pa kosto të fshehura dhe pa klauzola mashtruese.</p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-amber-200 flex items-center gap-2 text-xs font-bold text-amber-900"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0"></i><span data-i18n="gas.b1.check">Çmim Smc i optimizuar për dimrin</span></div>
+      </div>
+      <div class="bg-amber-50/40 rounded-2xl p-7 border-2 border-amber-200 hover:border-amber-400 transition-all hover:shadow-lg flex flex-col justify-between group">
+        <div>
+          <div class="flex items-center justify-between mb-4"><span class="text-3xl font-black text-amber-300 group-hover:text-amber-600 transition-colors">02.</span><div class="p-2.5 rounded-xl bg-white border border-amber-200 shadow-sm"><i data-lucide="messages-square" class="w-5 h-5 text-amber-600"></i></div></div>
+          <h3 class="text-lg font-bold text-slate-900 mb-2.5" data-i18n="gas.b2.title">Këshillim në gjuhën tuaj</h3>
+          <p class="text-xs sm:text-sm text-slate-700 leading-relaxed" data-i18n="gas.b2.p1">Flisim shqip dhe kuptojmë nevojat e shqiptarëve në Itali.</p>
+          <p class="text-xs text-slate-500 mt-3" data-i18n="gas.b2.p2">Ju shpjegojmë çdo detaj të kontratës suaj në mënyrë të thjeshtë, të qartë dhe njerëzore, që të merrni vendime me besim të plotë dhe pa surpriza në llogarinë tuaj bankare.</p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-amber-200 flex items-center gap-2 text-xs font-bold text-amber-900"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0"></i><span data-i18n="gas.b2.check">Shpjegim i qartë i kodit tuaj PDR</span></div>
+      </div>
+      <div class="bg-amber-50/40 rounded-2xl p-7 border-2 border-amber-200 hover:border-amber-400 transition-all hover:shadow-lg flex flex-col justify-between group">
+        <div>
+          <div class="flex items-center justify-between mb-4"><span class="text-3xl font-black text-amber-300 group-hover:text-amber-600 transition-colors">03.</span><div class="p-2.5 rounded-xl bg-white border border-amber-200 shadow-sm"><i data-lucide="file-check-2" class="w-5 h-5 text-amber-600"></i></div></div>
+          <h3 class="text-lg font-bold text-slate-900 mb-2.5" data-i18n="gas.b3.title">Procedura të lehta, të shpejta dhe pa stres</h3>
+          <p class="text-xs sm:text-sm text-slate-700 leading-relaxed" data-i18n="gas.b3.p1">Kujdesemi për të gjithë procesin për ju: analizë faturash, ndryshim furnizuesi, aktivizim shërbimi dhe asistencë e vazhdueshme.</p>
+          <p class="text-xs text-slate-500 mt-3" data-i18n="gas.b3.p2">Harrojeni burokracinë italiane — me <strong class="text-amber-700">Albania Energy</strong>, energjia juaj menaxhohet në minuta dhe pa komplikime.</p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-amber-200 flex items-center gap-2 text-xs font-bold text-amber-900"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0"></i><span data-i18n="gas.b3.check">Auto-lexim i lehtë për të shmangur faturat e parashikuara</span></div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-14">
+      <div class="p-6 rounded-2xl bg-gradient-to-r from-amber-100 to-amber-50 border border-amber-200 flex items-center justify-between shadow-sm">
+        <div class="flex items-center gap-4"><div class="p-3.5 rounded-xl bg-amber-200 text-amber-800"><i data-lucide="users" class="w-7 h-7"></i></div><div><p class="text-3xl font-black text-slate-900">1320</p><p class="text-sm font-bold text-amber-900" data-i18n="gas.res.title">Përdorues Rezidencialë</p><p class="text-xs text-slate-600" data-i18n="gas.res.desc">Shtëpi me ngrohje të sigurt</p></div></div>
+        <div class="text-right"><span class="text-2xl sm:text-3xl font-black text-emerald-700 block">-20 €</span><span class="text-xs text-slate-600 font-semibold" data-i18n="elec.perBill">Euro në faturë mesatarisht</span></div>
+      </div>
+      <div class="p-6 rounded-2xl bg-gradient-to-r from-orange-100 to-orange-50 border border-orange-200 flex items-center justify-between shadow-sm">
+        <div class="flex items-center gap-4"><div class="p-3.5 rounded-xl bg-orange-200 text-orange-800"><i data-lucide="building-2" class="w-7 h-7"></i></div><div><p class="text-3xl font-black text-slate-900">780</p><p class="text-sm font-bold text-orange-900" data-i18n="gas.biz.title">Biznese &amp; Ndërmarrje</p><p class="text-xs text-slate-600" data-i18n="gas.biz.desc">Gaz industrial dhe kuzhinë tregtare</p></div></div>
+        <div class="text-right"><span class="text-2xl sm:text-3xl font-black text-emerald-700 block">-100 €</span><span class="text-xs text-slate-600 font-semibold" data-i18n="elec.perBill">Euro në faturë mesatarisht</span></div>
+      </div>
+    </div>
+
+    <div class="mt-8">
+      <div class="flex items-center justify-between mb-6 flex-wrap gap-3">
+        <div>
+          <h3 class="text-xl font-black text-slate-900" data-i18n="gas.plansTitle">Planet e Gazit Metani për Shtëpinë ose Biznesin tuaj</h3>
+          <p class="text-xs text-slate-600" data-i18n="gas.plansSub">Zgjidhni nëse preferoni një çmim të garantuar gjatë gjithë vitit ose të indeksuar në tregun zyrtar PSV.</p>
+        </div>
+        <button onclick="openAuditModal()" class="hidden sm:inline-flex text-xs font-bold text-amber-700 hover:text-amber-900 underline underline-offset-4 cursor-pointer" data-i18n="gas.plansLink">Dërgoni faturën tuaj për të krahasuar koston për Smc →</button>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="p-7 rounded-2xl border-2 bg-gradient-to-b from-amber-50 to-white border-amber-400 shadow-lg">
+          <div class="flex justify-between items-start mb-4">
+            <div><span class="text-[10px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-800 border border-amber-300" data-i18n="gas.p1.badge">ÇMIM I GARANTUAR</span><h4 class="text-lg font-bold text-slate-900 mt-2" data-i18n="gas.p1.title">Tarifa Gaz Fikse 12 Muaj</h4></div>
+            <div class="text-right"><span class="text-2xl font-black text-amber-700">0,45 €</span><span class="text-xs text-slate-500 block">/ Smc</span></div>
+          </div>
+          <p class="text-xs text-slate-600 mb-5 leading-relaxed" data-i18n="gas.p1.desc">Çmim për Smc i ngrirë për një vit të plotë. Paguani gjithmonë të njëjtën gjë edhe nëse vjen dimri më i ftohtë.</p>
+          <ul class="space-y-2 mb-6 text-xs text-slate-700">
+            <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-amber-600 shrink-0 mt-0.5"></i><span data-i18n="gas.p1.f1">Çmim Smc fiks për 12 muaj</span></li>
+            <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-amber-600 shrink-0 mt-0.5"></i><span data-i18n="gas.p1.f2">Pa surpriza në sezonin e ngrohjes</span></li>
+            <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-amber-600 shrink-0 mt-0.5"></i><span data-i18n="gas.p1.f3">Auto-lexim i thjeshtë përmes aplikacionit ose WhatsApp</span></li>
+          </ul>
+          <div class="pt-4 border-t border-amber-100 flex items-center justify-between"><span class="text-xs font-bold text-emerald-700" data-i18n="gas.p1.save">Kurseni deri -60€/muaj</span><button onclick="selectPlan('gas-fissa', planName('gas-fissa'))" class="px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 text-xs font-bold flex items-center gap-1.5 transition-all shadow-md cursor-pointer"><span data-i18n="cta.choosePlan">Zgjidh Planin</span><i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></button></div>
+        </div>
+
+        <div class="p-7 rounded-2xl border-2 bg-white border-slate-200 hover:border-amber-300 shadow-sm transition-all">
+          <div class="flex justify-between items-start mb-4">
+            <div><span class="text-[10px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-800 border border-amber-300" data-i18n="gas.p2.badge">E INDEKSUAR PSV</span><h4 class="text-lg font-bold text-slate-900 mt-2" data-i18n="gas.p2.title">Tarifa Gaz e Indeksuar PSV</h4></div>
+            <div class="text-right"><span class="text-2xl font-black text-amber-700">PSV+0,09€</span><span class="text-xs text-slate-500 block">/ Smc</span></div>
+          </div>
+          <p class="text-xs text-slate-600 mb-5 leading-relaxed" data-i18n="gas.p2.desc">Ndiqni çmimin zyrtar shumicë të gazit (PSV) me një marzh të ulët dhe të dukshëm në çdo faturë.</p>
+          <ul class="space-y-2 mb-6 text-xs text-slate-700">
+            <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-amber-600 shrink-0 mt-0.5"></i><span data-i18n="gas.p2.f1">Marzh transparent mbi PSV zyrtar</span></li>
+            <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-amber-600 shrink-0 mt-0.5"></i><span data-i18n="gas.p2.f2">Pa kosto aktivizimi dhe pa penalitete</span></li>
+            <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-amber-600 shrink-0 mt-0.5"></i><span data-i18n="gas.p2.f3">Ideale për konsume të ulëta jashtë sezonit të dimrit</span></li>
+          </ul>
+          <div class="pt-4 border-t border-amber-100 flex items-center justify-between"><span class="text-xs font-bold text-emerald-700" data-i18n="gas.p2.save">Kurseni deri -30€/muaj</span><button onclick="selectPlan('gas-psv', planName('gas-psv'))" class="px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 text-xs font-bold flex items-center gap-1.5 transition-all shadow-md cursor-pointer"><span data-i18n="cta.choosePlan">Zgjidh Planin</span><i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SAVINGS CALCULATOR ============ -->
+<section id="calculadora-section" class="py-16 md:py-24 relative overflow-hidden bg-cover bg-fixed bg-center" style="background-image: linear-gradient(rgba(240,249,255,0.94), rgba(255,255,255,0.90), rgba(240,249,255,0.92)), url('https://picsum.photos/seed/albania-calc/1920/1080');">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-100 border border-red-300 text-red-800 text-xs font-bold mb-3"><i data-lucide="calculator" class="w-3.5 h-3.5"></i><span data-i18n="calc.badge">Simulatori i Faturës Italiane</span></div>
+      <h2 class="text-3xl sm:text-4xl font-black text-slate-900" data-i18n="calc.title">Llogaritni sa mund të kurseni në faturën tuaj</h2>
+      <p class="text-sm sm:text-base text-slate-600 mt-3" data-i18n="calc.sub">Vendosni shpenzimin tuaj mesatar mujor në Itali për të parë ndikimin e vlerësuar kur bashkoheni me tarifat tona komunitare.</p>
+    </div>
+
+    <div class="max-w-4xl mx-auto bg-white border-2 border-red-200 rounded-3xl p-6 sm:p-10 shadow-xl">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-7 space-y-6">
+          <div>
+            <label class="text-xs font-bold uppercase tracking-wider text-slate-600 block mb-2" data-i18n="calc.step1">1. Për çfarë lloj furnizimi?</label>
+            <div class="grid grid-cols-2 gap-3 p-1.5 bg-red-50/70 rounded-xl border border-red-200">
+              <button type="button" id="profile-hogar" onclick="setProfile('hogar')" class="py-2.5 px-4 rounded-lg font-bold text-xs sm:text-sm transition-all cursor-pointer bg-gradient-to-r from-red-700 to-red-900 text-white shadow-md">🏠 <span data-i18n="calc.hogar">Shtëpi / Rezidencial</span></button>
+              <button type="button" id="profile-empresa" onclick="setProfile('empresa')" class="py-2.5 px-4 rounded-lg font-bold text-xs sm:text-sm transition-all cursor-pointer text-slate-600 hover:text-slate-900">🏢 <span data-i18n="calc.empresa">Biznes / Partita IVA</span></button>
+            </div>
+          </div>
+
+          <div>
+            <label class="text-xs font-bold uppercase tracking-wider text-slate-600 block mb-2" data-i18n="calc.step2">2. Cilat shërbime dëshironi të optimizoni?</label>
+            <div class="grid grid-cols-3 gap-2">
+              <button type="button" id="service-luz" onclick="setCalcService('luz')" class="p-3 rounded-xl border text-center transition-all flex flex-col items-center gap-1 cursor-pointer bg-white border-slate-200 text-slate-600 hover:border-red-300"><i data-lucide="zap" class="w-5 h-5 text-red-600"></i><span class="text-xs font-bold" data-i18n="calc.svc.luz">Vetëm Drita</span></button>
+              <button type="button" id="service-gas" onclick="setCalcService('gas')" class="p-3 rounded-xl border text-center transition-all flex flex-col items-center gap-1 cursor-pointer bg-white border-slate-200 text-slate-600 hover:border-amber-300"><i data-lucide="flame" class="w-5 h-5 text-amber-600"></i><span class="text-xs font-bold" data-i18n="calc.svc.gas">Vetëm Gazi</span></button>
+              <button type="button" id="service-dual" onclick="setCalcService('dual')" class="p-3 rounded-xl border text-center transition-all flex flex-col items-center gap-1 cursor-pointer bg-red-100 border-red-700 text-red-950 ring-2 ring-red-500 font-bold shadow-sm"><i data-lucide="layers" class="w-5 h-5 text-red-700"></i><span class="text-xs font-bold" data-i18n="calc.svc.dual">Dritë + Gaz</span></button>
+            </div>
+          </div>
+
+          <div>
+            <div class="flex justify-between items-center mb-2">
+              <label class="text-xs font-bold uppercase tracking-wider text-slate-600" data-i18n="calc.step3">3. Sa paguani aktualisht në muaj në Itali?</label>
+              <span id="bill-display" class="text-xl font-black text-red-800 bg-red-50 px-3.5 py-1 rounded-lg border border-red-300 shadow-sm">140 € <span class="text-xs text-slate-500 font-normal" data-i18n="calc.perMonth">/muaj</span></span>
+            </div>
+            <input type="range" id="bill-slider" min="40" max="400" step="5" value="140" oninput="updateCalculator()" class="w-full h-2.5 bg-red-100 rounded-lg appearance-none cursor-pointer accent-red-600">
+            <div class="flex justify-between text-[11px] text-slate-500 mt-1 font-medium"><span id="range-min">Min: 40€</span><span id="range-avg">Mesatarja: 120€ - 180€</span><span id="range-max">Max: 400€+</span></div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 bg-gradient-to-br from-red-800 via-red-900 to-red-950 rounded-2xl p-6 text-white text-center relative overflow-hidden shadow-xl">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl pointer-events-none"></div>
+          <span class="text-[11px] font-black uppercase tracking-wider text-white bg-white/20 px-3 py-1 rounded-full border border-white/30 inline-block mb-3" data-i18n="calc.resultBadge">Kursimi Juaj i Vlerësuar</span>
+          <div class="my-2"><p class="text-xs text-red-100" data-i18n="calc.monthly">Kursim mujor i përafërt</p><div class="text-4xl sm:text-5xl font-black text-amber-300"><span id="monthly-saving">-25 €</span><span class="text-sm font-medium text-red-100 ml-1" data-i18n="calc.perMonth">/muaj</span></div></div>
+          <div class="my-4 p-3 rounded-xl bg-white/15 backdrop-blur-sm border border-white/20 flex items-center justify-around">
+            <div><p class="text-[10px] text-red-200 uppercase font-semibold" data-i18n="calc.annual">Kursim Vjetor</p><p id="annual-saving" class="text-lg font-black text-amber-300">~300 €/vit</p></div>
+            <div class="h-8 w-px bg-white/20"></div>
+            <div><p class="text-[10px] text-red-200 uppercase font-semibold" data-i18n="calc.newBill">Kuota juaj e re</p><p id="new-bill" class="text-lg font-black text-white">~115 €/muaj</p></div>
+          </div>
+          <ul class="text-xs text-red-50 text-left space-y-1.5 mb-6 font-medium">
+            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-amber-300 shrink-0"></i><span data-i18n="calc.r1">Kryerje 100% falas pa ndërprerje drite/gazi</span></li>
+            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-amber-300 shrink-0"></i><span data-i18n="calc.r2">Pa kohëzgjatje minimale të detyrueshme</span></li>
+            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-amber-300 shrink-0"></i><span data-i18n="calc.r3">Shërbim direkt në shqip përmes WhatsApp</span></li>
+          </ul>
+          <button onclick="applyCalculation()" class="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-slate-950 font-black text-sm flex items-center justify-center gap-2 shadow-lg transition-all transform hover:-translate-y-0.5 cursor-pointer"><span data-i18n="calc.cta">E Dua këtë Kursim</span><i data-lucide="arrow-right" class="w-4 h-4"></i></button>
+          <p class="text-[10px] text-red-200 mt-2" data-i18n="calc.note">*Vlerësim i bazuar në tarifat aktuale të grupit krahasuar me mesataren e tregut italian.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section><!-- ============ BILL GUIDE ============ -->
+<section id="guia-section" class="py-16 md:py-24 border-t border-red-100 relative bg-cover bg-fixed bg-center" style="background-image: linear-gradient(rgba(240,249,255,0.95), rgba(240,249,255,0.93)), url('https://picsum.photos/seed/albania-guia/1920/1080');">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-100 border border-red-300 text-red-800 text-xs font-bold mb-3"><i data-lucide="file-text" class="w-3.5 h-3.5"></i><span data-i18n="guide.badge">Udhëzues Praktik për Shqiptarët në Itali</span></div>
+      <h2 class="text-3xl sm:text-4xl font-black text-slate-900">Si ta kuptoni <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-700 to-red-800" data-i18n="guide.titleHighlight">Bolletta-n Italiane</span></h2>
+      <p class="text-sm sm:text-base text-slate-600 mt-2" data-i18n="guide.sub">Burokracia energjetike në Itali mund të jetë konfuze. Këtu jua shpjegojmë thelbin në gjuhën shqipe që të mos paguani më kurrë më shumë.</p>
+    </div>
+
+    <div class="flex justify-center mb-10">
+      <div class="inline-flex p-1.5 bg-white rounded-2xl border border-red-200 shadow-sm gap-1 sm:gap-2 flex-wrap justify-center">
+        <button id="guide-tab-partes" onclick="setGuideTab('partes')" class="px-4 sm:px-6 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all cursor-pointer bg-gradient-to-r from-red-700 to-red-900 text-white shadow-md" data-i18n="guide.t1">1. Pjesët e Faturës</button>
+        <button id="guide-tab-tramites" onclick="setGuideTab('tramites')" class="px-4 sm:px-6 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all cursor-pointer text-slate-600 hover:text-slate-900" data-i18n="guide.t2">2. Voltura vs Subentro</button>
+        <button id="guide-tab-seguridad" onclick="setGuideTab('seguridad')" class="px-4 sm:px-6 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all cursor-pointer text-slate-600 hover:text-slate-900" data-i18n="guide.t3">3. Paralajmërim për Mashtrimet</button>
+      </div>
+    </div>
+
+    <div id="guide-panel-partes" class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <div class="lg:col-span-6 bg-white border-2 border-red-200 rounded-3xl p-6 shadow-xl relative">
+        <div class="flex items-center justify-between pb-4 border-b border-red-100">
+          <div class="flex items-center gap-2"><div class="w-3 h-3 rounded-full bg-red-400"></div><div class="w-3 h-3 rounded-full bg-amber-400"></div><div class="w-3 h-3 rounded-full bg-emerald-400"></div><span class="text-xs text-slate-500 font-mono ml-2">Fattura_Energia_Esempio.pdf</span></div>
+          <span class="text-[10px] uppercase font-black text-amber-900 bg-amber-100 px-2 py-0.5 rounded border border-amber-300">ARERA Standard</span>
+        </div>
+        <div class="space-y-4 mt-5 text-xs font-mono">
+          <div class="p-3.5 bg-red-50 rounded-xl border border-red-200">
+            <p class="text-red-900 font-bold font-sans"><span data-i18n="guide.dati">DATI FORNITURA / TË DHËNAT E FURNIZIMIT:</span></p>
+            <p class="text-slate-700 mt-1">Codice POD: <span class="text-red-700 font-bold font-mono">IT001E12345678X</span> <span data-i18n="guide.podNote">(Kodi juaj i dritës)</span></p>
+            <p class="text-slate-700">Codice PDR: <span class="text-amber-700 font-bold font-mono">01234567890123</span> <span data-i18n="guide.pdrNote">(Kodi juaj i gazit)</span></p>
+            <p class="text-slate-500 text-[10px] mt-1">Potenza Impegnata: 3.0 kW | Mercato Libero</p>
+          </div>
+          <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+            <p class="font-bold text-slate-800 text-[11px] font-sans" data-i18n="guide.breakdown">Sintesi Importi Fatturati (Zbërthimi):</p>
+            <div class="flex justify-between items-center p-2 rounded-lg bg-red-100/70 border border-red-300 text-red-950"><div><span class="font-bold">1. Spesa per la materia energia</span><p class="text-[10px] text-red-700 font-semibold" data-i18n="guide.negoziabile">★ I vetmi zë i negociueshëm ku ju kursejmë para</p></div><span class="font-black text-sm text-red-900">48.50 €</span></div>
+            <div class="flex justify-between items-center p-2 rounded-lg bg-white border border-slate-200 text-slate-600"><div><span class="font-medium">2. Spesa trasporto e gestione contatore</span><p class="text-[10px] text-slate-400" data-i18n="guide.regolato">I rregulluar nga Shteti (njëlloj në të gjitha kompanitë)</p></div><span class="font-medium">14.20 €</span></div>
+            <div class="flex justify-between items-center p-2 rounded-lg bg-white border border-slate-200 text-slate-600"><div><span class="font-medium">3. Spesa per oneri di sistema</span><p class="text-[10px] text-slate-400" data-i18n="guide.oneri">Tarifa fikse kombëtare të përcaktuara me ligj</p></div><span class="font-medium">8.90 €</span></div>
+            <div class="flex justify-between items-center p-2 rounded-lg bg-white border border-slate-200 text-slate-600"><div><span class="font-medium">4. Imposte e IVA (10% / 22%)</span><p class="text-[10px] text-slate-400" data-i18n="guide.taxe">Taksa shtetërore italiane</p></div><span class="font-medium">7.16 €</span></div>
+          </div>
+          <div class="flex justify-between items-center p-3.5 bg-gradient-to-r from-red-100 to-red-50 rounded-xl border border-red-300"><span class="font-black text-slate-900 font-sans text-sm">TOTALE DA PAGARE:</span><span class="text-xl font-black text-red-800">78.76 €</span></div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-6 space-y-4">
+        <h3 class="text-xl font-black text-slate-900" data-i18n="guide.glossTitle">Fjalor i Shpejtë i Bolletta-s</h3>
+        <p class="text-xs text-slate-600" data-i18n="guide.glossSub">4 termat kryesore që çdo shqiptar në Itali duhet të njohë kur merr me qira ose blen shtëpi:</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+          <div class="p-4 rounded-2xl bg-white border border-red-200 hover:border-red-400 transition-all shadow-sm"><span class="font-black text-slate-900 text-sm block mb-1.5">POD</span><p class="text-xs font-bold text-red-700 mb-1" data-i18n="guide.g1.title">Kodi i dritës suaj</p><p class="text-xs text-slate-600 leading-relaxed" data-i18n="guide.g1.desc">Kod unik që identifikon pikën e lidhjes elektrike të banesës suaj. Fillon me "IT" dhe e nevojshme për çdo procedurë.</p></div>
+          <div class="p-4 rounded-2xl bg-white border border-red-200 hover:border-red-400 transition-all shadow-sm"><span class="font-black text-slate-900 text-sm block mb-1.5">PDR</span><p class="text-xs font-bold text-red-700 mb-1" data-i18n="guide.g2.title">Kodi i gazit tuaj</p><p class="text-xs text-slate-600 leading-relaxed" data-i18n="guide.g2.desc">Është ekuivalenti i POD-së por për furnizimin me gaz metani. Një kod numerik me 14 shifra.</p></div>
+          <div class="p-4 rounded-2xl bg-white border border-red-200 hover:border-red-400 transition-all shadow-sm"><span class="font-black text-slate-900 text-sm block mb-1.5">Oneri di Sistema</span><p class="text-xs font-bold text-red-700 mb-1" data-i18n="guide.g3.title">Tarifa fikse kombëtare</p><p class="text-xs text-slate-600 leading-relaxed" data-i18n="guide.g3.desc">Kosto të rregulluara nga shteti italian, të njëjta për të gjithë furnizuesit. Nuk janë të negociueshme.</p></div>
+          <div class="p-4 rounded-2xl bg-white border border-red-200 hover:border-red-400 transition-all shadow-sm"><span class="font-black text-slate-900 text-sm block mb-1.5">Mercato Libero</span><p class="text-xs font-bold text-red-700 mb-1" data-i18n="guide.g4.title">Treg i lirë</p><p class="text-xs text-slate-600 leading-relaxed" data-i18n="guide.g4.desc">Regjimi ku ju zgjidhni furnizuesin dhe tarifën tuaj, ndryshe nga "Mercato Tutelato" i vjetër tashmë i shuar.</p></div>
+        </div>
+        <div class="p-4 rounded-2xl bg-red-100/80 border border-red-300 flex items-center justify-between gap-4 mt-4 shadow-sm">
+          <div><p class="text-xs font-bold text-red-900" data-i18n="guide.auditQ">A dëshironi që të auditojmë faturën tuaj aktuale?</p><p class="text-[11px] text-slate-600" data-i18n="guide.auditA">Jua themi saktësisht nëse po paguani më shumë brenda 5 minutash.</p></div>
+          <button onclick="openAuditModal()" class="px-4 py-2 rounded-xl bg-gradient-to-r from-red-700 to-red-900 hover:from-red-700 hover:to-red-800 text-white text-xs font-bold shrink-0 transition-all cursor-pointer shadow-md" data-i18n="guide.auditBtn">Dërgo Faturën</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="guide-panel-tramites" class="hidden grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="p-6 rounded-3xl bg-white border-2 border-red-200 shadow-md relative">
+        <div class="inline-block p-3 rounded-2xl bg-red-100 text-red-700 mb-4"><i data-lucide="receipt" class="w-6 h-6"></i></div>
+        <h3 class="text-lg font-black text-slate-900 mb-2" data-i18n="tram.t1.title">1. Voltura (Ndryshim Titullari)</h3>
+        <p class="text-xs text-slate-600 leading-relaxed mb-4" data-i18n="tram.t1.desc">Numëruesi <strong>është në funksion</strong> dhe ka dritë ose gaz në shtëpi. Vetëm kontrata i transferohet qiramarrësit ose pronarit të ri.</p>
+        <div class="text-xs bg-red-50 p-3.5 rounded-xl border border-red-200 space-y-1.5 font-medium"><p class="text-red-900 font-bold" data-i18n="tram.whatNeeded">Çfarë nevojitet?</p><p class="text-slate-600" data-i18n="tram.t1.l1">• Fatura e qiramarrësit të mëparshëm (ose POD/PDR)</p><p class="text-slate-600" data-i18n="tram.t1.l2">• Codice Fiscale juaj dhe Dokument</p><p class="text-slate-600" data-i18n="tram.t1.l3">• Leximi aktual i numëruesit</p></div>
+      </div>
+      <div class="p-6 rounded-3xl bg-white border-2 border-amber-200 shadow-md relative">
+        <div class="inline-block p-3 rounded-2xl bg-amber-100 text-amber-700 mb-4"><i data-lucide="zap" class="w-6 h-6"></i></div>
+        <h3 class="text-lg font-black text-slate-900 mb-2" data-i18n="tram.t2.title">2. Subentro (Riaktivizim)</h3>
+        <p class="text-xs text-slate-600 leading-relaxed mb-4" data-i18n="tram.t2.desc">Numëruesi ekziston fizikisht por shërbimi <strong>është ndërprerë</strong> ose çaktivizuar nga pronari i mëparshëm. Kërkon riaktivizim teknik.</p>
+        <div class="text-xs bg-amber-50 p-3.5 rounded-xl border border-amber-200 space-y-1.5 font-medium"><p class="text-amber-900 font-bold" data-i18n="tram.whatNeeded">Çfarë nevojitet?</p><p class="text-slate-600" data-i18n="tram.t2.l1">• Targa / Numri serial i numëruesit</p><p class="text-slate-600" data-i18n="tram.t2.l2">• Codice Fiscale juaj dhe kontrata e qirasë</p><p class="text-slate-600" data-i18n="tram.t2.l3">• Vonesa e përafërt: 5 deri 7 ditë pune</p></div>
+      </div>
+      <div class="p-6 rounded-3xl bg-white border-2 border-rose-200 shadow-md relative">
+        <div class="inline-block p-3 rounded-2xl bg-rose-100 text-rose-700 mb-4"><i data-lucide="scale" class="w-6 h-6"></i></div>
+        <h3 class="text-lg font-black text-slate-900 mb-2" data-i18n="tram.t3.title">3. Ndryshim Furnizuesi (Switch)</h3>
+        <p class="text-xs text-slate-600 leading-relaxed mb-4" data-i18n="tram.t3.desc">Jeni aktualisht me një kompani tjetër italiane (Enel, Eni, A2A, Edison, etj.) dhe doni të kaloni te tarifat komunitare të <strong>Albania Energy</strong>.</p>
+        <div class="text-xs bg-rose-50 p-3.5 rounded-xl border border-rose-200 space-y-1.5 font-medium"><p class="text-rose-900 font-bold" data-i18n="tram.advantages">Përparësitë:</p><p class="text-slate-600" data-i18n="tram.t3.l1">• 100% Falas me ligj</p><p class="text-slate-600" data-i18n="tram.t3.l2">• Zero ndërprerje furnizimi</p><p class="text-slate-600" data-i18n="tram.t3.l3">• Ne kujdesemi për çregjistrimin e mëparshëm</p></div>
+      </div>
+    </div>
+
+    <div id="guide-panel-seguridad" class="hidden p-8 rounded-3xl bg-white border-2 border-rose-200 shadow-lg">
+      <div class="flex items-center gap-3 mb-4"><div class="p-3 rounded-2xl bg-rose-100 text-rose-600"><i data-lucide="shield-alert" class="w-6 h-6"></i></div><div><h3 class="text-xl font-black text-slate-900" data-i18n="sec.title">Kujdes me Telemarketing-un Agresiv në Itali!</h3><p class="text-xs text-rose-700 font-semibold" data-i18n="sec.sub">Këshilla sigurie nga Albania Energy për bashkëkombasit</p></div></div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm text-slate-700 mt-6">
+        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2"><p class="font-bold text-slate-900 flex items-center gap-2" data-i18n="sec.c1.q"><i data-lucide="alert-triangle" class="w-4 h-4 text-amber-500"></i>"Po ju telefonojmë nga ARERA / Shpërndarësi do t'ju ndërpresë dritën":</p><p class="text-slate-600" data-i18n="sec.c1.a">E RREME. ARERA është autoriteti rregullator dhe KURRË nuk telefonon përdorues individualë për të shitur tarifa. Bëhet fjalë për call center që kërkojnë të aktivizojnë kontrata me mashtrim.</p></div>
+        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2"><p class="font-bold text-slate-900 flex items-center gap-2" data-i18n="sec.c2.q"><i data-lucide="alert-triangle" class="w-4 h-4 text-amber-500"></i>Asnjëherë mos thoni "PO" në fillim të një telefonate të panjohur:</p><p class="text-slate-600" data-i18n="sec.c2.a">Në Itali janë regjistruar raste ku modifikojnë regjistrime audio ("A jeni ju titullari?" - "Po") për të simuluar një kontraktim vokal. Përgjigjuni "Kush flet?" ose "Nga ana e kujt?".</p></div>
+        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2"><p class="font-bold text-slate-900 flex items-center gap-2" data-i18n="sec.c3.q"><i data-lucide="alert-triangle" class="w-4 h-4 text-amber-500"></i>Mos diktoni kodin tuaj POD ose PDR me telefon:</p><p class="text-slate-600" data-i18n="sec.c3.a">Vetëm me kodin POD dhe Codice Fiscale tuaj, një operator i pandershëm mund të transferojë kontratën tuaj pa firmën tuaj.</p></div>
+        <div class="p-4 rounded-xl bg-emerald-50 border border-emerald-200 space-y-2"><p class="font-bold text-emerald-900 flex items-center gap-2" data-i18n="sec.c4.q"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i>Me Albania Energy: Marrëveshje transparente dhe me shkrim:</p><p class="text-slate-600" data-i18n="sec.c4.a">Jua dërgojmë propozimin me shkrim në shqip, duke detajuar çdo kosto përpara çdo konfirmimi formal.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ SECTION ============ -->
+<section id="faq-section" class="py-16 md:py-24 relative overflow-hidden border-t border-red-100 bg-cover bg-fixed bg-center" style="background-image: linear-gradient(rgba(255,255,255,0.95), rgba(255,255,255,0.93)), url('https://picsum.photos/seed/albania-faq/1920/1080');">
+  <div class="absolute top-1/3 -left-48 w-96 h-96 bg-red-200/50 rounded-full blur-3xl pointer-events-none"></div>
+  <div class="absolute bottom-10 -right-48 w-96 h-96 bg-amber-100/60 rounded-full blur-3xl pointer-events-none"></div>
+
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="text-center mb-10">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-red-100 border border-red-300 text-red-800 text-xs font-bold mb-3"><i data-lucide="help-circle" class="w-3.5 h-3.5"></i><span data-i18n="faq.badge">Qendra e Ndihmës &amp; Procedurave</span></div>
+      <h2 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight" data-i18n="faq.title">Gjithçka e qartë, pa rrotullime dhe pa terma teknike</h2>
+      <p class="text-sm sm:text-base text-slate-600 mt-2 max-w-2xl mx-auto font-medium" data-i18n="faq.sub">Përgjigje për pyetjet tuaja mbi tregun energjetik italian dhe udhëzuesi përfundimtar i ekuivalencave të dokumenteve midis Shqipërisë dhe Italisë.</p>
+
+      <div class="mt-8 flex justify-center">
+        <div class="bg-red-50 p-1.5 rounded-2xl border-2 border-red-200 inline-flex flex-wrap gap-1 shadow-md">
+          <button id="faq-tab-faq" onclick="setFaqMainTab('faq')" class="px-5 py-2.5 rounded-xl text-xs sm:text-sm font-black flex items-center gap-2 transition-all cursor-pointer bg-red-800 text-white shadow-md"><i data-lucide="help-circle" class="w-4 h-4"></i><span data-i18n="faq.tabFaq">Pyetje të Shpeshta</span><span id="faq-count" class="text-[10px] px-2 py-0.5 rounded-full bg-white/20 text-current font-extrabold">9</span></button>
+          <button id="faq-tab-docs" onclick="setFaqMainTab('docs')" class="px-5 py-2.5 rounded-xl text-xs sm:text-sm font-black flex items-center gap-2 transition-all cursor-pointer relative text-slate-700 hover:text-amber-900 hover:bg-amber-100/60"><span class="text-base">🇦🇱 🇮🇹</span><span data-i18n="faq.tabDocs">Ekuivalencat e Dokumenteve</span><span class="text-[10px] px-2 py-0.5 rounded-full bg-amber-950/20 text-slate-900 font-extrabold">Codice Fiscale, SPID, IBAN</span></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ TAB -->
+    <div id="faq-panel-faq" class="max-w-4xl mx-auto animate-fadeIn">
+      <div class="flex items-center justify-center flex-wrap gap-2 mb-8">
+        <button onclick="setFaqCategory('todos')" class="faq-cat-btn px-3.5 py-1.5 rounded-full text-xs font-bold transition-colors cursor-pointer border bg-red-800 text-white border-red-700 shadow-sm" data-cat="todos" data-i18n="faq.catAll">Të gjitha pyetjet</button>
+        <button onclick="setFaqCategory('documentos')" class="faq-cat-btn px-3.5 py-1.5 rounded-full text-xs font-bold transition-colors cursor-pointer border bg-white text-slate-700 border-slate-300 hover:border-red-300 hover:bg-red-50" data-cat="documentos"><span data-i18n="faq.catDocs">🇦🇱 Procedurat &amp; Dokumentet Shqiptare</span></button>
+        <button onclick="setFaqCategory('tramites')" class="faq-cat-btn px-3.5 py-1.5 rounded-full text-xs font-bold transition-colors cursor-pointer border bg-white text-slate-700 border-slate-300 hover:border-red-300 hover:bg-red-50" data-cat="tramites">📋 <span data-i18n="faq.catTram">Voltura &amp; Subentro</span></button>
+        <button onclick="setFaqCategory('general')" class="faq-cat-btn px-3.5 py-1.5 rounded-full text-xs font-bold transition-colors cursor-pointer border bg-white text-slate-700 border-slate-300 hover:border-red-300 hover:bg-red-50" data-cat="general" data-i18n="faq.catGen">⚡ Tarifat &amp; Fatura</button>
+      </div>
+      <div id="faq-accordion" class="space-y-3"></div>
+    </div>
+
+    <!-- DOCS TAB -->
+    <div id="faq-panel-docs" class="hidden animate-fadeIn space-y-6">
+      <div class="bg-gradient-to-r from-red-100 via-white to-amber-50 border-2 border-red-200 rounded-3xl p-6 sm:p-8 shadow-sm">
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div class="space-y-2 max-w-2xl">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-800 text-white text-xs font-black shadow-xs"><span>&nbsp;🇦🇱 🇮🇹&nbsp;<span data-i18n="faq.docsPill">Udhëzues Praktik për Shqiptarët në Itali</span>&nbsp;</span></div>
+            <h3 class="text-xl sm:text-2xl font-black text-slate-900" data-i18n="faq.docsTitle">Ekuivalencat e Procedurave dhe Dokumenteve Zyrtare</h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed" data-i18n="faq.docsIntro">E dimë se emigrimi ose zhvendosja në Itali mund të jetë konfuze me kaq shumë emra dhe akronime të reja. Më poshtë jua shpjegojmë çfarë do të thotë çdo dokument italian, cili është ekuivalenti i tij shqiptar dhe <strong>për çfarë shërben saktësisht kur kontraktoni shërbimet tuaja të dritës dhe gazit</strong>.</p>
+          </div>
+          <div class="w-full md:w-72 shrink-0">
+            <div class="relative"><i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2"></i><input type="text" id="doc-search" oninput="renderDocs()" placeholder="Kërko: CF, SPID, NUIAP, IBAN..." class="w-full pl-10 pr-4 py-2.5 bg-white border border-slate-300 rounded-xl text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-red-500 focus:ring-2 focus:ring-red-200" data-i18n-ph="faq.docsSearch"></div>
+            <p class="text-[10px] text-slate-500 mt-1.5 text-right font-medium"><span id="doc-count">7</span> <span data-i18n="faq.docsAvailable">dokumente në dispozicion</span></p>
+          </div>
+        </div>
+      </div>
+
+      <div id="docs-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+
+      <div class="mt-8 bg-white border-2 border-red-200 rounded-3xl p-6 sm:p-8 shadow-sm">
+        <div class="flex items-center gap-3 mb-6"><div class="p-2.5 rounded-xl bg-red-100 border border-red-300"><i data-lucide="sparkles" class="w-5 h-5 text-red-700"></i></div><div><h4 class="text-lg font-black text-slate-900" data-i18n="faq.quickTitle">Përmbledhje e Shpejtë: Çfarë nevojitet për të lidhur dritën dhe gazin sot?</h4><p class="text-xs text-slate-500" data-i18n="faq.quickSub">Mos u ndërlikoni: me vetëm këto 3 të dhëna tashmë mund të filloni të kurseni.</p></div></div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="p-4 rounded-2xl bg-red-50/70 border border-red-200"><div class="text-2xl mb-2">📄</div><h5 class="font-bold text-slate-900 text-xs sm:text-sm" data-i18n="faq.quick1">1. Fatura e Fundit ose Kodi POD/PDR</h5><p class="text-[11px] text-slate-600 mt-1" data-i18n="faq.quick1d">Fatura e qiramarrësit të mëparshëm ose e juaja aktuale. Nëse numëruesi është i fikur, mjafton numri serial ose fotoja e numëruesit.</p></div>
+          <div class="p-4 rounded-2xl bg-red-50/70 border border-red-200"><div class="text-2xl mb-2">🆔</div><h5 class="font-bold text-slate-900 text-xs sm:text-sm" data-i18n="faq.quick2">2. Codice Fiscale + Pasaporta ose CIE</h5><p class="text-[11px] text-slate-600 mt-1" data-i18n="faq.quick2d">Numri juaj i Codice Fiscale (edhe nëse është provizor në letër) dhe fotoja e pasaportës suaj shqiptare të vlefshme ose DNI/CIE.</p></div>
+          <div class="p-4 rounded-2xl bg-red-50/70 border border-red-200"><div class="text-2xl mb-2">💳</div><h5 class="font-bold text-slate-900 text-xs sm:text-sm" data-i18n="faq.quick3">3. Kodi IBAN (Opsional por i rekomanduar)</h5><p class="text-[11px] text-slate-600 mt-1" data-i18n="faq.quick3d">Për të aktivizuar debitimin bankar dhe për të mos paguar midis 50€ dhe 150€ depozitë garancie. Shërbejnë Revolut, N26, Postepay ose bankat tradicionale.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-red-100 via-white to-amber-50 border-2 border-red-200 text-center flex flex-col sm:flex-row items-center justify-between gap-6 shadow-md">
+      <div class="text-left space-y-1">
+        <div class="flex items-center gap-2"><span class="text-base">🇦🇱</span><h4 class="text-base sm:text-lg font-black text-slate-900" data-i18n="faq.ctaTitle">A keni pyetje për ndonjë procedurë ose faturë në Itali?</h4></div>
+        <p class="text-xs text-slate-600 max-w-xl font-medium" data-i18n="faq.ctaSub">Ekipi ynë në Cuneo (Piemonte) ju përgjigjet 100% në shqip. Na shkruani ose dërgoni një foto të dokumenteve tuaja dhe do t'ju udhëzojmë hap pas hapi.</p>
+      </div>
+      <div class="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto shrink-0">
+        <button onclick="openWhatsApp(t('faq.waMsg'))" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg transition-all cursor-pointer"><i data-lucide="message-circle" class="w-4 h-4"></i><span data-i18n="cta.waChat">Flisni me WhatsApp</span></button>
+      </div>
+    </div>
+  </div>
+</section><!-- ============ TESTIMONIALS ============ -->
+<section id="testimonios-section" class="py-16 md:py-24 border-t border-red-100 relative overflow-hidden bg-gradient-to-b from-slate-950 via-red-950 to-slate-950">
+  <div class="absolute top-0 left-0 w-full h-full opacity-[0.05] pointer-events-none" style="background-image:url('https://picsum.photos/seed/albania-flag/800/600')"></div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-amber-300 text-xs font-bold mb-3"><i data-lucide="quote" class="w-3.5 h-3.5"></i><span data-i18n="tes.badge">Komuniteti Shqiptar në Itali</span></div>
+      <h2 class="text-3xl sm:text-4xl font-black text-white tracking-tight" data-i18n="tes.title">Dëshmitë e Bashkëkombësve si Ju</h2>
+      <p class="text-sm sm:text-base text-slate-300 mt-2" data-i18n="tes.sub">Përmes mbështetjes së komunitetit tonë në Cuneo, Torino, Milano dhe Brescia ne kemi kursyer tashmë qindra mijëra euro.</p>
+    </div>
+    <div id="testimonials-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
+    <div class="mt-10 text-center"><button onclick="openAuditModal()" class="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-slate-950 font-black text-sm shadow-xl transition-all transform hover:-translate-y-0.5 cursor-pointer"><span data-i18n="tes.ctaText">Dëshironi të kurseni si ata?</span></button></div>
+  </div>
+</section>
+
+<!-- ============ CONTACT SECTION ============ -->
+<section id="contacto-section" class="py-16 md:py-24 relative overflow-hidden bg-cover bg-fixed bg-center" style="background-image: linear-gradient(rgba(240,249,255,0.96), rgba(255,255,255,0.92)), url('https://picsum.photos/seed/albania-contact/1920/1080');">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+      <div class="lg:col-span-5">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-100 border border-red-300 text-red-800 text-xs font-bold mb-4"><i data-lucide="message-square" class="w-3.5 h-3.5"></i><span data-i18n="contact.badge">Na Kontaktoni</span></div>
+        <h2 class="text-3xl sm:text-4xl font-black text-slate-900 leading-tight" data-i18n="contact.title">Faleminderit që zgjodhët <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-700 to-amber-600">Albania Energy</span></h2>
+        <p class="text-sm sm:text-base text-slate-600 mt-3" data-i18n="contact.sub">Jemi këtu për të të ndihmuar kur të kesh nevojë. Na shkruani në WhatsApp, telefononi ose vizitoni zyrën tonë: konsulencë pa pagesë.</p>
+        <div class="flex items-center gap-3 mt-5"><span class="text-xl font-black text-slate-900">🇦🇱</span><span class="h-6 w-px bg-red-200"></span><i data-lucide="globe-2" class="w-5 h-5 text-red-600"></i><span class="text-sm font-bold text-slate-700">www.albaniaenergy.it</span></div>
+        <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+          <div class="p-4 rounded-2xl bg-white border-2 border-slate-200 hover:border-red-300 transition-all shadow-sm flex-1"><div class="flex items-center gap-2.5"><div class="p-2 rounded-lg bg-red-100 text-red-700 shrink-0"><i data-lucide="phone" class="w-4 h-4"></i></div><div><p class="text-[10px] uppercase font-black text-slate-500 tracking-wider" data-i18n="contact.tel">Telefono</p><a href="tel:+3901721860282" class="text-sm font-black text-slate-900 hover:text-red-700 transition-colors">+39 0172 1860282</a></div></div></div>
+          <div class="p-4 rounded-2xl bg-white border-2 border-slate-200 hover:border-red-300 transition-all shadow-sm flex-1"><div class="flex items-center gap-2.5"><div class="p-2 rounded-lg bg-emerald-100 text-emerald-700 shrink-0"><i data-lucide="message-circle" class="w-4 h-4"></i></div><div><p class="text-[10px] uppercase font-black text-slate-500 tracking-wider" data-i18n="contact.wa">WhatsApp</p><a href="https://api.whatsapp.com/send?phone=393933192262&text=Pershendetje%20Albania%20Energy!%20Deshiroj%20informacion%20per%20driten%20dhe%20gazin." target="_blank" class="text-sm font-black text-slate-900 hover:text-emerald-700 transition-colors">+39 393 3192262</a></div></div></div>
+          <div class="p-4 rounded-2xl bg-white border-2 border-slate-200 hover:border-red-300 transition-all shadow-sm flex-1 sm:col-span-2"><div class="flex items-center gap-2.5"><div class="p-2 rounded-lg bg-amber-100 text-amber-700 shrink-0"><i data-lucide="map-pin" class="w-4 h-4"></i></div><div><p class="text-[10px] uppercase font-black text-slate-500 tracking-wider" data-i18n="contact.addr">Adresa</p><p class="text-sm font-bold text-slate-900">Via Bartolomeo Bruni 7, 12100 Cuneo (CN) - Piemonte, Italia</p></div></div></div>
+          <div class="p-4 rounded-2xl bg-white border-2 border-slate-200 hover:border-red-300 transition-all shadow-sm flex-1 sm:col-span-2"><div class="flex items-center gap-2.5"><div class="p-2 rounded-lg bg-sky-100 text-sky-700 shrink-0"><i data-lucide="mail" class="w-4 h-4"></i></div><div><p class="text-[10px] uppercase font-black text-slate-500 tracking-wider" data-i18n="contact.email">E-mail</p><a href="mailto:info@albaniaenergy.it" class="text-sm font-black text-slate-900 hover:text-sky-700 transition-colors">info@albaniaenergy.it</a></div></div></div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-7">
+        <div class="bg-white border-2 border-slate-200 hover:border-red-300 rounded-3xl p-6 sm:p-8 shadow-xl transition-all">
+          <h3 class="text-xl font-black text-slate-900 mb-5" data-i18n="contact.formTitle">Kërkoni një Konsulencë falas</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+            <div><label class="text-xs font-bold text-slate-600 block mb-1.5" data-i18n="contact.fName">Emri dhe Mbiemri</label><input type="text" id="formName" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-red-500 focus:ring-2 focus:ring-red-200 focus:bg-white transition-all" placeholder="Pietro Rossi / Arben Hoxha" data-i18n-ph="contact.fNamePh"></div>
+            <div><label class="text-xs font-bold text-slate-600 block mb-1.5" data-i18n="contact.fPhone">WhatsApp / Telefono</label><input type="tel" id="formPhone" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-red-500 focus:ring-2 focus:ring-red-200 focus:bg-white transition-all" placeholder="+39 3XX XXX XXXX" data-i18n-ph="contact.fPhonePh"></div>
+          </div>
+          <div class="mb-4"><label class="text-xs font-bold text-slate-600 block mb-1.5" data-i18n="contact.fService">Shërbimet që Ju Interesojnë</label><div class="flex flex-wrap gap-2"><button type="button" class="svc-chip px-4 py-2 rounded-full text-xs font-bold border-2 transition-colors cursor-pointer border-red-600 text-red-800 bg-red-50" data-svc="luz">💡 <span data-i18n="calc.svc.luz">Vetëm Drita</span></button><button type="button" class="svc-chip px-4 py-2 rounded-full text-xs font-bold border-2 transition-colors cursor-pointer border-slate-300 text-slate-600 bg-white" data-svc="gas">🔥 <span data-i18n="calc.svc.gas">Vetëm Gazi</span></button><button type="button" class="svc-chip px-4 py-2 rounded-full text-xs font-bold border-2 transition-colors cursor-pointer border-slate-300 text-slate-600 bg-white" data-svc="dual">💡🔥 <span data-i18n="calc.svc.dual">Dritë + Gaz</span></button></div><input type="hidden" id="formService" value="luz"></div>
+          <div class="mb-4"><label class="text-xs font-bold text-slate-600 block mb-1.5" data-i18n="contact.fMessage">Mesazhi / Përshkrimi i problemit</label><textarea id="formMessage" rows="3" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-red-500 focus:ring-2 focus:ring-red-200 focus:bg-white transition-all resize-none" placeholder="Përshëndetje, po ju shkruaj sepse dua informacion mbi çmimet e dritës për shtëpinë time në..." data-i18n-ph="contact.fMessagePh"></textarea></div>
+          <button onclick="submitContactForm()" class="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-red-700 to-red-900 hover:from-red-700 hover:to-red-800 text-white font-black text-sm flex items-center justify-center gap-2 shadow-lg transition-all transform hover:-translate-y-0.5 cursor-pointer" data-i18n="contact.formBtn">Dërgo me WhatsApp</button>
+          <p class="text-[10px] text-slate-500 mt-2 text-center" data-i18n="contact.formNote">Kur klikoni "Dërgo", hapet WhatsApp me mesazhin tuaj të gatshëm për t'u dërguar tek ne. Asnjë e dhënë nuk ruhet në këtë faqe.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-gradient-to-b from-slate-950 to-slate-950 text-slate-300 pt-16 pb-8 border-t-4 border-red-800">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-12">
+      <div class="lg:col-span-4 space-y-4">
+        <div class="flex items-center gap-3">
+          <div class="p-2 rounded-xl bg-red-900/40 border border-red-700/40"><img src="logo.png" alt="Albania Energy" class="w-8 h-8 object-contain"></div>
+          <div><a href="#hero" class="text-xl font-black text-white tracking-tight">Albania <span class="text-red-500">Energy</span></a><p class="text-[10px] text-slate-400 uppercase tracking-widest font-bold" data-i18n="footer.tagline">Energji e besuar &amp; e lehtë në Itali</p></div>
+        </div>
+        <p class="text-xs leading-relaxed text-slate-400" data-i18n="footer.about">Asistencë për energjinë elektrike dhe gazin për komunitetin shqiptar në Itali. Na kontaktoni në shqip për tarifa transparente dhe procedura pa komplikime.</p>
+        <div class="flex items-center gap-3 text-[10px] text-emerald-400 font-bold"><i data-lucide="badge-check" class="w-4 h-4 text-emerald-500"></i><span data-i18n="footer.licensed">Operator i licencuar për tregti energjie në Itali</span></div>
+      </div>
+
+      <div class="lg:col-span-2">
+        <h4 class="text-white font-black text-sm mb-4" data-i18n="footer.col1Title">Navigimi</h4>
+        <ul class="space-y-2.5 text-xs font-medium">
+          <li><a href="#hero" class="hover:text-red-400 transition-colors" data-i18n="nav.home">Kreu</a></li>
+          <li><a href="#luz-section" class="hover:text-red-400 transition-colors" data-i18n="nav.luz">Ofertat Dritë</a></li>
+          <li><a href="#gas-section" class="hover:text-red-400 transition-colors" data-i18n="nav.gas">Ofertat Gaz</a></li>
+          <li><a href="#calculadora-section" class="hover:text-red-400 transition-colors" data-i18n="nav.calc">Llogaritësi</a></li>
+          <li><a href="#guia-section" class="hover:text-red-400 transition-colors" data-i18n="nav.guide">Udhëzuesi i Bolletta-s</a></li>
+          <li><a href="#faq-section" class="hover:text-red-400 transition-colors" data-i18n="nav.faq">FAQ &amp; Dokumentet</a></li>
+          <li><a href="#contacto-section" class="hover:text-red-400 transition-colors" data-i18n="nav.contact">Kontakt</a></li>
+        </ul>
+      </div>
+
+      <div class="lg:col-span-3">
+        <h4 class="text-white font-black text-sm mb-4" data-i18n="footer.col2Title">Kontaktet</h4>
+        <ul class="space-y-3 text-xs font-medium">
+          <li class="flex items-start gap-2.5"><i data-lucide="map-pin" class="w-4 h-4 text-red-400 shrink-0 mt-0.5"></i><span>Via Bartolomeo Bruni, 7<br>12100 Cuneo (CN) - Italia</span></li>
+          <li class="flex items-center gap-2.5"><i data-lucide="phone" class="w-4 h-4 text-red-400 shrink-0"></i><a href="tel:+3901721860282" class="hover:text-red-400 transition-colors">+39 0172 1860282</a></li>
+          <li class="flex items-center gap-2.5"><i data-lucide="message-circle" class="w-4 h-4 text-red-400 shrink-0"></i><a href="https://api.whatsapp.com/send?phone=393933192262&text=Pershendetje%20Albania%20Energy!" target="_blank" class="hover:text-emerald-400 transition-colors">+39 393 3192262</a></li>
+          <li class="flex items-start gap-2.5"><i data-lucide="mail" class="w-4 h-4 text-red-400 shrink-0 mt-0.5"></i><a href="mailto:info@albaniaenergy.it" class="hover:text-red-400 transition-colors">info@albaniaenergy.it</a></li>
+        </ul>
+      </div>
+
+      <div class="lg:col-span-3">
+        <h4 class="text-white font-black text-sm mb-4" data-i18n="footer.col3Title">Orari</h4>
+        <ul class="space-y-2.5 text-xs font-medium">
+          <li class="flex justify-between border-b border-slate-800 pb-2"><span data-i18n="footer.h1">E Hënë - E Premte</span><span class="text-white font-bold" data-i18n="footer.h1a">9.00 - 18.00</span></li>
+          <li class="flex justify-between border-b border-slate-800 pb-2"><span data-i18n="footer.h2">E Shtunë</span><span class="text-white font-bold" data-i18n="footer.h2a">9.00 - 13.00</span></li>
+          <li class="flex justify-between"><span data-i18n="footer.h3">E Diel</span><span class="text-red-400 font-bold" data-i18n="footer.h3a">Pushim</span></li>
+        </ul>
+        <div class="mt-5"><p class="text-xs font-bold text-slate-400 mb-2" data-i18n="footer.quickTitle">Akses i shpejtë në shqip:</p><div class="flex flex-wrap gap-2"><button onclick="openAuditModal()" class="text-[10px] font-bold px-3 py-1.5 rounded-full bg-red-900/30 border border-red-700/40 text-red-300 hover:bg-red-900/60 hover:text-red-200 transition-colors cursor-pointer" data-i18n="footer.q1">Auditimi i Faturës</button><button onclick="setFaqMainTab('docs')" class="text-[10px] font-bold px-3 py-1.5 rounded-full bg-amber-900/30 border border-amber-700/40 text-amber-300 hover:bg-amber-900/60 hover:text-amber-200 transition-colors cursor-pointer" data-i18n="footer.q2">Dokumentet IT/SQ</button></div></div>
+      </div>
+    </div>
+
+    <div class="border-t border-slate-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p class="text-[11px] text-slate-500">© 2026 <span class="font-bold text-slate-300">Albania Energy</span> - <span data-i18n="footer.rights">Të gjitha të drejtat e rezervuara.</span></p>
+      <div class="flex items-center gap-4 text-[10px] font-bold text-slate-400">
+        <button onclick="openLegalModal('pri')" class="hover:text-red-400 transition-colors cursor-pointer" data-i18n="footer.privacy">Privacy Policy</button>
+        <button onclick="openLegalModal('terms')" class="hover:text-red-400 transition-colors cursor-pointer" data-i18n="footer.terms">Termini &amp; Conditions</button>
+        <button onclick="openLegalModal('co')" class="hover:text-red-400 transition-colors cursor-pointer" data-i18n="footer.cookies">Informatë mbi Cookies</button>
+      </div>
+    </div>
+  </div>
+</footer><!-- ============ FLOATING WHATSAPP BUTTON ============ -->
+<a href="https://api.whatsapp.com/send?phone=393933192262&text=Pershendetje%20Albania%20Energy!%20Deshiroj%20informacion%20per%20driten%20dhe%20gazin." target="_blank" class="fixed bottom-5 right-5 z-50 group" aria-label="Contact us on WhatsApp">
+  <span class="absolute inset-0 rounded-full bg-emerald-500 animate-ping opacity-30 pointer-events-none"></span>
+  <div class="relative w-14 h-14 rounded-full bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center text-white shadow-xl border-2 border-emerald-300/70 transition-transform group-hover:scale-110 scale-[0.9]"><i data-lucide="message-circle" class="w-7 h-7"></i></div>
+  <span class="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-white text-slate-800 text-xs font-bold px-3 py-2 rounded-xl shadow-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none hidden sm:block">🇦🇱 <span data-i18n="fab.wa">Na shkruani në shqip!</span></span>
+</a>
+
+<!-- ============ AUDIT MODAL ============ -->
+<div id="audit-modal" class="hidden fixed inset-0 z-[60] bg-black/75 backdrop-blur-sm overflow-y-auto">
+  <div class="min-h-full flex items-center justify-center p-4">
+    <div class="w-full max-w-4xl bg-white rounded-3xl shadow-2xl overflow-hidden my-8 relative">
+      <div class="bg-gradient-to-r from-red-800 via-red-900 to-red-950 p-7 text-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full blur-2xl pointer-events-none"></div>
+        <button onclick="closeAuditModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/10 hover:bg-white/25 border border-white/20 text-white flex items-center justify-center transition-colors cursor-pointer z-10"><i data-lucide="x" class="w-4 h-4"></i></button>
+        <div class="flex items-center gap-3 mb-3"><div class="p-2.5 rounded-xl bg-amber-400/20 border border-amber-300/40"><i data-lucide="scan-search" class="w-6 h-6 text-amber-300"></i></div><h3 class="text-xl sm:text-2xl font-black" data-i18n="audit.title">Auditim Falas i Faturës Suaj Italiane</h3></div>
+        <p class="text-xs sm:text-sm text-red-200 max-w-xl leading-relaxed" data-i18n="audit.sub">Dërgoni faturën tuaj aktuale në shqip ose italisht dhe do t'ju telefonojmë shpejt me një krahasim të plotë dhe transparent.</p>
+      </div>
+      <div class="p-7 space-y-5">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div><label class="text-xs font-bold text-slate-600 block mb-1.5" data-i18n="audit.fName">Emri dhe Mbiemri</label><input id="auditName" type="text" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs text-slate-900 focus:outline-none focus:border-red-500 focus:ring-2 focus:ring-red-200 transition-all" placeholder="Arben Hoxha" data-i18n-ph="audit.fNamePh"></div>
+          <div><label class="text-xs font-bold text-slate-600 block mb-1.5" data-i18n="audit.fPhone">WhatsApp / Telefono</label><input id="auditPhone" type="tel" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs text-slate-900 focus:outline-none focus:border-red-500 focus:ring-2 focus:ring-red-200 transition-all" placeholder="+39 3XX XXX XXXX" data-i18n-ph="audit.fPhonePh"></div>
+        </div>
+        <div>
+          <label class="text-xs font-bold text-slate-600 block mb-1.5" data-i18n="audit.fService">Çfarë shërbimi keni?</label>
+          <div class="grid grid-cols-3 gap-2">
+            <button type="button" class="audit-svc px-3 py-2.5 rounded-xl text-xs font-bold border-2 transition-colors cursor-pointer border-red-600 text-red-800 bg-red-50 flex items-center justify-center gap-1.5" data-svc="luz" data-i18n="calc.svc.luz">💡 Dritë</button>
+            <button type="button" class="audit-svc px-3 py-2.5 rounded-xl text-xs font-bold border-2 transition-colors cursor-pointer border-slate-300 text-slate-600 bg-white flex items-center justify-center gap-1.5" data-svc="gas" data-i18n="calc.svc.gas">🔥 Gaz</button>
+            <button type="button" class="audit-svc px-3 py-2.5 rounded-xl text-xs font-bold border-2 transition-colors cursor-pointer border-slate-300 text-slate-600 bg-white flex items-center justify-center gap-1.5" data-svc="dual" data-i18n="calc.svc.dual">💡🔥 Të dyja</button>
+          </div>
+          <input type="hidden" id="auditService" value="luz">
+        </div>
+        <div class="p-4 rounded-2xl bg-amber-50 border-2 border-dashed border-amber-300 flex items-center justify-between flex-wrap gap-3">
+          <div class="flex items-center gap-2.5 text-xs font-bold text-amber-900"><i data-lucide="paperclip" class="w-4 h-4 text-amber-600"></i><span data-i18n="audit.fileHint">Bashkangjitni faturën: foto ose PDF (deri në 5 MB)</span></div>
+          <label class="px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-black cursor-pointer transition-colors shadow-sm inline-flex items-center gap-1.5"><i data-lucide="upload" class="w-3.5 h-3.5"></i><span data-i18n="audit.fileBtn">Ngarko Faturën</span><input id="billFileInput" type="file" accept="image/*,.pdf,.jpg,.jpeg,.png,.webp" class="hidden" onchange="document.getElementById('fileName').textContent = this.files[0] ? this.files[0].name : ''"></label>
+          <span id="fileName" class="text-[10px] text-slate-500 italic w-full sm:w-auto"></span>
+        </div>
+        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-300 text-xs text-slate-500 leading-relaxed"><strong class="block text-slate-700 mb-1" data-i18n="audit.note">Vini re:</strong><span data-i18n="audit.noteBody">Nuk i ruajmë të dhënat tuaja personale. Fatura juaj përdoret vetëm për të analizuar tarifat dhe për t'ju paraqitur një propozim. Nëse nuk mund ta gjeni faturën, thjesht dërgoni fotografi të numëruesit.</span></div>
+        <button onclick="submitAuditForm()" class="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-red-700 to-red-900 hover:from-red-700 hover:to-red-800 text-white font-black text-sm flex items-center justify-center gap-2 shadow-lg transition-all transform hover:-translate-y-0.5 cursor-pointer"><span data-i18n="audit.cta">Dërgo për Analizë Falas</span><i data-lucide="arrow-right" class="w-4 h-4"></i></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ LEGAL MODALS ============ -->
+<div id="legal-modal" class="hidden fixed inset-0 z-[60] bg-black/75 backdrop-blur-sm overflow-y-auto">
+  <div class="min-h-full flex items-center justify-center p-4">
+    <div class="w-full max-w-3xl bg-white rounded-3xl shadow-2xl overflow-hidden my-8 relative">
+      <div class="bg-gradient-to-r from-red-800 via-red-900 to-red-950 p-6 text-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full blur-2xl pointer-events-none"></div>
+        <button onclick="closeLegalModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/10 hover:bg-white/25 border border-white/20 text-white flex items-center justify-center transition-colors cursor-pointer z-10"><i data-lucide="x" class="w-4 h-4"></i></button>
+        <h3 id="legal-modal-title" class="text-xl font-black">Privacy Policy</h3>
+        <p class="text-[11px] text-red-200 mt-1">Albania Energy - Ultimo aggiornamento: Gennaio 2026</p>
+      </div>
+      <div id="legal-modal-body" class="p-7 max-h-[60vh] overflow-y-auto text-sm text-slate-700 leading-relaxed space-y-4"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ SCRIPT ============ -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.453.0/umd/lucide.min.js"></script>
+<script>
+const WHATSAPP_NUMBER = '393933192262';
+const AUDIT_BASE_MSG = 'Pershendetje Albania Energy! Deshiroj te dergoj faturen time per nje analize falas.';
+
+function waLink(msg){ return 'https://api.whatsapp.com/send?phone=' + WHATSAPP_NUMBER + '&text=' + encodeURIComponent(msg); }
+function openWa(msg){ window.open(waLink(msg), '_blank'); }
+function openAuditModal(){ document.getElementById('audit-modal').classList.remove('hidden'); document.body.style.overflow='hidden'; }
+function closeAuditModal(){ document.getElementById('audit-modal').classList.add('hidden'); document.body.style.overflow=''; }
+function openLegalModal(type){ document.getElementById('legal-modal').classList.remove('hidden'); document.body.style.overflow='hidden'; loadLegalContent(type); }
+function closeLegalModal(){ document.getElementById('legal-modal').classList.add('hidden'); document.body.style.overflow=''; }
+document.addEventListener('click', function(e){
+  var m = document.getElementById('audit-modal');
+  if(e.target === m) closeAuditModal();
+  var ml = document.getElementById('legal-modal');
+  if(e.target === ml) closeLegalModal();
+});
+document.addEventListener('keydown', function(e){ if(e.key==='Escape'){ closeAuditModal(); closeLegalModal(); } });
+</script><script>const I18N_IT = {
+  "topbar.badge": "Comunità Albanese in Italia",
+  "topbar.slogan": "Più siamo, più risparmiamo!",
+
+  "nav.home": "Home",
+  "nav.luz": "Offerte Luce",
+  "nav.gas": "Offerte Gas",
+  "nav.calc": "Simulatore",
+  "nav.guide": "Guida Bolletta",
+  "nav.docs": "Doc. Albania vs Italia",
+  "nav.faq": "Domande Frequenti",
+  "nav.contact": "Contattaci",
+  "nav.audit": "Analizza Bolletta",
+  "nav.asesoria": "Richiedi Consulenza",
+
+  "mobile.audit": "Analizza la Bolletta Gratis",
+  "mobile.wa": "Scrivici su WhatsApp",
+
+  "hero.badge": "Albania Energy <span class='text-red-200 font-normal mx-1'>-</span> Energia elettrica e gas in Italia per gli albanesi",
+  "hero.title1": "Scegli la tua offerta.",
+  "hero.title2": "Energia giusta e senza burocrazia.",
+  "hero.sub": "Scegli il servizio su cui vuoi informazioni. Ricorda che in questa fase stiamo prendendo contatto: <span class='text-red-800 font-bold'> pi&ugrave; siamo, pi&ugrave; risparmiamo!</span> Confrontiamo le tariffe, gestiamo il cambio e ci prendiamo cura delle tue spese.",
+  "hero.pill1": "Zero interruzioni del servizio",
+  "hero.pill2": "0&euro; costi di gestione",
+  "hero.pill3": "Gestione Voltura &amp; Subentro",
+
+  "hero.card1.title": "Offerta Luce Casa",
+  "hero.card1.desc": "Tariffe luce trasparenti, fisse o indicizzate al PUN, senza costi nascosti.",
+  "hero.savingLabel": "Risparmio medio:",
+  "hero.ctaInfo": "Contattaci per maggiori informazioni",
+  "hero.card2.title": "Offerta Gas Casa",
+  "hero.card2.desc": "Tariffe gas metano calibrate per l'inverno italiano con prezzo Smc chiaro e controllabile.",
+  "hero.card3.badge": "COMBO PI&Ugrave; SCELTO",
+  "hero.card3.title": "Pacchetto Doppio: Luce + Gas",
+  "hero.card3.desc": "Unisci i due fornitori sotto lo stesso consulente in lingua albanese con doppio bonus di comunit&agrave;.",
+  "hero.card3.saving": "Doppio sconto:",
+  "hero.card3.cta": "Voglio Doppia Consulenza",
+  "hero.card4.title": "Offerte Business &amp; Locali",
+  "hero.card4.desc": "Gastronomie, laboratori, uffici e partite IVA. Riduzione dei costi di potenza e IVA detraibile.",
+  "hero.card4.cta": "Contatta per Business",
+
+  "hero.audit.title": "Hai la tua ultima bolletta a portata di mano?",
+  "hero.audit.sub": "Caricala o inviane una foto via WhatsApp e ti faremo un confronto gratuito entro 24 ore.",
+  "hero.audit.cta1": "Analizza la Mia Bolletta Gratis",
+  "hero.audit.cta2": "Simula il Risparmio",
+
+  "stats.label": "La potenza dell'acquisto collettivo per i connazionali",
+  "stats.title": "Risultati reali della comunit&agrave; in Italia",
+  "stats.sub": "Uniti otteniamo condizioni migliori verso le grandi compagnie energetiche italiane.",
+  "stats.s1.title": "Famiglie Servite",
+  "stats.s1.desc": "Albanesi residenti in tutta Italia",
+  "stats.savingLabel": "Risparmio medio:",
+  "stats.s2.title": "Business &amp; PMI",
+  "stats.s2.desc": "Attivit&agrave; con costi ottimizzati",
+  "stats.s3.title": "Procedure senza Interruzioni",
+  "stats.s3.desc": "Cambi fornitore senza interruzioni del servizio",
+  "stats.actLabel": "Attivazione:",
+  "stats.s4.title": "Soddisfazione del Cliente",
+  "stats.s4.desc": "Valutazione della comunit&agrave; albanese",
+  "stats.footerService": "Servizio:",
+  "stats.inAlbanian": "100% in albanese",
+
+  "elec.badge": "Servizi Elettrici in Italia",
+  "elec.titleHighlight": "Energia Elettrica",
+  "elec.intro1": "In <strong class='text-red-800 font-bold'>Albania Energy</strong> aiutiamo i cittadini albanesi che vivono in Italia ad avere accesso a servizi di luce e gas affidabili, a prezzi giusti e senza complicazioni.",
+  "elec.intro2": "Sappiamo che molti connazionali incontrano difficolt&agrave; quando vogliono stipulare, capire o confrontare le tariffe energetiche in Italia. Il nostro obiettivo &egrave; semplificare l'intero processo, prendendoci cura del tuo portafoglio e della tua tranquillit&agrave;.",
+  "elec.b1.title": "Risparmio reale sulla tua bolletta",
+  "elec.b1.p1": "Confrontiamo le migliori tariffe del mercato e ti aiutiamo ad abbassare il costo di luce e gas senza sacrificare la qualit&agrave;.",
+  "elec.b1.p2": "I nostri accordi con fornitori affidabili ci permettono di offrire prezzi esclusivi e trasparenti, senza costi nascosti e senza clausole ingannevoli.",
+  "elec.b1.check": "Analisi gratuita della tua bolletta precedente",
+  "elec.b2.title": "Consulenza nella tua lingua",
+  "elec.b2.p1": "Parliamo albanese e comprendiamo le esigenze degli albanesi in Italia.",
+  "elec.b2.p2": "Ti spieghiamo ogni dettaglio del tuo contratto in modo semplice, chiaro e umano, affinch&eacute; tu possa prendere decisioni con piena fiducia senza perderti nei termini tecnici italiani.",
+  "elec.b2.check": "Assistenza diretta via WhatsApp e telefono",
+  "elec.b3.title": "Procedure facili, veloci e senza stress",
+  "elec.b3.p1": "Ci occupiamo di tutto per te: analisi delle bollette, cambio fornitore, attivazione del servizio e assistenza continua.",
+  "elec.b3.p2": "Dimentica la burocrazia italiana &mdash; con <strong class='text-red-700'>Albania Energy</strong> la tua energia si gestisce in pochi minuti e senza complicazioni.",
+  "elec.b3.check": "Voltura, Subentro e Allaccio senza code",
+  "elec.res.title": "Utenti Residenziali",
+  "elec.res.desc": "Famiglie albanesi tutelate",
+  "elec.perBill": "euro in bolletta in media",
+  "elec.biz.title": "Business &amp; PMI",
+  "elec.biz.desc": "Attivit&agrave; a costi ottimizzati",
+  "elec.plansTitle": "I Piani Luce Disponibili per Te",
+  "elec.plansSub": "Scegli il piano pi&ugrave; adatto ai tuoi consumi oppure consultaci per ricevere la raccomandazione ideale.",
+  "elec.plansLink": "Non sai quanto consumi? Analizziamo gratis la tua bolletta &rarr;",
+  "elec.p1.badge": "PREZZO FISSO",
+  "elec.p1.title": "Tariffa Luce Fissa 12 Mesi",
+  "elec.p1.desc": "Prezzo bloccato per 12 mesi: paghi sempre lo stesso importo per kWh, indipendentemente dall'andamento del mercato all'ingrosso italiano.",
+  "elec.p1.f1": "Prezzo kWh fisso per 12 mesi",
+  "elec.p1.f2": "Energia 100% da fonti certificate",
+  "elec.p1.f3": "Nessuna durata minima obbligatoria",
+  "elec.p1.save": "Risparmia fino a -45&euro;/mese",
+  "elec.p2.badge": "INDICIZZATO PUN",
+  "elec.p2.title": "Tariffa Luce Indicizzata PUN",
+  "elec.p2.desc": "Segui il prezzo ufficiale all'ingrosso (PUN) con uno spread trasparente e basso. Ideale se i tuoi consumi sono flessibili e vuoi sfruttare i ribassi del mercato.",
+  "elec.p2.f1": "Spread fisso e trasparente sul PUN",
+  "elec.p2.f2": "Nessun costo di attivazione",
+  "elec.p2.f3": "Ideale per consumi bassi o variabili",
+  "elec.p2.save": "Risparmia fino a -25&euro;/mese",
+
+  "cta.choosePlan": "Scegli il Piano",
+
+  "gas.badge": "Servizi Gas Metano in Italia",
+  "gas.titleHighlight": "Gas per la Casa &amp; le Imprese",
+  "gas.intro1": "In <strong class='text-amber-800 font-bold'>Albania Energy</strong> aiutiamo i cittadini albanesi che vivono in Italia ad avere accesso a servizi di luce e gas affidabili, a prezzi giusti e senza complicazioni.",
+  "gas.intro2": "Sappiamo che molti connazionali incontrano difficolt&agrave; quando vogliono stipulare, capire o confrontare le tariffe energetiche in Italia. Il nostro obiettivo &egrave; semplificare l'intero processo, prendendoci cura del tuo portafoglio e della tua tranquillit&agrave;.",
+  "gas.b1.title": "Risparmio reale sulla tua bolletta",
+  "gas.b1.p1": "Confrontiamo le migliori tariffe del mercato e ti aiutiamo ad abbassare il costo di luce e gas senza sacrificare la qualit&agrave;.",
+  "gas.b1.p2": "I nostri accordi con fornitori affidabili ci permettono di offrire prezzi esclusivi e trasparenti, senza costi nascosti e senza clausole ingannevoli.",
+  "gas.b1.check": "Prezzo Smc ottimizzato per l'inverno",
+  "gas.b2.title": "Consulenza nella tua lingua",
+  "gas.b2.p1": "Parliamo albanese e comprendiamo le esigenze degli albanesi in Italia.",
+  "gas.b2.p2": "Ti spieghiamo ogni dettaglio del tuo contratto in modo semplice, chiaro e umano, affinch&eacute; tu possa prendere decisioni con piena fiducia e senza sorprese sul tuo conto corrente.",
+  "gas.b2.check": "Spiegazione chiara del tuo codice PDR",
+  "gas.b3.title": "Procedure facili, veloci e senza stress",
+  "gas.b3.p1": "Ci occupiamo di tutto per te: analisi delle bollette, cambio fornitore, attivazione del servizio e assistenza continua.",
+  "gas.b3.p2": "Dimentica la burocrazia italiana &mdash; con <strong class='text-amber-700'>Albania Energy</strong> la tua energia si gestisce in pochi minuti e senza complicazioni.",
+  "gas.b3.check": "Autolettura facile per evitare bollette stimate",
+  "gas.res.title": "Utenti Residenziali",
+  "gas.res.desc": "Case con riscaldamento garantito",
+  "gas.biz.title": "Business &amp; Imprese",
+  "gas.biz.desc": "Gas industriale e cucine commerciali",
+  "gas.plansTitle": "I Piani Gas Metano per la Tua Casa o Attivit&agrave;",
+  "gas.plansSub": "Scegli se preferisci un prezzo garantito tutto l'anno o un prezzo indicizzato al mercato ufficiale PSV.",
+  "gas.plansLink": "Invia la tua bolletta per confrontare il costo per Smc &rarr;",
+  "gas.p1.badge": "PREZZO GARANTITO",
+  "gas.p1.title": "Tariffa Gas Fissa 12 Mesi",
+  "gas.p1.desc": "Prezzo per Smc bloccato per un anno intero. Paghi sempre lo stesso importo anche se arriva l'inverno pi&ugrave; freddo.",
+  "gas.p1.f1": "Prezzo Smc fisso per 12 mesi",
+  "gas.p1.f2": "Nessuna sorpresa nella stagione del riscaldamento",
+  "gas.p1.f3": "Autolettura semplice via app o WhatsApp",
+  "gas.p1.save": "Risparmia fino a -60&euro;/mese",
+  "gas.p2.badge": "INDICIZZATO PSV",
+  "gas.p2.title": "Tariffa Gas Indicizzata PSV",
+  "gas.p2.desc": "Segui il prezzo ufficiale all'ingrosso del gas (PSV) con un margine basso e ben visibile su ogni bolletta.",
+  "gas.p2.f1": "Margine trasparente sul PSV ufficiale",
+  "gas.p2.f2": "Nessun costo di attivazione e nessuna penale",
+  "gas.p2.f3": "Ideale per consumi bassi fuori stagione invernale",
+  "gas.p2.save": "Risparmia fino a -30&euro;/mese"
+};</script><script>Object.assign(I18N_IT, {
+  "calc.badge": "Simulatore della Bolletta Italiana",
+  "calc.title": "Calcola quanto puoi risparmiare sulla tua bolletta",
+  "calc.sub": "Inserisci la tua spesa media mensile in Italia per vedere l'impatto stimato quando aderisci alle nostre tariffe di comunit&agrave;.",
+  "calc.step1": "1. Che tipo di fornitura hai?",
+  "calc.step2": "2. Quali servizi vuoi ottimizzare?",
+  "calc.step3": "3. Quanto paghi attualmente al mese in Italia?",
+  "calc.hogar": "Casa / Residenziale",
+  "calc.empresa": "Business / Partita IVA",
+  "calc.svc.luz": "Solo Luce",
+  "calc.svc.gas": "Solo Gas",
+  "calc.svc.dual": "Luce + Gas",
+  "calc.perMonth": "/mese",
+  "calc.monthly": "Risparmio mensile stimato",
+  "calc.annual": "Risparmio Annuale",
+  "calc.newBill": "La Tua Nuova Bolletta",
+  "calc.r1": "Passaggio 100% gratuito senza interruzioni di luce/gas",
+  "calc.r2": "Nessuna durata minima obbligatoria",
+  "calc.r3": "Servizio diretto in albanese via WhatsApp",
+  "calc.cta": "Voglio Questo Risparmio",
+  "calc.note": "*Stima basata sulle tariffe attuali del gruppo rispetto alla media del mercato italiano.",
+
+  "guide.badge": "Guida Pratica per gli Albanesi in Italia",
+  "guide.titleHighlight": "Bolletta Italiana",
+  "guide.sub": "La burocrazia energetica in Italia pu&ograve; confondere. Qui te ne spieghiamo l'essenziale in lingua albanese, cos&igrave; non pagherai mai pi&ugrave; del dovuto.",
+  "guide.t1": "1. Le Parti della Bolletta",
+  "guide.t2": "2. Voltura vs Subentro",
+  "guide.t3": "3. Attenzione alle Truffe",
+  "guide.dati": "DATI FORNITURA (Dati della fornitura):",
+  "guide.podNote": "(Il tuo codice della luce)",
+  "guide.pdrNote": "(Il tuo codice del gas)",
+  "guide.breakdown": "Sintesi Importi Fatturati (Dettaglio):",
+  "guide.negoziabile": "&#9733; L'unica voce negoziabile dove ti facciamo risparmiare",
+  "guide.regolato": "Regolato dallo Stato (uguale in tutte le compagnie)",
+  "guide.oneri": "Voci e costi fissi nazionali stabiliti per legge",
+  "guide.taxe": "Imposte statali italiane",
+  "guide.glossTitle": "Glossario Veloce della Bolletta",
+  "guide.glossSub": "I 4 termini principali che ogni albanese in Italia dovrebbe conoscere quando affitta o compra casa:",
+  "guide.g1.title": "Il tuo codice della luce",
+  "guide.g1.desc": "Codice univoco che identifica il punto di connessione elettrica della tua abitazione. Inizia con \"IT\" ed &egrave; necessario per ogni pratica.",
+  "guide.g2.title": "Il tuo codice del gas",
+  "guide.g2.desc": "L'equivalente del POD ma per la fornitura di gas metano. Un codice numerico di 14 cifre.",
+  "guide.g3.title": "Costi fissi nazionali",
+  "guide.g3.desc": "Costi regolati dallo Stato italiano, uguali per tutti i fornitori. Non sono negoziabili.",
+  "guide.g4.title": "Mercato libero",
+  "guide.g4.desc": "Il regime in cui scegli tu fornitore e tariffa, a differenza del vecchio \"Mercato Tutelato\" ormai superato.",
+  "guide.auditQ": "Vuoi che analizziamo la tua bolletta attuale?",
+  "guide.auditA": "Ti diciamo esattamente se stai pagando di pi&ugrave; entro 5 minuti.",
+  "guide.auditBtn": "Invia la Bolletta",
+
+  "tram.t1.title": "1. Voltura (Cambio Intestatario)",
+  "tram.t1.desc": "Il contatore <strong>&egrave; in funzione</strong> e c'&egrave; luce o gas in casa. Solo il contratto viene trasferito al nuovo inquilino o proprietario.",
+  "tram.whatNeeded": "Cosa serve?",
+  "tram.t1.l1": "&bull; La bolletta dell'inquilino precedente (o POD/PDR)",
+  "tram.t1.l2": "&bull; Il tuo Codice Fiscale e un documento",
+  "tram.t1.l3": "&bull; La lettura attuale del contatore",
+  "tram.t2.title": "2. Subentro (Riattivazione)",
+  "tram.t2.desc": "Il contatore esiste fisicamente ma il servizio <strong>&egrave; stato interrotto</strong> o disattivato dal proprietario precedente. Richiede una riattivazione tecnica.",
+  "tram.t2.l1": "&bull; Targa / Numero di serie del contatore",
+  "tram.t2.l2": "&bull; Il tuo Codice Fiscale e il contratto di affitto",
+  "tram.t2.l3": "&bull; Tempo stimato: 5-7 giorni lavorativi",
+  "tram.t3.title": "3. Cambio Fornitore (Switch)",
+  "tram.t3.desc": "Stai attualmente con un'altra compagnia italiana (Enel, Eni, A2A, Edison, ecc.) e vuoi passare alle tariffe di comunit&agrave; di <strong>Albania Energy</strong>.",
+  "tram.advantages": "Vantaggi:",
+  "tram.t3.l1": "&bull; 100% Gratuito per legge",
+  "tram.t3.l2": "&bull; Zero interruzioni di fornitura",
+  "tram.t3.l3": "&bull; Ci occupiamo noi della disdetta precedente",
+
+  "sec.title": "Attenzione al Telemarketing Aggressivo in Italia!",
+  "sec.sub": "Consigli di sicurezza di Albania Energy per i connazionali",
+  "sec.c1.q": "\"La chiamiamo dall'ARERA / Il distributore le staccher&agrave; la luce\":",
+  "sec.c1.a": "FALSO. L'ARERA &egrave; l'autorit&agrave; di regolazione e NON chiama mai utenti privati per vendere tariffe. Sono call center che vogliono attivare contratti con l'inganno.",
+  "sec.c2.q": "Non dire mai \"SI\" all'inizio di una chiamata sconosciuta:",
+  "sec.c2.a": "In Italia sono documentati casi in cui modificano registrazioni audio (\"Lei &egrave; l'intestatario?\" - \"S&igrave;\") per simulare una contrattazione vocale. Rispondi \"Chi parla?\" o \"Da parte di chi?\".",
+  "sec.c3.q": "Non dettare mai il tuo codice POD o PDR al telefono:",
+  "sec.c3.a": "Con solo il codice POD e il tuo Codice Fiscale, un operatore disonesto pu&ograve; trasferire il tuo contratto senza la tua firma.",
+  "sec.c4.q": "Con Albania Energy: accordo trasparente e scritto:",
+  "sec.c4.a": "Ti inviamo la proposta scritta in albanese, dettagliando ogni costo prima di ogni conferma formale.",
+
+  "faq.badge": "Centro di Assistenza &amp; Procedure",
+  "faq.title": "Tutto chiaro, senza giri di parole e senza termini tecnici",
+  "faq.sub": "Risposte alle tue domande sul mercato energetico italiano e la guida finale alle equivalenze documentali tra Albania e Italia.",
+  "faq.tabFaq": "Domande Frequenti",
+  "faq.tabDocs": "Equivalenze Documenti",
+  "faq.catAll": "Tutte le domande",
+  "faq.catDocs": "&#127464;&#127467; Procedure &amp; Documenti Albanesi",
+  "faq.catTram": "Voltura &amp; Subentro",
+  "faq.catGen": "&#9889; Tariffe &amp; Bolletta",
+  "faq.docsPill": "Guida Pratica per gli Albanesi in Italia",
+  "faq.docsTitle": "Equivalenze delle Procedure e dei Documenti Ufficiali",
+  "faq.docsIntro": "Sappiamo che l'immigrazione o il trasferimento in Italia pu&ograve; far confondere con cos&igrave; tanti nomi e acronimi nuovi. Qui ti spieghiamo cosa significa ogni documento italiano, qual &egrave; il suo equivalente albanese e <strong>a cosa serve esattamente quando attivi i tuoi servizi di luce e gas</strong>.",
+  "faq.docsSearch": "Cerca: CF, SPID, NUIAP, IBAN...",
+  "faq.docsAvailable": "documenti disponibili",
+  "faq.quickTitle": "Riepilogo Veloce: cosa serve per attivare luce e gas oggi?",
+  "faq.quickSub": "Non complicarti: con solo questi 3 dati puoi gi&agrave; iniziare a risparmiare.",
+  "faq.quick1": "1. Ultima Bolletta o Codice POD/PDR",
+  "faq.quick1d": "La bolletta dell'inquilino precedente o la tua attuale. Se il contatore &egrave; spento basta il numero di serie o una foto del contatore.",
+  "faq.quick2": "2. Codice Fiscale + Passaporto o CIE",
+  "faq.quick2d": "Il tuo numero di Codice Fiscale (anche se provvisorio su carta) e la foto del tuo passaporto albanese valido o della CIE.",
+  "faq.quick3": "3. Codice IBAN (Opzionale ma raccomandato)",
+  "faq.quick3d": "Per attivare l'addebito diretto e non pagare tra 50&euro; e 150&euro; di deposito cauzionale. Vanno bene Revolut, N26, Postepay o le banche tradizionali.",
+  "faq.ctaTitle": "Hai domande su una procedura o una bolletta in Italia?",
+  "faq.ctaSub": "Il nostro team a Cuneo (Piemonte) ti risponde 100% in albanese. Scrivici o inviaci una foto dei tuoi documenti e ti guidiamo passo passo.",
+  "faq.waMsg": "Ciao Albania Energy! Ho delle domande su luce e gas.",
+
+  "cta.waChat": "Scrivici su WhatsApp",
+  "tes.badge": "Comunit&agrave; Albanese in Italia",
+  "tes.title": "Le Testimonianze dei Connazionali come Te",
+  "tes.sub": "Grazie al supporto della nostra comunit&agrave; a Cuneo, Torino, Milano e Brescia abbiamo gi&agrave; fatto risparmiare centinaia di migliaia di euro.",
+  "tes.ctaText": "Vuoi risparmiare come loro?",
+
+  "contact.badge": "Contattaci",
+  "contact.title": "Grazie per aver scelto <span class='text-transparent bg-clip-text bg-gradient-to-r from-red-700 to-amber-600'>Albania Energy</span>",
+  "contact.sub": "Siamo qui per aiutarti quando ne hai bisogno. Scrivici su WhatsApp, chiamaci o visita il nostro ufficio: consulenza gratuita.",
+  "contact.tel": "Telefono",
+  "contact.wa": "WhatsApp",
+  "contact.addr": "Indirizzo",
+  "contact.email": "E-mail",
+  "contact.formTitle": "Richiedi una Consulenza Gratuita",
+  "contact.fName": "Nome e Cognome",
+  "contact.fNamePh": "Pietro Rossi / Arben Hoxha",
+  "contact.fPhone": "WhatsApp / Telefono",
+  "contact.fPhonePh": "+39 3XX XXX XXXX",
+  "contact.fService": "Servizi che Ti Interessano",
+  "contact.fMessage": "Messaggio / Descrizione del problema",
+  "contact.fMessagePh": "Salve, vi scrivo perch&eacute; vorrei informazioni sui prezzi della luce per la mia casa in...",
+  "contact.formBtn": "Invia con WhatsApp",
+  "contact.formNote": "Quando clicchi \"Invia\", si apre WhatsApp con il messaggio pronto da inviarci. Nessun dato viene salvato su questa pagina.",
+
+  "footer.tagline": "Energia affidabile e semplice in Italia",
+  "footer.about": "Assistenza per energia elettrica e gas per la comunit&agrave; albanese in Italia. Contattaci in albanese per tariffe trasparenti e procedure senza complicazioni.",
+  "footer.licensed": "Operatore commerciale autorizzato per la vendita di energia in Italia",
+  "footer.col1Title": "Navigazione",
+  "footer.col2Title": "Contatti",
+  "footer.col3Title": "Orari",
+  "footer.h1": "Luned&igrave; - Venerd&igrave;",
+  "footer.h1a": "9.00 - 18.00",
+  "footer.h2": "Sabato",
+  "footer.h2a": "9.00 - 13.00",
+  "footer.h3": "Domenica",
+  "footer.h3a": "Chiuso",
+  "footer.quickTitle": "Accesso rapido in albanese:",
+  "footer.q1": "Analisi Bolletta",
+  "footer.q2": "Documenti IT/SQ",
+  "footer.rights": "Tutti i diritti riservati.",
+  "footer.privacy": "Privacy Policy",
+  "footer.terms": "Termini &amp; Condizioni",
+  "footer.cookies": "Informativa sui Cookie",
+
+  "fab.wa": "Scrivici in albanese!",
+
+  "audit.title": "Analisi Gratuita della Tua Bolletta Italiana",
+  "audit.sub": "Inviaci la tua bolletta attuale in albanese o italiano e ti richiameremo presto con un confronto completo e trasparente.",
+  "audit.fName": "Nome e Cognome",
+  "audit.fNamePh": "Arben Hoxha",
+  "audit.fPhone": "WhatsApp / Telefono",
+  "audit.fPhonePh": "+39 3XX XXX XXXX",
+  "audit.fService": "Che servizio hai?",
+  "audit.fileHint": "Allega la bolletta: foto o PDF (max 5 MB)",
+  "audit.fileBtn": "Carica Bolletta",
+  "audit.note": "Nota:",
+  "audit.noteBody": "Non salviamo i tuoi dati personali. La tua bolletta serve solo per analizzare le tariffe e proporti una soluzione. Se non trovi la bolletta, inviaci semplicemente una foto del contatore.",
+  "audit.cta": "Invia per Analisi Gratuita"
+});
+
+const I18N_SQ = {
+  "faq.waMsg": "Përshendetje Albania Energy! Kam pyetje për dritën dhe gazin."
+};
+
+const CURRENT = { lang: 'sq', calcService: 'dual', profile: 'hogar', faqCat: 'todos', faqTab: 'faq', guideTab: 'partes', legalOpen: null };
+
+const PLAN_NAMES = {
+  'luz-fissa': { sq: 'Tarifa Dritë Fikse 12 Muaj', it: 'Tariffa Luce Fissa 12 Mesi' },
+  'luz-pun': { sq: 'Tarifa Dritë e Indeksuar PUN', it: 'Tariffa Luce Indicizzata PUN' },
+  'gas-fissa': { sq: 'Tarifa Gaz Fikse 12 Muaj', it: 'Tariffa Gas Fissa 12 Mesi' },
+  'gas-psv': { sq: 'Tarifa Gaz e Indeksuar PSV', it: 'Tariffa Gas Indicizzata PSV' }
+};
+
+const WA_MSGS = {
+  generic: { sq: 'Përshëndetje Albania Energy! Dëshiroj informacion për dritën dhe gazin.', it: 'Ciao Albania Energy! Vorrei informazioni su luce e gas.' },
+  audit: { sq: 'Përshëndetje Albania Energy! Dëshiroj të dërgoj faturën time për një analizë falas.', it: 'Ciao Albania Energy! Vorrei inviare la mia bolletta per un\'analisi gratuita.' },
+  calc: { sq: 'Përshëndetje! Përmes simulatorit tuaj kuptova që mund të kursej', it: 'Salve! Dal vostro simulatore ho capito che posso risparmiare' },
+  plan: { sq: 'Përshëndetje Albania Energy! Zgjodha planin', it: 'Ciao Albania Energy! Ho scelto il piano' }
+};
+
+const SERVICE_NAMES = {
+  luz: { sq: 'Dritë', it: 'Luce' },
+  gas: { sq: 'Gaz', it: 'Gas' },
+  dual: { sq: 'Dritë + Gaz', it: 'Luce + Gas' },
+  ambos: { sq: 'Dritë + Gaz', it: 'Luce + Gas' },
+  empresa: { sq: 'Biznes', it: 'Business' },
+  hogar: { sq: 'Shtëpi', it: 'Casa' }
+};
+
+function planName(key){ var o = PLAN_NAMES[key] || {}; return CURRENT.lang === 'it' ? (o.it || key) : (o.sq || key); }
+function t(key){ if(CURRENT.lang === 'it'){ return (I18N_IT[key] !== undefined) ? I18N_IT[key] : (I18N_SQ[key] !== undefined ? I18N_SQ[key] : key); } return (I18N_SQ[key] !== undefined) ? I18N_SQ[key] : key; }
+function waMsg(key){ var o = WA_MSGS[key] || {}; return CURRENT.lang === 'it' ? (o.it || '') : (o.sq || ''); }</script><script>
+Object.assign(I18N_IT, {
+  "hero.saving": "Risparmio medio: <strong class='text-emerald-700'>-20&euro; fino a -45&euro;</strong> / mese",
+  "hero.saving2": "Risparmio medio: <strong class='text-emerald-700'>-30&euro; fino a -60&euro;</strong> / mese",
+  "hero.savingDual": "Doppio sconto: <strong class='text-emerald-700'>fino a -75&euro;</strong> / mese",
+  "hero.saving4": "Risparmio medio: <strong class='text-emerald-700'>-100&euro; fino a -350&euro;</strong> / mese",
+  "stats.s1.badge": "-20&euro;/mese",
+  "stats.s2.badge": "-100&euro;/mese",
+  "stats.s3.badge": "10-15 giorni",
+  "calc.perYear": "/anno",
+  "calc.resultBadge": "Il Tuo Risparmio Stimato",
+  "doc.eq": "Equivalente albanese:",
+  "doc.def": "Cos'&egrave;:",
+  "doc.why": "Perch&eacute; conta per luce/gas?",
+  "wa.svcPrefix": "Ciao Albania Energy! Mi interessa l'offerta",
+  "contact.intro": "Ciao Albania Energy! Sono",
+  "contact.lblPhone": "Tel.",
+  "contact.lblService": "Servizi",
+  "contact.lblMsg": "Messaggio"
+});
+Object.assign(I18N_SQ, {
+  "hero.saving": "Kursim mesatar: <strong class='text-emerald-700'>-20&euro; deri -45&euro;</strong> / muaj",
+  "hero.saving2": "Kursim mesatar: <strong class='text-emerald-700'>-30&euro; deri -60&euro;</strong> / muaj",
+  "hero.savingDual": "Zbritje dyfishe: <strong class='text-emerald-700'>Deri -75&euro;</strong> / muaj",
+  "hero.saving4": "Kursim mesatar: <strong class='text-emerald-700'>-100&euro; deri -350&euro;</strong> / muaj",
+  "stats.s1.badge": "-20&euro;/muaj",
+  "stats.s2.badge": "-100&euro;/muaj",
+  "stats.s3.badge": "10-15 dit&euml;",
+  "calc.perYear": "/vit",
+  "calc.resultBadge": "Kursimi Juaj i Vler&euml;suar",
+  "doc.eq": "Ekuivalenti shqiptar:",
+  "doc.def": "&Ccedil;far&euml; &euml;sht&euml;:",
+  "doc.why": "Pse r&euml;nd&euml;si p&euml;r drit&euml;/gaz?",
+  "wa.svcPrefix": "P&euml;rsh&euml;ndetje Albania Energy! M&euml; intereson oferta",
+  "contact.intro": "P&euml;rsh&euml;ndetje Albania Energy! Un&euml; jam",
+  "contact.lblPhone": "Tel.",
+  "contact.lblService": "Sh&euml;rbimi",
+  "contact.lblMsg": "Mesazhi"
+});
+
+const FAQ_DATA = [
+  { cat: "documentos", q: { sq: "Si e marr Codice Fiscale-n tim?", it: "Come ottengo il mio Codice Fiscale?" }, a: { sq: "Codice Fiscale &euml;sht&euml; kodi juaj fiskal italian, i nevojsh&euml;m p&euml;r &ccedil;do kontrat&euml;. Mund ta merrni falas n&euml; nj&euml; zyr&euml; t&euml; Agjencis&euml; s&euml; t&euml; Ardhurave (Agenzia delle Entrate) me pasaport&euml;n tuaj. N&euml;se keni nj&euml; Kod Fiskal t&euml; p&euml;rkohsh&euml;m n&euml; let&euml;r (17 shifra), na e tregoni: mund t&euml; filloni procedurat me t&euml;.", it: "Il Codice Fiscale &egrave; il tuo codice fiscale italiano, necessario per ogni contratto. Puoi ottenerlo gratuitamente in un ufficio dell'Agenzia delle Entrate presentando il passaporto. Se hai un codice fiscale provvisorio su carta (17 cifre), mostracelo: puoi gi&agrave; avviare le pratiche." } },
+  { cat: "documentos", q: { sq: "&Ccedil;far&euml; &euml;sht&euml; SPID dhe pse m&euml; duhet?", it: "Cos'&egrave; lo SPID e perch&eacute; mi serve?" }, a: { sq: "SPID &euml;sht&euml; identiteti juaj dixhital italian (si nj&euml; email + fjal&euml;kalim i sigurt) q&euml; ju lejon t&euml; hyni n&euml; sh&euml;rbimet publike online, duke p&euml;rfshir&euml; etiketimin e drit&euml;s/gazit. Na duhet ndonj&euml;her&euml; p&euml;r kontrata online, por p&euml;r Voltura/Subentro fizike mjafton dokumenti juaj dhe Codice Fiscale.", it: "Lo SPID &egrave; la tua identit&agrave; digitale italiana (come una email + password sicura) che ti permette di accedere ai servizi pubblici online, incluso il mercato luce/gas. A volte serve per i contratti online, ma per Voltura/Subentro fisiche bastano documento e Codice Fiscale." } },
+  { cat: "documentos", q: { sq: "Si p&euml;rdor dokumentet shqiptare n&euml; Itali?", it: "Come uso i documenti albanesi in Italia?" }, a: { sq: "N&euml; Itali njihen dokumentet shqiptare me apostilli ose me p&euml;rkthim t&euml; ligj&euml;ruar (traduzione giurata). P&euml;r energjin&euml;, zakonisht NUK k&euml;rkohen v&euml;rtetime apo apostillime: thjesht nj&euml; dokument identifikimi shqiptar t&euml; vlefsh&euml;m dhe Codice Fiscale.", it: "In Italia i documenti albanesi sono validi con apostille o traduzione giurata. Per l'energia di solito NON servono certificati n&eacute; apostille: bastano un documento d'identit&agrave; albanese valido e il Codice Fiscale." } },
+  { cat: "tramites", q: { sq: "Sa kushton nj&euml; Voltura?", it: "Quanto costa una Voltura?" }, a: { sq: "Kur num&euml;ruesi tashm&euml; ka drit&euml;/gaz, voltura &euml;sht&euml; zakonisht falas. Me Albania Energy, gjith&ccedil;ka b&euml;het pa pages&euml;: ju duhen vet&euml;m dokumenti juaj, Codice Fiscale dhe t&euml; dh&euml;nat e num&euml;ruesit.", it: "Quando il contatore ha gi&agrave; luce/gas, la voltura &egrave; di solito gratuita. Con Albania Energy tutto avviene senza costi: servono solo documento, Codice Fiscale e dati del contatore." } },
+  { cat: "tramites", q: { sq: "&Ccedil;far&euml; b&euml;j n&euml;se num&euml;ruesi &euml;sht&euml; pa rrym&euml; (Subentro)?", it: "Cosa faccio se il contatore &egrave; senza corrente (Subentro)?" }, a: { sq: "N&euml;se sh&euml;rbimi &euml;sht&euml; &ccedil;aktivizuar, k&euml;rkohet nj&euml; Subentro me riaktivizim teknik, q&euml; zgjat rreth 5 deri 7 dit&euml; pune. Na duhen: numri serial i num&euml;ruesit (Targa), dokumenti juaj dhe kontrata e qiras&euml;.", it: "Se il servizio &egrave; disattivato serve un Subentro con riattivazione tecnica, che richiede circa 5-7 giorni lavorativi. Servono: numero di matricola del contatore (targa), documento e contratto di affitto." } },
+  { cat: "tramites", q: { sq: "A nd&euml;rpritet drita gjat&euml; ndryshimit t&euml; furnizuesit?", it: "Viene interrotta la luce durante il cambio fornitore?" }, a: { sq: "Jo. Ndryshimi i furnizuesit (switch) nuk shkakton asnj&euml; nd&euml;rprerje: fizikisht asgj&euml; nuk ndryshon, as num&euml;ruesi e as cil&euml;sia e sh&euml;rbimit. Vet&euml;m ndikohet &ccedil;mimi i energjis&euml; n&euml; fatur&euml;... n&euml; drejtim pozitiv.", it: "No. Il cambio fornitore (switch) non provoca alcuna interruzione: fisicamente non cambia nulla, n&eacute; il contatore n&eacute; la qualit&agrave; del servizio. Cambia solo il prezzo dell'energia in bolletta... in positivo." } },
+  { cat: "general", q: { sq: "&Ccedil;mim fiks apo i indeksuar? Cili &euml;sht&euml; m&euml; i mir&euml;?", it: "Prezzo fisso o indicizzato? Qual &egrave; migliore?" }, a: { sq: "&Ccedil;mimi fiks garanton stabilitet: e dini &ccedil;far&euml; paguani p&euml;r 12 muaj, ideale p&euml;r dim&euml;r t&euml; ashp&euml;r. &Ccedil;mimi i indeksuar (PUN p&euml;r drit&euml;n, PSV p&euml;r gazin) &euml;sht&euml; fleksib&euml;l dhe kur tregu bie, ju p&euml;rfitoni.", it: "Il prezzo fisso garantisce stabilit&agrave;: sai cosa paghi per 12 mesi, ideale per l'inverno rigido. Il prezzo indicizzato (PUN per la luce, PSV per il gas) &egrave; flessibile e quando il mercato scende, tu ne benefici." } },
+  { cat: "general", q: { sq: "N&euml;se m&euml; k&euml;rkojn&euml; depozit&euml; garancie, &ccedil;duhet t&euml; b&euml;j?", it: "Se mi chiedono un deposito cauzionale, cosa devo fare?" }, a: { sq: "N&euml;se nuk aktivizoni debitimin bankar (SDD), furnizuesi mund t&euml; k&euml;rkoj&euml; nj&euml; depozit&euml; garancie nga 50&euro; deri 150&euro;. Me Albania Energy ju inkurajojm&euml; t&euml; na jepni IBAN-in: forma m&euml; e mir&euml; &euml;sht&euml; debiti direkt.", it: "Se non attivi l'addebito diretto (SDD), il fornitore pu&ograve; chiedere un deposito cauzionale tra 50&euro; e 150&euro;. Con Albania Energy ti consigliamo di darci l'IBAN: la soluzione migliore &egrave; la domiciliazione bancaria." } },
+  { cat: "general", q: { sq: "Sa her&euml; m&euml; vijn&euml; faturat n&euml; vit?", it: "Quante volte all'anno ricevo le bollette?" }, a: { sq: "N&euml; Itali faturat vijn&euml; me frekuenc&euml; t&euml; p&euml;rcaktuar: shpesh dy-mujore, por shum&euml; kontrata jan&euml; mujore. Ju gjithmon&euml; mund t&euml; lexoni num&euml;ruesin dhe t&euml; na e d&euml;rgoni foton: me leximin real fatura &euml;sht&euml; gjithmon&euml; e sakt&euml;, pa vler&euml;sime.", it: "In Italia le bollette arrivano con frequenza definita: spesso bimestrali, ma molti contratti sono mensili. Puoi sempre leggere il contatore e inviarci la foto: con la lettura reale la bolletta &egrave; sempre corretta, senza stime." } }
+];
+
+const DOC_DATA = [
+  { tag: "CF", sq: { t: "Codice Fiscale (Kodi Fiskal)", al: "— (ju merrni vet&euml;m nj&euml;: at&euml; italian)", d: "Kod numerik 16-shifror q&euml; identifikon &ccedil;do person q&euml; vepron n&euml; Itali, edhe n&euml;se nuk &euml;sht&euml; i regjistruar.", p: "KRITIK - Pa t&euml; nuk b&euml;hen kontrata energjie n&euml; Itali. Edhe versioni provizor n&euml; let&euml;r funksionon." }, it: { t: "Codice Fiscale", al: "— (se ne hai uno, &egrave; quello italiano)", d: "Codice numerico di 16 cifre che identifica ogni persona che opera in Italia, anche se non registrata.", p: "CRITICO - Senza non si stipulano contratti di energia in Italia. Funziona anche la versione provvisoria su carta." } },
+  { tag: "CIE", sq: { t: "CIE ose Pasaporta", al: "Pasaporta Shqiptare ose DNI", d: "Dokument identifikimi me foto t&euml; vlefshme.", p: "K&euml;rkohet p&euml;r &ccedil;do Voltura/Subentro/ndryshim furnizuesi." }, it: { t: "CIE o Passaporto", al: "Passaporto albanese o DNI", d: "Documento d'identit&agrave; valido con foto.", p: "Richiesto per ogni Voltura/Subentro/cambio fornitore." } },
+  { tag: "NUIAP", sq: { t: "NUIAP", al: "— (kod q&euml; mbetet n&euml; fatur&euml;n italiane)", d: "Shkurtes&euml; q&euml; gjendet n&euml; fatur&euml; p&euml;r t&euml; identifikuar ofert&euml;n tuaj.", p: "Na ndihmon t&euml; krahasojm&euml; tarif&euml;n tuaj aktuale me ton&euml;n." }, it: { t: "NUIAP", al: "— (codice che resta in bolletta)", d: "Sigla presente in bolletta per identificare la tua offerta.", p: "Ci aiuta a confrontare la tua tariffa attuale con la nostra." } },
+  { tag: "IBAN", sq: { t: "IBAN", al: "IBAN Shqiptar (AL47...) - nuk pranohet", d: "Kodi nd&euml;rkomb&euml;tar i llogaris&euml; bankare.", p: "P&euml;r debitimin bankar (SDD): ju shmang depozit&euml;n e garancis&euml;." }, it: { t: "IBAN", al: "IBAN albanese (AL47...) - non accettato", d: "Codice internazionale del conto bancario.", p: "Per l'addebito diretto (SDD): eviti il deposito cauzionale." } },
+  { tag: "SPID", sq: { t: "SPID", al: "— (identitet dixhital vet&euml;m italian)", d: "Identitet dixhital p&euml;r sh&euml;rbimet online italiane.", p: "Vet&euml;m p&euml;r kontrata online; mjaftojn&euml; dokumenti dhe Codice Fiscale." }, it: { t: "SPID", al: "— (identit&agrave; digitale solo italiana)", d: "Identit&agrave; digitale per i servizi online italiani.", p: "Solo per contratti online; per noi bastano documento e Codice Fiscale." } },
+  { tag: "POD/PDR", sq: { t: "Kodi POD ose PDR", al: "Numri i njehsorit (num&euml;ruesi)", d: "Kodet q&euml; identifikojn&euml; furnizimin tuaj (POD=drit&euml;, PDR=gaz).", p: "I nevojsh&euml;m p&euml;r ndryshimin! N&euml;se nuk e keni, na d&euml;rgoni foton e num&euml;ruesit." }, it: { t: "Codice POD o PDR", al: "Numero del contatore", d: "I codici che identificano la tua fornitura (POD=luce, PDR=gas).", p: "Necessario per il cambio! Se non lo hai, inviaci la foto del contatore." } },
+  { tag: "RES", sq: { t: "Certifikata e Banimit", al: "V&euml;rtetimi i banimit / Certifikata familjare", d: "D&euml;shmi zyrtare e regjistrimit tuaj n&euml; komun&euml;.", p: "Jo e detyrueshme p&euml;r energjin&euml;, por e dobishme p&euml;r procedura t&euml; tjera." }, it: { t: "Certificato di Residenza", al: "V&euml;rtetim banimi / Certifikata familjare", d: "Prova ufficiale della tua registrazione in comune.", p: "Non obbligatorio per l'energia, utile per altre procedure." } }
+];
+
+const TEST_DATA = [
+  { name: "Arben H.", service: "Luce + Gas (Cuneo)", sq: { t: "Per 6 vjet pagova Enel pa kuptuar faturat. M&euml; mjaftoi nj&euml; telefonat&euml; n&euml; shqip p&euml;r t&euml; kaluar te Albania Energy: tani paguaj -60&euro; n&euml; muaj dhe e di sakt&euml;sisht se &ccedil;far&euml; po paguaj." }, it: { t: "Per 6 anni ho pagato Enel senza capire le bollette. Una telefonata in albanese &egrave; bastata per passare ad Albania Energy: ora risparmio -60&euro; al mese e so esattamente cosa pago. CONSIGLIATO A TUTTI I CONNAZIONALI." } },
+  { name: "Marina K.", service: "Voltura B&B (Torino)", sq: { t: "Menaxhuan voltura-n e B&B-s&euml; time n&euml; Torino pa mua t&euml; shkoj n&euml; asnj&euml; zyr&euml;. Gjith&ccedil;ka me shkrim n&euml; shqip dhe n&euml; 3 dit&euml; kishte drit&euml;." }, it: { t: "Hanno gestito la voltura del mio B&amp;B a Torino senza farmi andare in nessun ufficio: tutto per iscritto in albanese e in 3 giorni la luce era attiva." } },
+  { name: "Dalip S.", service: "Gas Business (Brescia)", sq: { t: "Kisha furnizim industrial me kushte t&euml; paqarta. Gjeta planet e gazit t&euml; Albania Energy dhe kursimi ishte i menj&euml;hersh&euml;m, edhe n&euml; dim&euml;r." }, it: { t: "Avevo una fornitura industriale con condizioni poco chiare. Ho trovato i piani gas di Albania Energy e il risparmio &egrave; stato immediato, anche in inverno." } }
+];
+
+const LEGAL_TITLES = { pri: { sq: "Privacy Policy", it: "Privacy Policy" }, terms: { sq: "Termini dhe Kushte", it: "Termini e Condizioni" }, co: { sq: "Informat&euml; mbi Cookies", it: "Informativa sui Cookie" } };
+
+const LEGAL_DATA = {
+  pri: {
+    sq: ["Ky seksion p&euml;rshkruan se si www.albaniaenergy.it mbledh dhe p&euml;rdor t&euml; dh&euml;na vet&euml;m n&euml; m&euml;nyr&euml; t&euml; kufizuar: nuk ruajm&euml; dokumente personale n&euml; k&euml;t&euml; faqe. Kontaktet tuaja dhe faturat q&euml; d&euml;rgoni p&euml;rmes WhatsApp p&euml;rdoren ekskluzivisht p&euml;r t'ju ofruar konsulenc&euml; energjetike.", "T&euml; dh&euml;nat q&euml; ndani vullnetarisht n&euml; mesazhe (emri, telefoni, faturat) trajtohen nga ekipi yn&euml; tregtar n&euml; Cuneo (CN) vet&euml;m p&euml;r q&euml;llimin e analiz&euml;s s&euml; tarifave dhe nuk u shiten pal&euml;ve t&euml; treta.", "P&euml;r m&euml; shum&euml; informacion ose p&euml;r t&euml; ushtruar t&euml; drejtat tuaja t&euml; GDPR, na shkruani n&euml; info@albaniaenergy.it."],
+    it: ["Questa sezione descrive come www.albaniaenergy.it raccoglie e usa i dati in modo limitato: non salviamo documenti personali su questa pagina. I tuoi contatti e le bollette inviate via WhatsApp sono usati esclusivamente per offrirti la consulenza energetica.", "I dati che condividi volontariamente nei messaggi (nome, telefono, bollette) sono trattati dal nostro team commerciale a Cuneo (CN) solo per lo scopo dell'analisi tariffaria e non sono venduti a terzi.", "Per maggiori informazioni o per esercitare i tuoi diritti GDPR, scrivici a info@albaniaenergy.it."]
+  },
+  terms: {
+    sq: ["www.albaniaenergy.it &euml;sht&euml; nj&euml; faqe informative dhe e nd&euml;rmjet&euml;simit tregtar. Kontratat p&euml;rfundimtare p&euml;r furnizimin e energjis&euml; elektrike dhe gazit n&euml;nshkruhen me ofruesin italian t&euml; zgjedhur.", "Vler&euml;simet e kursimit jan&euml; tregues dhe bazohen n&euml; tarifat aktuale t&euml; grupit kundrejt mesatares s&euml; tregut; kursimi real mund t&euml; ndryshoj&euml; sipas konsumit.", "P&euml;rurimet e energjis&euml; (PUN, PSV) jan&euml; publike dhe t&euml; publikuara nga ARERA. Asnj&euml; propozim nuk &euml;sht&euml; i detyruesh&euml;m deri n&euml; pranimin tuaj t&euml; qart&euml; me shkrim.", "Ky faqe p&euml;rdor ofrues t&euml; lidhjeve t&euml; jashtme (font, ikona, imazhe) p&euml;r funksionimin vizual."],
+    it: ["www.albaniaenergy.it &egrave; un sito informativo e di intermediazione commerciale. I contratti definitivi per la fornitura di energia elettrica e gas vengono stipulati con il fornitore italiano scelto.", "Le stime di risparmio sono indicative e basate sulle tariffe attuali del gruppo rispetto alla media del mercato; il risparmio reale pu&ograve; variare in base ai consumi.", "I prezzi dell'energia (PUN, PSV) sono pubblici e pubblicati da ARERA. Nessuna proposta &egrave; vincolante fino alla tua accettazione chiara e scritta.", "Questo sito utilizza provider esterni (font, icone, immagini) per il funzionamento visivo."]
+  },
+  co: {
+    sq: ["Kjo faqe nuk p&euml;rdor cookie t&euml; profilimit. Mund t&euml; p&euml;rdoren cookie teknike dhe analitike t&euml; pal&euml;ve t&euml; treta t&euml; integruara (p&euml;r shembull nga fontet dhe CDN-ja) t&euml; nevojshme p&euml;r shfaqjen e sakt&euml; t&euml; faqes.", "Preferenca juaj e gjuh&euml;s dhe e konsensusit ruhet lokalisht n&euml; shfletuesin tuaj, jo n&euml; server&euml;t tan&euml;.", "Duke p&euml;rdorur faqen, pranoni k&euml;to cookie teknike t&euml; domosdoshme."],
+    it: ["Questo sito non usa cookie di profilazione. Possono essere utilizzati cookie tecnici e analitici di terze parti integrate (ad es. font e CDN) necessari alla corretta visualizzazione del sito.", "La tua preferenza di lingua e di consenso &egrave; salvata localmente nel tuo browser, non sui nostri server.", "Utilizzando il sito accetti questi cookie tecnici indispensabili."]
+  }
+};
+
+let ORIG = [];
+let PH_ORIG = [];
+
+function captureOriginals() {
+  ORIG = [];
+  PH_ORIG = [];
+  var els = document.querySelectorAll('[data-i18n]');
+  for (var i = 0; i < els.length; i++) { ORIG.push({ el: els[i], html: els[i].innerHTML }); }
+  var phs = document.querySelectorAll('[data-i18n-ph]');
+  for (var j = 0; j < phs.length; j++) { PH_ORIG.push({ el: phs[j], ph: phs[j].placeholder }); }
+}
+
+function swapClasses(el, add, rem) { if (!el) return; for (var i = 0; i < add.length; i++) el.classList.add(add[i]); for (var k = 0; k < rem.length; k++) el.classList.remove(rem[k]); }
+
+function applyLangButtons() {
+  var isIt = CURRENT.lang === 'it';
+  var s = document.getElementById('lang-btn-sq');
+  var i = document.getElementById('lang-btn-it');
+  swapClasses(s, isIt ? ['text-red-800'] : ['bg-red-800', 'text-white', 'shadow-sm'], isIt ? ['bg-red-800', 'text-white', 'shadow-sm'] : ['text-red-800']);
+  swapClasses(i, isIt ? ['bg-red-800', 'text-white', 'shadow-sm'] : ['text-red-800'], isIt ? ['text-red-800'] : ['bg-red-800', 'text-white', 'shadow-sm']);
+  var m = document.querySelectorAll('#mobile-menu button.lang-btn');
+  if (m.length >= 2) {
+    swapClasses(m[0], isIt ? ['bg-white', 'text-red-800', 'border-red-200'] : ['bg-red-800', 'text-white', 'border-red-800'], isIt ? ['bg-red-800', 'text-white', 'border-red-800'] : ['bg-white', 'text-red-800', 'border-red-200']);
+    swapClasses(m[1], isIt ? ['bg-red-800', 'text-white', 'border-red-800'] : ['bg-white', 'text-red-800', 'border-red-200'], isIt ? ['bg-white', 'text-red-800', 'border-red-200'] : ['bg-red-800', 'text-white', 'border-red-800']);
+  }
+}
+
+function updateRangeLabels() {
+  var it = CURRENT.lang === 'it';
+  var mn = document.getElementById('range-min');
+  var av = document.getElementById('range-avg');
+  var mx = document.getElementById('range-max');
+  if (mn) mn.textContent = (it ? 'Min: ' : 'Min: ') + '40&euro;'.replace('&euro;', '€');
+  if (av) av.textContent = it ? 'Media: 120&euro; - 180&euro;'.replace('&euro;', '€') : 'Mesatarja: 120&euro; - 180&euro;'.replace('&euro;', '€');
+  if (mx) mx.textContent = 'Max: 400&euro;+'.replace('&euro;', '€');
+}
+
+function applyLang(lang) {
+  CURRENT.lang = lang;
+  document.documentElement.lang = lang;
+  var pt = document.getElementById('page-title');
+  if (pt) pt.textContent = lang === 'it' ? 'Albania Energy — Energia elettrica e gas in Italia per gli albanesi' : 'Albania Energy — Energjia Elektrike dhe Gaz në Itali për Shqiptarë';
+  var i, node, key, tr;
+  for (i = 0; i < ORIG.length; i++) {
+    node = ORIG[i].el;
+    key = node.getAttribute('data-i18n');
+    if (lang === 'it') { tr = I18N_IT[key]; node.innerHTML = (tr !== undefined) ? tr : ORIG[i].html; }
+    else { node.innerHTML = ORIG[i].html; }
+  }
+  for (i = 0; i < PH_ORIG.length; i++) {
+    node = PH_ORIG[i].el;
+    key = node.getAttribute('data-i18n-ph');
+    if (lang === 'it') { tr = I18N_IT[key]; node.placeholder = (tr !== undefined) ? tr : PH_ORIG[i].ph; }
+    else { node.placeholder = PH_ORIG[i].ph; }
+  }
+  applyLangButtons();
+  updateRangeLabels();
+  renderFaq(CURRENT.faqCat);
+  renderDocs();
+  renderTestimonials();
+  updateCalculator();
+  if (CURRENT.legalOpen) loadLegalContent(CURRENT.legalOpen);
+  if (window.lucide) lucide.createIcons();
+}
+
+function setLanguage(lang) {
+  try { localStorage.setItem('albaniaEnergyLang', lang); } catch (e) {}
+  applyLang(lang);
+}
+
+function toggleMobileMenu() {
+  var mm = document.getElementById('mobile-menu');
+  if (mm) mm.classList.toggle('hidden');
+  var o = document.getElementById('menu-icon-open');
+  var c = document.getElementById('menu-icon-close');
+  if (o && c) { o.classList.toggle('hidden'); c.classList.toggle('hidden'); }
+}
+
+function scrollToId(id) {
+  var el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function openWhatsApp(msg) {
+  if (!msg) msg = waMsg('generic');
+  window.open('https://api.whatsapp.com/send?phone=' + WHATSAPP_NUMBER + '&text=' + encodeURIComponent(msg), '_blank');
+}
+
+function svcMsg(k) {
+  var name = SERVICE_NAMES[k];
+  return t('wa.svcPrefix') + ': ' + (name ? name[CURRENT.lang] : k) + '.';
+}
+
+function selectService(k) { openWhatsApp(svcMsg(k)); }
+
+function selectPlan(key, name) {
+  var m = waMsg('plan') + ': ' + (name || planName(key));
+  openWhatsApp(m);
+}
+
+function unitSuffix(kind) {
+  return CURRENT.lang === 'it' ? (kind === 'm' ? 'mese' : 'anno') : (kind === 'm' ? 'muaj' : 'vit');
+}
+
+function updateCalculator() {
+  var slider = document.getElementById('bill-slider');
+  if (!slider) return;
+  var bill = parseInt(slider.value, 10) || 140;
+  var fact;
+  if (CURRENT.profile === 'empresa') { fact = CURRENT.calcService === 'luz' ? 0.18 : CURRENT.calcService === 'gas' ? 0.20 : 0.24; }
+  else { fact = CURRENT.calcService === 'luz' ? 0.16 : CURRENT.calcService === 'gas' ? 0.18 : 0.20; }
+  var monthly = bill * fact;
+  var annual = monthly * 12;
+  var newBill = bill - monthly;
+  var disp = document.getElementById('bill-display');
+  if (disp) disp.innerHTML = bill + ' &euro; <span class="text-xs text-slate-500 font-normal">' + t('calc.perMonth') + '</span>';
+  var ms = document.getElementById('monthly-saving');
+  if (ms) ms.textContent = '-' + Math.round(monthly) + ' €';
+  var as = document.getElementById('annual-saving');
+  if (as) as.textContent = '~' + Math.round(annual) + ' €/' + unitSuffix('a');
+  var nb = document.getElementById('new-bill');
+  if (nb) nb.textContent = '~' + Math.round(newBill) + ' €/' + unitSuffix('m');
+  var rg = document.getElementById('range-avg');
+  if (rg && CURRENT.lang === 'it') rg.textContent = 'Media: 120&euro; - 180&euro;'.replace('&euro;', '€');
+  else if (rg) rg.textContent = 'Mesatarja: 120&euro; - 180&euro;'.replace('&euro;', '€');
+}
+
+function setProfile(prof) {
+  CURRENT.profile = prof;
+  var h = document.getElementById('profile-hogar');
+  var e = document.getElementById('profile-empresa');
+  if (prof === 'hogar') {
+    swapClasses(h, ['bg-gradient-to-r', 'from-red-700', 'to-red-900', 'text-white', 'shadow-md'], ['text-slate-600', 'hover:text-slate-900']);
+    swapClasses(e, ['text-slate-600', 'hover:text-slate-900'], ['bg-gradient-to-r', 'from-red-700', 'to-red-900', 'text-white', 'shadow-md']);
+  } else {
+    swapClasses(e, ['bg-gradient-to-r', 'from-red-700', 'to-red-900', 'text-white', 'shadow-md'], ['text-slate-600', 'hover:text-slate-900']);
+    swapClasses(h, ['text-slate-600', 'hover:text-slate-900'], ['bg-gradient-to-r', 'from-red-700', 'to-red-900', 'text-white', 'shadow-md']);
+  }
+  updateCalculator();
+}
+
+function setCalcService(svc) {
+  CURRENT.calcService = svc;
+  var ids = { luz: 'service-luz', gas: 'service-gas', dual: 'service-dual' };
+  var b;
+  for (var k in ids) {
+    b = document.getElementById(ids[k]);
+    if (k === svc) { swapClasses(b, ['bg-red-100', 'border-red-700', 'text-red-950', 'ring-2', 'ring-red-500', 'font-bold', 'shadow-sm'], ['bg-white', 'border-slate-200', 'text-slate-600']); }
+    else { swapClasses(b, ['bg-white', 'border-slate-200', 'text-slate-600'], ['bg-red-100', 'border-red-700', 'text-red-950', 'ring-2', 'ring-red-500', 'font-bold', 'shadow-sm']); }
+  }
+  updateCalculator();
+}
+
+function applyCalculation() {
+  var slider = document.getElementById('bill-slider');
+  var bill = slider ? parseInt(slider.value, 10) : 140;
+  var fact = CURRENT.profile === 'empresa' ? 0.24 : 0.20;
+  var monthly = Math.round(bill * fact);
+  var m = waMsg('calc') + ' ' + monthly + '€/' + unitSuffix('m') + '.';
+  openWhatsApp(m);
+}
+
+function setGuideTab(tab) {
+  CURRENT.guideTab = tab;
+  var panels = ['partes', 'tramites', 'seguridad'];
+  for (var i = 0; i < panels.length; i++) {
+    var p = document.getElementById('guide-panel-' + panels[i]);
+    if (p) p.classList.toggle('hidden', panels[i] !== tab);
+    var b = document.getElementById('guide-tab-' + panels[i]);
+    swapClasses(b, panels[i] === tab ? ['bg-gradient-to-r', 'from-red-700', 'to-red-900', 'text-white', 'shadow-md'] : ['text-slate-600', 'hover:text-slate-900'], panels[i] === tab ? ['text-slate-600', 'hover:text-slate-900'] : ['bg-gradient-to-r', 'from-red-700', 'to-red-900', 'text-white', 'shadow-md']);
+  }
+}
+
+function setFaqMainTab(tab) {
+  CURRENT.faqTab = tab;
+  var faqP = document.getElementById('faq-panel-faq');
+  var docP = document.getElementById('faq-panel-docs');
+  var bf = document.getElementById('faq-tab-faq');
+  var bd = document.getElementById('faq-tab-docs');
+  if (tab === 'docs') {
+    if (faqP) faqP.classList.add('hidden');
+    if (docP) docP.classList.remove('hidden');
+    swapClasses(bf, ['text-slate-700', 'hover:text-amber-900', 'hover:bg-amber-100/60', 'bg-transparent'], ['bg-red-800', 'text-white', 'shadow-md']);
+    swapClasses(bd, ['bg-red-800', 'text-white', 'shadow-md'], ['text-slate-700', 'hover:text-amber-900', 'hover:bg-amber-100/60', 'bg-transparent']);
+    renderDocs();
+  } else {
+    if (docP) docP.classList.add('hidden');
+    if (faqP) faqP.classList.remove('hidden');
+    swapClasses(bd, ['text-slate-700', 'hover:text-amber-900', 'hover:bg-amber-100/60', 'bg-transparent'], ['bg-red-800', 'text-white', 'shadow-md']);
+    swapClasses(bf, ['bg-red-800', 'text-white', 'shadow-md'], ['text-slate-700', 'hover:text-amber-900', 'hover:bg-amber-100/60', 'bg-transparent']);
+    renderFaq(CURRENT.faqCat);
+  }
+}
+
+function setFaqCategory(cat) {
+  CURRENT.faqCat = cat;
+  var btns = document.querySelectorAll('.faq-cat-btn');
+  for (var i = 0; i < btns.length; i++) {
+    var b = btns[i];
+    var on = b.getAttribute('data-cat') === cat;
+    swapClasses(b, on ? ['bg-red-800', 'text-white', 'border-red-700', 'shadow-sm'] : ['bg-white', 'text-slate-700', 'border-slate-300', 'hover:border-red-300', 'hover:bg-red-50'], on ? ['bg-white', 'text-slate-700', 'border-slate-300', 'hover:border-red-300', 'hover:bg-red-50'] : ['bg-red-800', 'text-white', 'border-red-700', 'shadow-sm']);
+  }
+  renderFaq(cat);
+}
+
+function toggleFaq(idx) {
+  var body = document.getElementById('faq-body-' + idx);
+  var icon = document.getElementById('faq-icon-' + idx);
+  if (body) body.classList.toggle('hidden');
+  if (icon) icon.classList.toggle('rotate-180');
+}
+
+function renderFaq(cat) {
+  var box = document.getElementById('faq-accordion');
+  if (!box) return;
+  var list = [];
+  for (var i = 0; i < FAQ_DATA.length; i++) { if (cat === 'todos' || FAQ_DATA[i].cat === cat) list.push({ idx: i, item: FAQ_DATA[i] }); }
+  var count = document.getElementById('faq-count');
+  if (count) count.textContent = list.length;
+  var html = '';
+  for (var j = 0; j < list.length; j++) {
+    var d = list[j].item;
+    html += '<div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all">'
+      + '<button onclick="toggleFaq(' + list[j].idx + ')" class="w-full flex items-center gap-4 p-5 text-left cursor-pointer">'
+      + '<span class="shrink-0 w-7 h-7 rounded-lg bg-red-100 text-red-700 text-xs font-black flex items-center justify-center border border-red-200">' + (j + 1) + '</span>'
+      + '<span class="flex-1 text-sm sm:text-base font-bold text-slate-900">' + d.q[CURRENT.lang] + '</span>'
+      + '<i data-lucide="chevron-down" id="faq-icon-' + list[j].idx + '" class="w-4 h-4 shrink-0 transition-transform text-slate-400"></i>'
+      + '</button>'
+      + '<div id="faq-body-' + list[j].idx + '" class="hidden px-5 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed pl-16">' + d.a[CURRENT.lang] + '</div>'
+      + '</div>';
+  }
+  box.innerHTML = html;
+  if (window.lucide) lucide.createIcons();
+}
+
+function renderDocs() {
+  var grid = document.getElementById('docs-grid');
+  if (!grid) return;
+  var q = '';
+  var si = document.getElementById('doc-search');
+  if (si) q = (si.value || '').toLowerCase();
+  var list = [];
+  for (var i = 0; i < DOC_DATA.length; i++) {
+    var d = DOC_DATA[i];
+    var hay = (d.tag + ' ' + d.sq.t + ' ' + d.sq.al + ' ' + d.sq.d + ' ' + d.sq.p).toLowerCase();
+    if (!q || hay.indexOf(q) !== -1) list.push(d);
+  }
+  var c = document.getElementById('doc-count');
+  if (c) c.textContent = list.length;
+  var html = '';
+  for (var j = 0; j < list.length; j++) {
+    var x = list[j];
+    var L = CURRENT.lang === 'it' ? x.it : x.sq;
+    html += '<div class="bg-white border-2 border-slate-200 hover:border-red-300 rounded-2xl p-5 shadow-sm transition-all flex flex-col">'
+      + '<div class="flex items-start justify-between gap-3"><span class="text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-md bg-red-800 text-white">' + x.tag + '</span><i data-lucide="file-check-2" class="w-5 h-5 text-red-700 shrink-0"></i></div>'
+      + '<h4 class="text-base font-black text-slate-900 mt-3">' + L.t + '</h4>'
+      + '<div class="space-y-2 mt-3 text-xs flex-1">'
+      + '<div class="flex items-start gap-2"><span class="text-[10px] font-bold text-amber-700 bg-amber-50 border border-amber-200 rounded px-1.5 py-0.5 shrink-0">AL</span><span class="text-slate-600">' + L.al + '</span></div>'
+      + '<div class="flex items-start gap-2"><span class="text-[10px] font-bold text-red-700 bg-red-50 border border-red-200 rounded px-1.5 py-0.5 shrink-0">IT</span><span class="text-slate-600">' + L.d + '</span></div>'
+      + '</div>'
+      + '<div class="mt-3 p-3 rounded-xl bg-amber-50/80 border border-amber-200 text-[11px] text-slate-700 leading-relaxed"><strong class="text-amber-900">' + t('doc.why') + '</strong> ' + L.p + '</div>'
+      + '</div>';
+  }
+  grid.innerHTML = html;
+  if (window.lucide) lucide.createIcons();
+}
+
+function renderTestimonials() {
+  var grid = document.getElementById('testimonials-grid');
+  if (!grid) return;
+  var html = '';
+  for (var i = 0; i < TEST_DATA.length; i++) {
+    var x = TEST_DATA[i];
+    var txt = CURRENT.lang === 'it' ? x.it.t : x.sq.t;
+    html += '<div class="p-6 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm hover:border-red-400/50 transition-all flex flex-col justify-between shadow-lg">'
+      + '<div class="flex items-center justify-between mb-4"><i data-lucide="quote" class="w-6 h-6 text-amber-400"></i><span class="text-amber-300 text-xs font-bold">★★★★★</span></div>'
+      + '<p class="text-sm text-slate-200 leading-relaxed mb-5">"' + txt + '"</p>'
+      + '<div class="pt-4 border-t border-white/10 flex items-center gap-3">'
+      + '<div class="w-9 h-9 rounded-full bg-gradient-to-br from-red-500 to-red-700 text-white text-xs font-black flex items-center justify-center shadow-md">' + x.name.charAt(0) + '</div>'
+      + '<div><p class="text-sm font-bold text-white">' + x.name + '</p><p class="text-[10px] text-slate-400 font-semibold">' + x.service + ' &middot; ' + (CURRENT.lang === 'it' ? 'Cliente' : 'Klient') + '</p></div>'
+      + '</div></div>';
+  }
+  grid.innerHTML = html;
+  if (window.lucide) lucide.createIcons();
+}
+
+function loadLegalContent(type) {
+  CURRENT.legalOpen = type;
+  var dataObj = LEGAL_DATA[type];
+  if (!dataObj) return;
+  var titleEl = document.getElementById('legal-modal-title');
+  if (titleEl) titleEl.textContent = LEGAL_TITLES[type][CURRENT.lang];
+  var body = document.getElementById('legal-modal-body');
+  if (!body) return;
+  var paras = dataObj[CURRENT.lang] || [];
+  var html = '';
+  for (var i = 0; i < paras.length; i++) html += '<p>' + paras[i] + '</p>';
+  body.innerHTML = html;
+}
+
+function svcChipBind() {
+  var chips = document.querySelectorAll('.svc-chip');
+  for (var i = 0; i < chips.length; i++) {
+    chips[i].addEventListener('click', function () {
+      var self = this;
+      for (var k = 0; k < chips.length; k++) {
+        swapClasses(chips[k], chips[k] === self ? ['border-red-600', 'text-red-800', 'bg-red-50'] : ['border-slate-300', 'text-slate-600', 'bg-white'], chips[k] === self ? ['border-slate-300', 'text-slate-600', 'bg-white'] : ['border-red-600', 'text-red-800', 'bg-red-50']);
+      }
+      var hf = document.getElementById('formService');
+      if (hf) hf.value = self.getAttribute('data-svc');
+    });
+  }
+  var as = document.querySelectorAll('.audit-svc');
+  for (var m = 0; m < as.length; m++) {
+    as[m].addEventListener('click', function () {
+      var self = this;
+      for (var n = 0; n < as.length; n++) {
+        swapClasses(as[n], as[n] === self ? ['border-red-600', 'text-red-800', 'bg-red-50'] : ['border-slate-300', 'text-slate-600', 'bg-white'], as[n] === self ? ['border-slate-300', 'text-slate-600', 'bg-white'] : ['border-red-600', 'text-red-800', 'bg-red-50']);
+      }
+      var hf2 = document.getElementById('auditService');
+      if (hf2) hf2.value = self.getAttribute('data-svc');
+    });
+  }
+}
+
+function submitContactForm() {
+  var name = document.getElementById('formName') ? document.getElementById('formName').value : '';
+  var phone = document.getElementById('formPhone') ? document.getElementById('formPhone').value : '';
+  var msg = document.getElementById('formMessage') ? document.getElementById('formMessage').value : '';
+  var svcKey = document.getElementById('formService') ? document.getElementById('formService').value : 'luz';
+  var svc = SERVICE_NAMES[svcKey];
+  var svcName = svc ? svc[CURRENT.lang] : svcKey;
+  var intro = t('contact.intro');
+  var m = intro + ' ' + name + '. ' + t('contact.lblPhone') + ': ' + phone + '. ' + t('contact.lblService') + ': ' + svcName + '.' + (msg ? ' ' + msg : '');
+  openWhatsApp(m);
+}
+
+function submitAuditForm() {
+  var name = document.getElementById('auditName') ? document.getElementById('auditName').value : '';
+  var phone = document.getElementById('auditPhone') ? document.getElementById('auditPhone').value : '';
+  var svcKey = document.getElementById('auditService') ? document.getElementById('auditService').value : 'luz';
+  var svc = SERVICE_NAMES[svcKey];
+  var svcName = svc ? svc[CURRENT.lang] : svcKey;
+  var fn = document.getElementById('fileName') ? document.getElementById('fileName').textContent : '';
+  var m = waMsg('audit') + ' ' + t('contact.lblService') + ': ' + svcName + '. ' + t('contact.lblPhone') + ': ' + phone + '.' + (fn ? ' (Allegato: ' + fn + ')' : '');
+  openWhatsApp(m);
+}
+
+function initLang() {
+  var saved = 'sq';
+  try { saved = localStorage.getItem('albaniaEnergyLang') || 'sq'; } catch (e) {}
+  captureOriginals();
+  setFaqMainTab('faq');
+  setGuideTab('partes');
+  svcChipBind();
+  applyLang(saved === 'it' ? 'it' : 'sq');
+  if (window.lucide) lucide.createIcons();
+}
+
+initLang();
+</script>
+</body>
+</html>

@@ -1,0 +1,448 @@
+<script>
+Object.assign(I18N_IT, {
+  "hero.saving": "Risparmio medio: <strong class='text-emerald-700'>-20&euro; fino a -45&euro;</strong> / mese",
+  "hero.saving2": "Risparmio medio: <strong class='text-emerald-700'>-30&euro; fino a -60&euro;</strong> / mese",
+  "hero.savingDual": "Doppio sconto: <strong class='text-emerald-700'>fino a -75&euro;</strong> / mese",
+  "hero.saving4": "Risparmio medio: <strong class='text-emerald-700'>-100&euro; fino a -350&euro;</strong> / mese",
+  "stats.s1.badge": "-20&euro;/mese",
+  "stats.s2.badge": "-100&euro;/mese",
+  "stats.s3.badge": "10-15 giorni",
+  "calc.perYear": "/anno",
+  "calc.resultBadge": "Il Tuo Risparmio Stimato",
+  "doc.eq": "Equivalente albanese:",
+  "doc.def": "Cos'&egrave;:",
+  "doc.why": "Perch&eacute; conta per luce/gas?",
+  "wa.svcPrefix": "Ciao Albania Energy! Mi interessa l'offerta",
+  "contact.intro": "Ciao Albania Energy! Sono",
+  "contact.lblPhone": "Tel.",
+  "contact.lblService": "Servizi",
+  "contact.lblMsg": "Messaggio"
+});
+Object.assign(I18N_SQ, {
+  "hero.saving": "Kursim mesatar: <strong class='text-emerald-700'>-20&euro; deri -45&euro;</strong> / muaj",
+  "hero.saving2": "Kursim mesatar: <strong class='text-emerald-700'>-30&euro; deri -60&euro;</strong> / muaj",
+  "hero.savingDual": "Zbritje dyfishe: <strong class='text-emerald-700'>Deri -75&euro;</strong> / muaj",
+  "hero.saving4": "Kursim mesatar: <strong class='text-emerald-700'>-100&euro; deri -350&euro;</strong> / muaj",
+  "stats.s1.badge": "-20&euro;/muaj",
+  "stats.s2.badge": "-100&euro;/muaj",
+  "stats.s3.badge": "10-15 dit&euml;",
+  "calc.perYear": "/vit",
+  "calc.resultBadge": "Kursimi Juaj i Vler&euml;suar",
+  "doc.eq": "Ekuivalenti shqiptar:",
+  "doc.def": "&Ccedil;far&euml; &euml;sht&euml;:",
+  "doc.why": "Pse r&euml;nd&euml;si p&euml;r drit&euml;/gaz?",
+  "wa.svcPrefix": "P&euml;rsh&euml;ndetje Albania Energy! M&euml; intereson oferta",
+  "contact.intro": "P&euml;rsh&euml;ndetje Albania Energy! Un&euml; jam",
+  "contact.lblPhone": "Tel.",
+  "contact.lblService": "Sh&euml;rbimi",
+  "contact.lblMsg": "Mesazhi"
+});
+
+const FAQ_DATA = [
+  { cat: "documentos", q: { sq: "Si e marr Codice Fiscale-n tim?", it: "Come ottengo il mio Codice Fiscale?" }, a: { sq: "Codice Fiscale &euml;sht&euml; kodi juaj fiskal italian, i nevojsh&euml;m p&euml;r &ccedil;do kontrat&euml;. Mund ta merrni falas n&euml; nj&euml; zyr&euml; t&euml; Agjencis&euml; s&euml; t&euml; Ardhurave (Agenzia delle Entrate) me pasaport&euml;n tuaj. N&euml;se keni nj&euml; Kod Fiskal t&euml; p&euml;rkohsh&euml;m n&euml; let&euml;r (17 shifra), na e tregoni: mund t&euml; filloni procedurat me t&euml;.", it: "Il Codice Fiscale &egrave; il tuo codice fiscale italiano, necessario per ogni contratto. Puoi ottenerlo gratuitamente in un ufficio dell'Agenzia delle Entrate presentando il passaporto. Se hai un codice fiscale provvisorio su carta (17 cifre), mostracelo: puoi gi&agrave; avviare le pratiche." } },
+  { cat: "documentos", q: { sq: "&Ccedil;far&euml; &euml;sht&euml; SPID dhe pse m&euml; duhet?", it: "Cos'&egrave; lo SPID e perch&eacute; mi serve?" }, a: { sq: "SPID &euml;sht&euml; identiteti juaj dixhital italian (si nj&euml; email + fjal&euml;kalim i sigurt) q&euml; ju lejon t&euml; hyni n&euml; sh&euml;rbimet publike online, duke p&euml;rfshir&euml; etiketimin e drit&euml;s/gazit. Na duhet ndonj&euml;her&euml; p&euml;r kontrata online, por p&euml;r Voltura/Subentro fizike mjafton dokumenti juaj dhe Codice Fiscale.", it: "Lo SPID &egrave; la tua identit&agrave; digitale italiana (come una email + password sicura) che ti permette di accedere ai servizi pubblici online, incluso il mercato luce/gas. A volte serve per i contratti online, ma per Voltura/Subentro fisiche bastano documento e Codice Fiscale." } },
+  { cat: "documentos", q: { sq: "Si p&euml;rdor dokumentet shqiptare n&euml; Itali?", it: "Come uso i documenti albanesi in Italia?" }, a: { sq: "N&euml; Itali njihen dokumentet shqiptare me apostilli ose me p&euml;rkthim t&euml; ligj&euml;ruar (traduzione giurata). P&euml;r energjin&euml;, zakonisht NUK k&euml;rkohen v&euml;rtetime apo apostillime: thjesht nj&euml; dokument identifikimi shqiptar t&euml; vlefsh&euml;m dhe Codice Fiscale.", it: "In Italia i documenti albanesi sono validi con apostille o traduzione giurata. Per l'energia di solito NON servono certificati n&eacute; apostille: bastano un documento d'identit&agrave; albanese valido e il Codice Fiscale." } },
+  { cat: "tramites", q: { sq: "Sa kushton nj&euml; Voltura?", it: "Quanto costa una Voltura?" }, a: { sq: "Kur num&euml;ruesi tashm&euml; ka drit&euml;/gaz, voltura &euml;sht&euml; zakonisht falas. Me Albania Energy, gjith&ccedil;ka b&euml;het pa pages&euml;: ju duhen vet&euml;m dokumenti juaj, Codice Fiscale dhe t&euml; dh&euml;nat e num&euml;ruesit.", it: "Quando il contatore ha gi&agrave; luce/gas, la voltura &egrave; di solito gratuita. Con Albania Energy tutto avviene senza costi: servono solo documento, Codice Fiscale e dati del contatore." } },
+  { cat: "tramites", q: { sq: "&Ccedil;far&euml; b&euml;j n&euml;se num&euml;ruesi &euml;sht&euml; pa rrym&euml; (Subentro)?", it: "Cosa faccio se il contatore &egrave; senza corrente (Subentro)?" }, a: { sq: "N&euml;se sh&euml;rbimi &euml;sht&euml; &ccedil;aktivizuar, k&euml;rkohet nj&euml; Subentro me riaktivizim teknik, q&euml; zgjat rreth 5 deri 7 dit&euml; pune. Na duhen: numri serial i num&euml;ruesit (Targa), dokumenti juaj dhe kontrata e qiras&euml;.", it: "Se il servizio &egrave; disattivato serve un Subentro con riattivazione tecnica, che richiede circa 5-7 giorni lavorativi. Servono: numero di matricola del contatore (targa), documento e contratto di affitto." } },
+  { cat: "tramites", q: { sq: "A nd&euml;rpritet drita gjat&euml; ndryshimit t&euml; furnizuesit?", it: "Viene interrotta la luce durante il cambio fornitore?" }, a: { sq: "Jo. Ndryshimi i furnizuesit (switch) nuk shkakton asnj&euml; nd&euml;rprerje: fizikisht asgj&euml; nuk ndryshon, as num&euml;ruesi e as cil&euml;sia e sh&euml;rbimit. Vet&euml;m ndikohet &ccedil;mimi i energjis&euml; n&euml; fatur&euml;... n&euml; drejtim pozitiv.", it: "No. Il cambio fornitore (switch) non provoca alcuna interruzione: fisicamente non cambia nulla, n&eacute; il contatore n&eacute; la qualit&agrave; del servizio. Cambia solo il prezzo dell'energia in bolletta... in positivo." } },
+  { cat: "general", q: { sq: "&Ccedil;mim fiks apo i indeksuar? Cili &euml;sht&euml; m&euml; i mir&euml;?", it: "Prezzo fisso o indicizzato? Qual &egrave; migliore?" }, a: { sq: "&Ccedil;mimi fiks garanton stabilitet: e dini &ccedil;far&euml; paguani p&euml;r 12 muaj, ideale p&euml;r dim&euml;r t&euml; ashp&euml;r. &Ccedil;mimi i indeksuar (PUN p&euml;r drit&euml;n, PSV p&euml;r gazin) &euml;sht&euml; fleksib&euml;l dhe kur tregu bie, ju p&euml;rfitoni.", it: "Il prezzo fisso garantisce stabilit&agrave;: sai cosa paghi per 12 mesi, ideale per l'inverno rigido. Il prezzo indicizzato (PUN per la luce, PSV per il gas) &egrave; flessibile e quando il mercato scende, tu ne benefici." } },
+  { cat: "general", q: { sq: "N&euml;se m&euml; k&euml;rkojn&euml; depozit&euml; garancie, &ccedil;duhet t&euml; b&euml;j?", it: "Se mi chiedono un deposito cauzionale, cosa devo fare?" }, a: { sq: "N&euml;se nuk aktivizoni debitimin bankar (SDD), furnizuesi mund t&euml; k&euml;rkoj&euml; nj&euml; depozit&euml; garancie nga 50&euro; deri 150&euro;. Me Albania Energy ju inkurajojm&euml; t&euml; na jepni IBAN-in: forma m&euml; e mir&euml; &euml;sht&euml; debiti direkt.", it: "Se non attivi l'addebito diretto (SDD), il fornitore pu&ograve; chiedere un deposito cauzionale tra 50&euro; e 150&euro;. Con Albania Energy ti consigliamo di darci l'IBAN: la soluzione migliore &egrave; la domiciliazione bancaria." } },
+  { cat: "general", q: { sq: "Sa her&euml; m&euml; vijn&euml; faturat n&euml; vit?", it: "Quante volte all'anno ricevo le bollette?" }, a: { sq: "N&euml; Itali faturat vijn&euml; me frekuenc&euml; t&euml; p&euml;rcaktuar: shpesh dy-mujore, por shum&euml; kontrata jan&euml; mujore. Ju gjithmon&euml; mund t&euml; lexoni num&euml;ruesin dhe t&euml; na e d&euml;rgoni foton: me leximin real fatura &euml;sht&euml; gjithmon&euml; e sakt&euml;, pa vler&euml;sime.", it: "In Italia le bollette arrivano con frequenza definita: spesso bimestrali, ma molti contratti sono mensili. Puoi sempre leggere il contatore e inviarci la foto: con la lettura reale la bolletta &egrave; sempre corretta, senza stime." } }
+];
+
+const DOC_DATA = [
+  { tag: "CF", sq: { t: "Codice Fiscale (Kodi Fiskal)", al: "— (ju merrni vet&euml;m nj&euml;: at&euml; italian)", d: "Kod numerik 16-shifror q&euml; identifikon &ccedil;do person q&euml; vepron n&euml; Itali, edhe n&euml;se nuk &euml;sht&euml; i regjistruar.", p: "KRITIK - Pa t&euml; nuk b&euml;hen kontrata energjie n&euml; Itali. Edhe versioni provizor n&euml; let&euml;r funksionon." }, it: { t: "Codice Fiscale", al: "— (se ne hai uno, &egrave; quello italiano)", d: "Codice numerico di 16 cifre che identifica ogni persona che opera in Italia, anche se non registrata.", p: "CRITICO - Senza non si stipulano contratti di energia in Italia. Funziona anche la versione provvisoria su carta." } },
+  { tag: "CIE", sq: { t: "CIE ose Pasaporta", al: "Pasaporta Shqiptare ose DNI", d: "Dokument identifikimi me foto t&euml; vlefshme.", p: "K&euml;rkohet p&euml;r &ccedil;do Voltura/Subentro/ndryshim furnizuesi." }, it: { t: "CIE o Passaporto", al: "Passaporto albanese o DNI", d: "Documento d'identit&agrave; valido con foto.", p: "Richiesto per ogni Voltura/Subentro/cambio fornitore." } },
+  { tag: "NUIAP", sq: { t: "NUIAP", al: "— (kod q&euml; mbetet n&euml; fatur&euml;n italiane)", d: "Shkurtes&euml; q&euml; gjendet n&euml; fatur&euml; p&euml;r t&euml; identifikuar ofert&euml;n tuaj.", p: "Na ndihmon t&euml; krahasojm&euml; tarif&euml;n tuaj aktuale me ton&euml;n." }, it: { t: "NUIAP", al: "— (codice che resta in bolletta)", d: "Sigla presente in bolletta per identificare la tua offerta.", p: "Ci aiuta a confrontare la tua tariffa attuale con la nostra." } },
+  { tag: "IBAN", sq: { t: "IBAN", al: "IBAN Shqiptar (AL47...) - nuk pranohet", d: "Kodi nd&euml;rkomb&euml;tar i llogaris&euml; bankare.", p: "P&euml;r debitimin bankar (SDD): ju shmang depozit&euml;n e garancis&euml;." }, it: { t: "IBAN", al: "IBAN albanese (AL47...) - non accettato", d: "Codice internazionale del conto bancario.", p: "Per l'addebito diretto (SDD): eviti il deposito cauzionale." } },
+  { tag: "SPID", sq: { t: "SPID", al: "— (identitet dixhital vet&euml;m italian)", d: "Identitet dixhital p&euml;r sh&euml;rbimet online italiane.", p: "Vet&euml;m p&euml;r kontrata online; mjaftojn&euml; dokumenti dhe Codice Fiscale." }, it: { t: "SPID", al: "— (identit&agrave; digitale solo italiana)", d: "Identit&agrave; digitale per i servizi online italiani.", p: "Solo per contratti online; per noi bastano documento e Codice Fiscale." } },
+  { tag: "POD/PDR", sq: { t: "Kodi POD ose PDR", al: "Numri i njehsorit (num&euml;ruesi)", d: "Kodet q&euml; identifikojn&euml; furnizimin tuaj (POD=drit&euml;, PDR=gaz).", p: "I nevojsh&euml;m p&euml;r ndryshimin! N&euml;se nuk e keni, na d&euml;rgoni foton e num&euml;ruesit." }, it: { t: "Codice POD o PDR", al: "Numero del contatore", d: "I codici che identificano la tua fornitura (POD=luce, PDR=gas).", p: "Necessario per il cambio! Se non lo hai, inviaci la foto del contatore." } },
+  { tag: "RES", sq: { t: "Certifikata e Banimit", al: "V&euml;rtetimi i banimit / Certifikata familjare", d: "D&euml;shmi zyrtare e regjistrimit tuaj n&euml; komun&euml;.", p: "Jo e detyrueshme p&euml;r energjin&euml;, por e dobishme p&euml;r procedura t&euml; tjera." }, it: { t: "Certificato di Residenza", al: "V&euml;rtetim banimi / Certifikata familjare", d: "Prova ufficiale della tua registrazione in comune.", p: "Non obbligatorio per l'energia, utile per altre procedure." } }
+];
+
+const TEST_DATA = [
+  { name: "Arben H.", service: "Luce + Gas (Cuneo)", sq: { t: "Per 6 vjet pagova Enel pa kuptuar faturat. M&euml; mjaftoi nj&euml; telefonat&euml; n&euml; shqip p&euml;r t&euml; kaluar te Albania Energy: tani paguaj -60&euro; n&euml; muaj dhe e di sakt&euml;sisht se &ccedil;far&euml; po paguaj." }, it: { t: "Per 6 anni ho pagato Enel senza capire le bollette. Una telefonata in albanese &egrave; bastata per passare ad Albania Energy: ora risparmio -60&euro; al mese e so esattamente cosa pago. CONSIGLIATO A TUTTI I CONNAZIONALI." } },
+  { name: "Marina K.", service: "Voltura B&B (Torino)", sq: { t: "Menaxhuan voltura-n e B&B-s&euml; time n&euml; Torino pa mua t&euml; shkoj n&euml; asnj&euml; zyr&euml;. Gjith&ccedil;ka me shkrim n&euml; shqip dhe n&euml; 3 dit&euml; kishte drit&euml;." }, it: { t: "Hanno gestito la voltura del mio B&amp;B a Torino senza farmi andare in nessun ufficio: tutto per iscritto in albanese e in 3 giorni la luce era attiva." } },
+  { name: "Dalip S.", service: "Gas Business (Brescia)", sq: { t: "Kisha furnizim industrial me kushte t&euml; paqarta. Gjeta planet e gazit t&euml; Albania Energy dhe kursimi ishte i menj&euml;hersh&euml;m, edhe n&euml; dim&euml;r." }, it: { t: "Avevo una fornitura industriale con condizioni poco chiare. Ho trovato i piani gas di Albania Energy e il risparmio &egrave; stato immediato, anche in inverno." } }
+];
+
+const LEGAL_TITLES = { pri: { sq: "Privacy Policy", it: "Privacy Policy" }, terms: { sq: "Termini dhe Kushte", it: "Termini e Condizioni" }, co: { sq: "Informat&euml; mbi Cookies", it: "Informativa sui Cookie" } };
+
+const LEGAL_DATA = {
+  pri: {
+    sq: ["Ky seksion p&euml;rshkruan se si www.albaniaenergy.it mbledh dhe p&euml;rdor t&euml; dh&euml;na vet&euml;m n&euml; m&euml;nyr&euml; t&euml; kufizuar: nuk ruajm&euml; dokumente personale n&euml; k&euml;t&euml; faqe. Kontaktet tuaja dhe faturat q&euml; d&euml;rgoni p&euml;rmes WhatsApp p&euml;rdoren ekskluzivisht p&euml;r t'ju ofruar konsulenc&euml; energjetike.", "T&euml; dh&euml;nat q&euml; ndani vullnetarisht n&euml; mesazhe (emri, telefoni, faturat) trajtohen nga ekipi yn&euml; tregtar n&euml; Cuneo (CN) vet&euml;m p&euml;r q&euml;llimin e analiz&euml;s s&euml; tarifave dhe nuk u shiten pal&euml;ve t&euml; treta.", "P&euml;r m&euml; shum&euml; informacion ose p&euml;r t&euml; ushtruar t&euml; drejtat tuaja t&euml; GDPR, na shkruani n&euml; info@albaniaenergy.it."],
+    it: ["Questa sezione descrive come www.albaniaenergy.it raccoglie e usa i dati in modo limitato: non salviamo documenti personali su questa pagina. I tuoi contatti e le bollette inviate via WhatsApp sono usati esclusivamente per offrirti la consulenza energetica.", "I dati che condividi volontariamente nei messaggi (nome, telefono, bollette) sono trattati dal nostro team commerciale a Cuneo (CN) solo per lo scopo dell'analisi tariffaria e non sono venduti a terzi.", "Per maggiori informazioni o per esercitare i tuoi diritti GDPR, scrivici a info@albaniaenergy.it."]
+  },
+  terms: {
+    sq: ["www.albaniaenergy.it &euml;sht&euml; nj&euml; faqe informative dhe e nd&euml;rmjet&euml;simit tregtar. Kontratat p&euml;rfundimtare p&euml;r furnizimin e energjis&euml; elektrike dhe gazit n&euml;nshkruhen me ofruesin italian t&euml; zgjedhur.", "Vler&euml;simet e kursimit jan&euml; tregues dhe bazohen n&euml; tarifat aktuale t&euml; grupit kundrejt mesatares s&euml; tregut; kursimi real mund t&euml; ndryshoj&euml; sipas konsumit.", "P&euml;rurimet e energjis&euml; (PUN, PSV) jan&euml; publike dhe t&euml; publikuara nga ARERA. Asnj&euml; propozim nuk &euml;sht&euml; i detyruesh&euml;m deri n&euml; pranimin tuaj t&euml; qart&euml; me shkrim.", "Ky faqe p&euml;rdor ofrues t&euml; lidhjeve t&euml; jashtme (font, ikona, imazhe) p&euml;r funksionimin vizual."],
+    it: ["www.albaniaenergy.it &egrave; un sito informativo e di intermediazione commerciale. I contratti definitivi per la fornitura di energia elettrica e gas vengono stipulati con il fornitore italiano scelto.", "Le stime di risparmio sono indicative e basate sulle tariffe attuali del gruppo rispetto alla media del mercato; il risparmio reale pu&ograve; variare in base ai consumi.", "I prezzi dell'energia (PUN, PSV) sono pubblici e pubblicati da ARERA. Nessuna proposta &egrave; vincolante fino alla tua accettazione chiara e scritta.", "Questo sito utilizza provider esterni (font, icone, immagini) per il funzionamento visivo."]
+  },
+  co: {
+    sq: ["Kjo faqe nuk p&euml;rdor cookie t&euml; profilimit. Mund t&euml; p&euml;rdoren cookie teknike dhe analitike t&euml; pal&euml;ve t&euml; treta t&euml; integruara (p&euml;r shembull nga fontet dhe CDN-ja) t&euml; nevojshme p&euml;r shfaqjen e sakt&euml; t&euml; faqes.", "Preferenca juaj e gjuh&euml;s dhe e konsensusit ruhet lokalisht n&euml; shfletuesin tuaj, jo n&euml; server&euml;t tan&euml;.", "Duke p&euml;rdorur faqen, pranoni k&euml;to cookie teknike t&euml; domosdoshme."],
+    it: ["Questo sito non usa cookie di profilazione. Possono essere utilizzati cookie tecnici e analitici di terze parti integrate (ad es. font e CDN) necessari alla corretta visualizzazione del sito.", "La tua preferenza di lingua e di consenso &egrave; salvata localmente nel tuo browser, non sui nostri server.", "Utilizzando il sito accetti questi cookie tecnici indispensabili."]
+  }
+};
+
+let ORIG = [];
+let PH_ORIG = [];
+
+function captureOriginals() {
+  ORIG = [];
+  PH_ORIG = [];
+  var els = document.querySelectorAll('[data-i18n]');
+  for (var i = 0; i < els.length; i++) { ORIG.push({ el: els[i], html: els[i].innerHTML }); }
+  var phs = document.querySelectorAll('[data-i18n-ph]');
+  for (var j = 0; j < phs.length; j++) { PH_ORIG.push({ el: phs[j], ph: phs[j].placeholder }); }
+}
+
+function swapClasses(el, add, rem) { if (!el) return; for (var i = 0; i < add.length; i++) el.classList.add(add[i]); for (var k = 0; k < rem.length; k++) el.classList.remove(rem[k]); }
+
+function applyLangButtons() {
+  var isIt = CURRENT.lang === 'it';
+  var s = document.getElementById('lang-btn-sq');
+  var i = document.getElementById('lang-btn-it');
+  swapClasses(s, isIt ? ['text-red-800'] : ['bg-red-800', 'text-white', 'shadow-sm'], isIt ? ['bg-red-800', 'text-white', 'shadow-sm'] : ['text-red-800']);
+  swapClasses(i, isIt ? ['bg-red-800', 'text-white', 'shadow-sm'] : ['text-red-800'], isIt ? ['text-red-800'] : ['bg-red-800', 'text-white', 'shadow-sm']);
+  var m = document.querySelectorAll('#mobile-menu button.lang-btn');
+  if (m.length >= 2) {
+    swapClasses(m[0], isIt ? ['bg-white', 'text-red-800', 'border-red-200'] : ['bg-red-800', 'text-white', 'border-red-800'], isIt ? ['bg-red-800', 'text-white', 'border-red-800'] : ['bg-white', 'text-red-800', 'border-red-200']);
+    swapClasses(m[1], isIt ? ['bg-red-800', 'text-white', 'border-red-800'] : ['bg-white', 'text-red-800', 'border-red-200'], isIt ? ['bg-white', 'text-red-800', 'border-red-200'] : ['bg-red-800', 'text-white', 'border-red-800']);
+  }
+}
+
+function updateRangeLabels() {
+  var it = CURRENT.lang === 'it';
+  var mn = document.getElementById('range-min');
+  var av = document.getElementById('range-avg');
+  var mx = document.getElementById('range-max');
+  if (mn) mn.textContent = (it ? 'Min: ' : 'Min: ') + '40&euro;'.replace('&euro;', '€');
+  if (av) av.textContent = it ? 'Media: 120&euro; - 180&euro;'.replace('&euro;', '€') : 'Mesatarja: 120&euro; - 180&euro;'.replace('&euro;', '€');
+  if (mx) mx.textContent = 'Max: 400&euro;+'.replace('&euro;', '€');
+}
+
+function applyLang(lang) {
+  CURRENT.lang = lang;
+  document.documentElement.lang = lang;
+  var pt = document.getElementById('page-title');
+  if (pt) pt.textContent = lang === 'it' ? 'Albania Energy — Energia elettrica e gas in Italia per gli albanesi' : 'Albania Energy — Energjia Elektrike dhe Gaz në Itali për Shqiptarë';
+  var i, node, key, tr;
+  for (i = 0; i < ORIG.length; i++) {
+    node = ORIG[i].el;
+    key = node.getAttribute('data-i18n');
+    if (lang === 'it') { tr = I18N_IT[key]; node.innerHTML = (tr !== undefined) ? tr : ORIG[i].html; }
+    else { node.innerHTML = ORIG[i].html; }
+  }
+  for (i = 0; i < PH_ORIG.length; i++) {
+    node = PH_ORIG[i].el;
+    key = node.getAttribute('data-i18n-ph');
+    if (lang === 'it') { tr = I18N_IT[key]; node.placeholder = (tr !== undefined) ? tr : PH_ORIG[i].ph; }
+    else { node.placeholder = PH_ORIG[i].ph; }
+  }
+  applyLangButtons();
+  updateRangeLabels();
+  renderFaq(CURRENT.faqCat);
+  renderDocs();
+  renderTestimonials();
+  updateCalculator();
+  if (CURRENT.legalOpen) loadLegalContent(CURRENT.legalOpen);
+  if (window.lucide) lucide.createIcons();
+}
+
+function setLanguage(lang) {
+  try { localStorage.setItem('albaniaEnergyLang', lang); } catch (e) {}
+  applyLang(lang);
+}
+
+function toggleMobileMenu() {
+  var mm = document.getElementById('mobile-menu');
+  if (mm) mm.classList.toggle('hidden');
+  var o = document.getElementById('menu-icon-open');
+  var c = document.getElementById('menu-icon-close');
+  if (o && c) { o.classList.toggle('hidden'); c.classList.toggle('hidden'); }
+}
+
+function scrollToId(id) {
+  var el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function openWhatsApp(msg) {
+  if (!msg) msg = waMsg('generic');
+  window.open('https://api.whatsapp.com/send?phone=' + WHATSAPP_NUMBER + '&text=' + encodeURIComponent(msg), '_blank');
+}
+
+function svcMsg(k) {
+  var name = SERVICE_NAMES[k];
+  return t('wa.svcPrefix') + ': ' + (name ? name[CURRENT.lang] : k) + '.';
+}
+
+function selectService(k) { openWhatsApp(svcMsg(k)); }
+
+function selectPlan(key, name) {
+  var m = waMsg('plan') + ': ' + (name || planName(key));
+  openWhatsApp(m);
+}
+
+function unitSuffix(kind) {
+  return CURRENT.lang === 'it' ? (kind === 'm' ? 'mese' : 'anno') : (kind === 'm' ? 'muaj' : 'vit');
+}
+
+function updateCalculator() {
+  var slider = document.getElementById('bill-slider');
+  if (!slider) return;
+  var bill = parseInt(slider.value, 10) || 140;
+  var fact;
+  if (CURRENT.profile === 'empresa') { fact = CURRENT.calcService === 'luz' ? 0.18 : CURRENT.calcService === 'gas' ? 0.20 : 0.24; }
+  else { fact = CURRENT.calcService === 'luz' ? 0.16 : CURRENT.calcService === 'gas' ? 0.18 : 0.20; }
+  var monthly = bill * fact;
+  var annual = monthly * 12;
+  var newBill = bill - monthly;
+  var disp = document.getElementById('bill-display');
+  if (disp) disp.innerHTML = bill + ' &euro; <span class="text-xs text-slate-500 font-normal">' + t('calc.perMonth') + '</span>';
+  var ms = document.getElementById('monthly-saving');
+  if (ms) ms.textContent = '-' + Math.round(monthly) + ' €';
+  var as = document.getElementById('annual-saving');
+  if (as) as.textContent = '~' + Math.round(annual) + ' €/' + unitSuffix('a');
+  var nb = document.getElementById('new-bill');
+  if (nb) nb.textContent = '~' + Math.round(newBill) + ' €/' + unitSuffix('m');
+  var rg = document.getElementById('range-avg');
+  if (rg && CURRENT.lang === 'it') rg.textContent = 'Media: 120&euro; - 180&euro;'.replace('&euro;', '€');
+  else if (rg) rg.textContent = 'Mesatarja: 120&euro; - 180&euro;'.replace('&euro;', '€');
+}
+
+function setProfile(prof) {
+  CURRENT.profile = prof;
+  var h = document.getElementById('profile-hogar');
+  var e = document.getElementById('profile-empresa');
+  if (prof === 'hogar') {
+    swapClasses(h, ['bg-gradient-to-r', 'from-red-700', 'to-red-900', 'text-white', 'shadow-md'], ['text-slate-600', 'hover:text-slate-900']);
+    swapClasses(e, ['text-slate-600', 'hover:text-slate-900'], ['bg-gradient-to-r', 'from-red-700', 'to-red-900', 'text-white', 'shadow-md']);
+  } else {
+    swapClasses(e, ['bg-gradient-to-r', 'from-red-700', 'to-red-900', 'text-white', 'shadow-md'], ['text-slate-600', 'hover:text-slate-900']);
+    swapClasses(h, ['text-slate-600', 'hover:text-slate-900'], ['bg-gradient-to-r', 'from-red-700', 'to-red-900', 'text-white', 'shadow-md']);
+  }
+  updateCalculator();
+}
+
+function setCalcService(svc) {
+  CURRENT.calcService = svc;
+  var ids = { luz: 'service-luz', gas: 'service-gas', dual: 'service-dual' };
+  var b;
+  for (var k in ids) {
+    b = document.getElementById(ids[k]);
+    if (k === svc) { swapClasses(b, ['bg-red-100', 'border-red-700', 'text-red-950', 'ring-2', 'ring-red-500', 'font-bold', 'shadow-sm'], ['bg-white', 'border-slate-200', 'text-slate-600']); }
+    else { swapClasses(b, ['bg-white', 'border-slate-200', 'text-slate-600'], ['bg-red-100', 'border-red-700', 'text-red-950', 'ring-2', 'ring-red-500', 'font-bold', 'shadow-sm']); }
+  }
+  updateCalculator();
+}
+
+function applyCalculation() {
+  var slider = document.getElementById('bill-slider');
+  var bill = slider ? parseInt(slider.value, 10) : 140;
+  var fact = CURRENT.profile === 'empresa' ? 0.24 : 0.20;
+  var monthly = Math.round(bill * fact);
+  var m = waMsg('calc') + ' ' + monthly + '€/' + unitSuffix('m') + '.';
+  openWhatsApp(m);
+}
+
+function setGuideTab(tab) {
+  CURRENT.guideTab = tab;
+  var panels = ['partes', 'tramites', 'seguridad'];
+  for (var i = 0; i < panels.length; i++) {
+    var p = document.getElementById('guide-panel-' + panels[i]);
+    if (p) p.classList.toggle('hidden', panels[i] !== tab);
+    var b = document.getElementById('guide-tab-' + panels[i]);
+    swapClasses(b, panels[i] === tab ? ['bg-gradient-to-r', 'from-red-700', 'to-red-900', 'text-white', 'shadow-md'] : ['text-slate-600', 'hover:text-slate-900'], panels[i] === tab ? ['text-slate-600', 'hover:text-slate-900'] : ['bg-gradient-to-r', 'from-red-700', 'to-red-900', 'text-white', 'shadow-md']);
+  }
+}
+
+function setFaqMainTab(tab) {
+  CURRENT.faqTab = tab;
+  var faqP = document.getElementById('faq-panel-faq');
+  var docP = document.getElementById('faq-panel-docs');
+  var bf = document.getElementById('faq-tab-faq');
+  var bd = document.getElementById('faq-tab-docs');
+  if (tab === 'docs') {
+    if (faqP) faqP.classList.add('hidden');
+    if (docP) docP.classList.remove('hidden');
+    swapClasses(bf, ['text-slate-700', 'hover:text-amber-900', 'hover:bg-amber-100/60', 'bg-transparent'], ['bg-red-800', 'text-white', 'shadow-md']);
+    swapClasses(bd, ['bg-red-800', 'text-white', 'shadow-md'], ['text-slate-700', 'hover:text-amber-900', 'hover:bg-amber-100/60', 'bg-transparent']);
+    renderDocs();
+  } else {
+    if (docP) docP.classList.add('hidden');
+    if (faqP) faqP.classList.remove('hidden');
+    swapClasses(bd, ['text-slate-700', 'hover:text-amber-900', 'hover:bg-amber-100/60', 'bg-transparent'], ['bg-red-800', 'text-white', 'shadow-md']);
+    swapClasses(bf, ['bg-red-800', 'text-white', 'shadow-md'], ['text-slate-700', 'hover:text-amber-900', 'hover:bg-amber-100/60', 'bg-transparent']);
+    renderFaq(CURRENT.faqCat);
+  }
+}
+
+function setFaqCategory(cat) {
+  CURRENT.faqCat = cat;
+  var btns = document.querySelectorAll('.faq-cat-btn');
+  for (var i = 0; i < btns.length; i++) {
+    var b = btns[i];
+    var on = b.getAttribute('data-cat') === cat;
+    swapClasses(b, on ? ['bg-red-800', 'text-white', 'border-red-700', 'shadow-sm'] : ['bg-white', 'text-slate-700', 'border-slate-300', 'hover:border-red-300', 'hover:bg-red-50'], on ? ['bg-white', 'text-slate-700', 'border-slate-300', 'hover:border-red-300', 'hover:bg-red-50'] : ['bg-red-800', 'text-white', 'border-red-700', 'shadow-sm']);
+  }
+  renderFaq(cat);
+}
+
+function toggleFaq(idx) {
+  var body = document.getElementById('faq-body-' + idx);
+  var icon = document.getElementById('faq-icon-' + idx);
+  if (body) body.classList.toggle('hidden');
+  if (icon) icon.classList.toggle('rotate-180');
+}
+
+function renderFaq(cat) {
+  var box = document.getElementById('faq-accordion');
+  if (!box) return;
+  var list = [];
+  for (var i = 0; i < FAQ_DATA.length; i++) { if (cat === 'todos' || FAQ_DATA[i].cat === cat) list.push({ idx: i, item: FAQ_DATA[i] }); }
+  var count = document.getElementById('faq-count');
+  if (count) count.textContent = list.length;
+  var html = '';
+  for (var j = 0; j < list.length; j++) {
+    var d = list[j].item;
+    html += '<div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all">'
+      + '<button onclick="toggleFaq(' + list[j].idx + ')" class="w-full flex items-center gap-4 p-5 text-left cursor-pointer">'
+      + '<span class="shrink-0 w-7 h-7 rounded-lg bg-red-100 text-red-700 text-xs font-black flex items-center justify-center border border-red-200">' + (j + 1) + '</span>'
+      + '<span class="flex-1 text-sm sm:text-base font-bold text-slate-900">' + d.q[CURRENT.lang] + '</span>'
+      + '<i data-lucide="chevron-down" id="faq-icon-' + list[j].idx + '" class="w-4 h-4 shrink-0 transition-transform text-slate-400"></i>'
+      + '</button>'
+      + '<div id="faq-body-' + list[j].idx + '" class="hidden px-5 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed pl-16">' + d.a[CURRENT.lang] + '</div>'
+      + '</div>';
+  }
+  box.innerHTML = html;
+  if (window.lucide) lucide.createIcons();
+}
+
+function renderDocs() {
+  var grid = document.getElementById('docs-grid');
+  if (!grid) return;
+  var q = '';
+  var si = document.getElementById('doc-search');
+  if (si) q = (si.value || '').toLowerCase();
+  var list = [];
+  for (var i = 0; i < DOC_DATA.length; i++) {
+    var d = DOC_DATA[i];
+    var hay = (d.tag + ' ' + d.sq.t + ' ' + d.sq.al + ' ' + d.sq.d + ' ' + d.sq.p).toLowerCase();
+    if (!q || hay.indexOf(q) !== -1) list.push(d);
+  }
+  var c = document.getElementById('doc-count');
+  if (c) c.textContent = list.length;
+  var html = '';
+  for (var j = 0; j < list.length; j++) {
+    var x = list[j];
+    var L = CURRENT.lang === 'it' ? x.it : x.sq;
+    html += '<div class="bg-white border-2 border-slate-200 hover:border-red-300 rounded-2xl p-5 shadow-sm transition-all flex flex-col">'
+      + '<div class="flex items-start justify-between gap-3"><span class="text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-md bg-red-800 text-white">' + x.tag + '</span><i data-lucide="file-check-2" class="w-5 h-5 text-red-700 shrink-0"></i></div>'
+      + '<h4 class="text-base font-black text-slate-900 mt-3">' + L.t + '</h4>'
+      + '<div class="space-y-2 mt-3 text-xs flex-1">'
+      + '<div class="flex items-start gap-2"><span class="text-[10px] font-bold text-amber-700 bg-amber-50 border border-amber-200 rounded px-1.5 py-0.5 shrink-0">AL</span><span class="text-slate-600">' + L.al + '</span></div>'
+      + '<div class="flex items-start gap-2"><span class="text-[10px] font-bold text-red-700 bg-red-50 border border-red-200 rounded px-1.5 py-0.5 shrink-0">IT</span><span class="text-slate-600">' + L.d + '</span></div>'
+      + '</div>'
+      + '<div class="mt-3 p-3 rounded-xl bg-amber-50/80 border border-amber-200 text-[11px] text-slate-700 leading-relaxed"><strong class="text-amber-900">' + t('doc.why') + '</strong> ' + L.p + '</div>'
+      + '</div>';
+  }
+  grid.innerHTML = html;
+  if (window.lucide) lucide.createIcons();
+}
+
+function renderTestimonials() {
+  var grid = document.getElementById('testimonials-grid');
+  if (!grid) return;
+  var html = '';
+  for (var i = 0; i < TEST_DATA.length; i++) {
+    var x = TEST_DATA[i];
+    var txt = CURRENT.lang === 'it' ? x.it.t : x.sq.t;
+    html += '<div class="p-6 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm hover:border-red-400/50 transition-all flex flex-col justify-between shadow-lg">'
+      + '<div class="flex items-center justify-between mb-4"><i data-lucide="quote" class="w-6 h-6 text-amber-400"></i><span class="text-amber-300 text-xs font-bold">★★★★★</span></div>'
+      + '<p class="text-sm text-slate-200 leading-relaxed mb-5">"' + txt + '"</p>'
+      + '<div class="pt-4 border-t border-white/10 flex items-center gap-3">'
+      + '<div class="w-9 h-9 rounded-full bg-gradient-to-br from-red-500 to-red-700 text-white text-xs font-black flex items-center justify-center shadow-md">' + x.name.charAt(0) + '</div>'
+      + '<div><p class="text-sm font-bold text-white">' + x.name + '</p><p class="text-[10px] text-slate-400 font-semibold">' + x.service + ' &middot; ' + (CURRENT.lang === 'it' ? 'Cliente' : 'Klient') + '</p></div>'
+      + '</div></div>';
+  }
+  grid.innerHTML = html;
+  if (window.lucide) lucide.createIcons();
+}
+
+function loadLegalContent(type) {
+  CURRENT.legalOpen = type;
+  var dataObj = LEGAL_DATA[type];
+  if (!dataObj) return;
+  var titleEl = document.getElementById('legal-modal-title');
+  if (titleEl) titleEl.textContent = LEGAL_TITLES[type][CURRENT.lang];
+  var body = document.getElementById('legal-modal-body');
+  if (!body) return;
+  var paras = dataObj[CURRENT.lang] || [];
+  var html = '';
+  for (var i = 0; i < paras.length; i++) html += '<p>' + paras[i] + '</p>';
+  body.innerHTML = html;
+}
+
+function svcChipBind() {
+  var chips = document.querySelectorAll('.svc-chip');
+  for (var i = 0; i < chips.length; i++) {
+    chips[i].addEventListener('click', function () {
+      var self = this;
+      for (var k = 0; k < chips.length; k++) {
+        swapClasses(chips[k], chips[k] === self ? ['border-red-600', 'text-red-800', 'bg-red-50'] : ['border-slate-300', 'text-slate-600', 'bg-white'], chips[k] === self ? ['border-slate-300', 'text-slate-600', 'bg-white'] : ['border-red-600', 'text-red-800', 'bg-red-50']);
+      }
+      var hf = document.getElementById('formService');
+      if (hf) hf.value = self.getAttribute('data-svc');
+    });
+  }
+  var as = document.querySelectorAll('.audit-svc');
+  for (var m = 0; m < as.length; m++) {
+    as[m].addEventListener('click', function () {
+      var self = this;
+      for (var n = 0; n < as.length; n++) {
+        swapClasses(as[n], as[n] === self ? ['border-red-600', 'text-red-800', 'bg-red-50'] : ['border-slate-300', 'text-slate-600', 'bg-white'], as[n] === self ? ['border-slate-300', 'text-slate-600', 'bg-white'] : ['border-red-600', 'text-red-800', 'bg-red-50']);
+      }
+      var hf2 = document.getElementById('auditService');
+      if (hf2) hf2.value = self.getAttribute('data-svc');
+    });
+  }
+}
+
+function submitContactForm() {
+  var name = document.getElementById('formName') ? document.getElementById('formName').value : '';
+  var phone = document.getElementById('formPhone') ? document.getElementById('formPhone').value : '';
+  var msg = document.getElementById('formMessage') ? document.getElementById('formMessage').value : '';
+  var svcKey = document.getElementById('formService') ? document.getElementById('formService').value : 'luz';
+  var svc = SERVICE_NAMES[svcKey];
+  var svcName = svc ? svc[CURRENT.lang] : svcKey;
+  var intro = t('contact.intro');
+  var m = intro + ' ' + name + '. ' + t('contact.lblPhone') + ': ' + phone + '. ' + t('contact.lblService') + ': ' + svcName + '.' + (msg ? ' ' + msg : '');
+  openWhatsApp(m);
+}
+
+function submitAuditForm() {
+  var name = document.getElementById('auditName') ? document.getElementById('auditName').value : '';
+  var phone = document.getElementById('auditPhone') ? document.getElementById('auditPhone').value : '';
+  var svcKey = document.getElementById('auditService') ? document.getElementById('auditService').value : 'luz';
+  var svc = SERVICE_NAMES[svcKey];
+  var svcName = svc ? svc[CURRENT.lang] : svcKey;
+  var fn = document.getElementById('fileName') ? document.getElementById('fileName').textContent : '';
+  var m = waMsg('audit') + ' ' + t('contact.lblService') + ': ' + svcName + '. ' + t('contact.lblPhone') + ': ' + phone + '.' + (fn ? ' (Allegato: ' + fn + ')' : '');
+  openWhatsApp(m);
+}
+
+function initLang() {
+  var saved = 'sq';
+  try { saved = localStorage.getItem('albaniaEnergyLang') || 'sq'; } catch (e) {}
+  captureOriginals();
+  setFaqMainTab('faq');
+  setGuideTab('partes');
+  svcChipBind();
+  applyLang(saved === 'it' ? 'it' : 'sq');
+  if (window.lucide) lucide.createIcons();
+}
+
+initLang();
+</script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!-- ============ FLOATING WHATSAPP BUTTON ============ -->
+<a href="https://api.whatsapp.com/send?phone=393933192262&text=Pershendetje%20Albania%20Energy!%20Deshiroj%20informacion%20per%20driten%20dhe%20gazin." target="_blank" class="fixed bottom-5 right-5 z-50 group" aria-label="Contact us on WhatsApp">
+  <span class="absolute inset-0 rounded-full bg-emerald-500 animate-ping opacity-30 pointer-events-none"></span>
+  <div class="relative w-14 h-14 rounded-full bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center text-white shadow-xl border-2 border-emerald-300/70 transition-transform group-hover:scale-110 scale-[0.9]"><i data-lucide="message-circle" class="w-7 h-7"></i></div>
+  <span class="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-white text-slate-800 text-xs font-bold px-3 py-2 rounded-xl shadow-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none hidden sm:block">🇦🇱 <span data-i18n="fab.wa">Na shkruani në shqip!</span></span>
+</a>
+
+<!-- ============ AUDIT MODAL ============ -->
+<div id="audit-modal" class="hidden fixed inset-0 z-[60] bg-black/75 backdrop-blur-sm overflow-y-auto">
+  <div class="min-h-full flex items-center justify-center p-4">
+    <div class="w-full max-w-4xl bg-white rounded-3xl shadow-2xl overflow-hidden my-8 relative">
+      <div class="bg-gradient-to-r from-red-800 via-red-900 to-red-950 p-7 text-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full blur-2xl pointer-events-none"></div>
+        <button onclick="closeAuditModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/10 hover:bg-white/25 border border-white/20 text-white flex items-center justify-center transition-colors cursor-pointer z-10"><i data-lucide="x" class="w-4 h-4"></i></button>
+        <div class="flex items-center gap-3 mb-3"><div class="p-2.5 rounded-xl bg-amber-400/20 border border-amber-300/40"><i data-lucide="scan-search" class="w-6 h-6 text-amber-300"></i></div><h3 class="text-xl sm:text-2xl font-black" data-i18n="audit.title">Auditim Falas i Faturës Suaj Italiane</h3></div>
+        <p class="text-xs sm:text-sm text-red-200 max-w-xl leading-relaxed" data-i18n="audit.sub">Dërgoni faturën tuaj aktuale në shqip ose italisht dhe do t'ju telefonojmë shpejt me një krahasim të plotë dhe transparent.</p>
+      </div>
+      <div class="p-7 space-y-5">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div><label class="text-xs font-bold text-slate-600 block mb-1.5" data-i18n="audit.fName">Emri dhe Mbiemri</label><input id="auditName" type="text" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs text-slate-900 focus:outline-none focus:border-red-500 focus:ring-2 focus:ring-red-200 transition-all" placeholder="Arben Hoxha" data-i18n-ph="audit.fNamePh"></div>
+          <div><label class="text-xs font-bold text-slate-600 block mb-1.5" data-i18n="audit.fPhone">WhatsApp / Telefono</label><input id="auditPhone" type="tel" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs text-slate-900 focus:outline-none focus:border-red-500 focus:ring-2 focus:ring-red-200 transition-all" placeholder="+39 3XX XXX XXXX" data-i18n-ph="audit.fPhonePh"></div>
+        </div>
+        <div>
+          <label class="text-xs font-bold text-slate-600 block mb-1.5" data-i18n="audit.fService">Çfarë shërbimi keni?</label>
+          <div class="grid grid-cols-3 gap-2">
+            <button type="button" class="audit-svc px-3 py-2.5 rounded-xl text-xs font-bold border-2 transition-colors cursor-pointer border-red-600 text-red-800 bg-red-50 flex items-center justify-center gap-1.5" data-svc="luz" data-i18n="calc.svc.luz">💡 Dritë</button>
+            <button type="button" class="audit-svc px-3 py-2.5 rounded-xl text-xs font-bold border-2 transition-colors cursor-pointer border-slate-300 text-slate-600 bg-white flex items-center justify-center gap-1.5" data-svc="gas" data-i18n="calc.svc.gas">🔥 Gaz</button>
+            <button type="button" class="audit-svc px-3 py-2.5 rounded-xl text-xs font-bold border-2 transition-colors cursor-pointer border-slate-300 text-slate-600 bg-white flex items-center justify-center gap-1.5" data-svc="dual" data-i18n="calc.svc.dual">💡🔥 Të dyja</button>
+          </div>
+          <input type="hidden" id="auditService" value="luz">
+        </div>
+        <div class="p-4 rounded-2xl bg-amber-50 border-2 border-dashed border-amber-300 flex items-center justify-between flex-wrap gap-3">
+          <div class="flex items-center gap-2.5 text-xs font-bold text-amber-900"><i data-lucide="paperclip" class="w-4 h-4 text-amber-600"></i><span data-i18n="audit.fileHint">Bashkangjitni faturën: foto ose PDF (deri në 5 MB)</span></div>
+          <label class="px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-black cursor-pointer transition-colors shadow-sm inline-flex items-center gap-1.5"><i data-lucide="upload" class="w-3.5 h-3.5"></i><span data-i18n="audit.fileBtn">Ngarko Faturën</span><input id="billFileInput" type="file" accept="image/*,.pdf,.jpg,.jpeg,.png,.webp" class="hidden" onchange="document.getElementById('fileName').textContent = this.files[0] ? this.files[0].name : ''"></label>
+          <span id="fileName" class="text-[10px] text-slate-500 italic w-full sm:w-auto"></span>
+        </div>
+        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-300 text-xs text-slate-500 leading-relaxed"><strong class="block text-slate-700 mb-1" data-i18n="audit.note">Vini re:</strong><span data-i18n="audit.noteBody">Nuk i ruajmë të dhënat tuaja personale. Fatura juaj përdoret vetëm për të analizuar tarifat dhe për t'ju paraqitur një propozim. Nëse nuk mund ta gjeni faturën, thjesht dërgoni fotografi të numëruesit.</span></div>
+        <button onclick="submitAuditForm()" class="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-red-700 to-red-900 hover:from-red-700 hover:to-red-800 text-white font-black text-sm flex items-center justify-center gap-2 shadow-lg transition-all transform hover:-translate-y-0.5 cursor-pointer"><span data-i18n="audit.cta">Dërgo për Analizë Falas</span><i data-lucide="arrow-right" class="w-4 h-4"></i></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ LEGAL MODALS ============ -->
+<div id="legal-modal" class="hidden fixed inset-0 z-[60] bg-black/75 backdrop-blur-sm overflow-y-auto">
+  <div class="min-h-full flex items-center justify-center p-4">
+    <div class="w-full max-w-3xl bg-white rounded-3xl shadow-2xl overflow-hidden my-8 relative">
+      <div class="bg-gradient-to-r from-red-800 via-red-900 to-red-950 p-6 text-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full blur-2xl pointer-events-none"></div>
+        <button onclick="closeLegalModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/10 hover:bg-white/25 border border-white/20 text-white flex items-center justify-center transition-colors cursor-pointer z-10"><i data-lucide="x" class="w-4 h-4"></i></button>
+        <h3 id="legal-modal-title" class="text-xl font-black">Privacy Policy</h3>
+        <p class="text-[11px] text-red-200 mt-1">Albania Energy - Ultimo aggiornamento: Gennaio 2026</p>
+      </div>
+      <div id="legal-modal-body" class="p-7 max-h-[60vh] overflow-y-auto text-sm text-slate-700 leading-relaxed space-y-4"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ SCRIPT ============ -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.453.0/umd/lucide.min.js"></script>
+<script>
+const WHATSAPP_NUMBER = '393933192262';
+const AUDIT_BASE_MSG = 'Pershendetje Albania Energy! Deshiroj te dergoj faturen time per nje analize falas.';
+
+function waLink(msg){ return 'https://api.whatsapp.com/send?phone=' + WHATSAPP_NUMBER + '&text=' + encodeURIComponent(msg); }
+function openWa(msg){ window.open(waLink(msg), '_blank'); }
+function openAuditModal(){ document.getElementById('audit-modal').classList.remove('hidden'); document.body.style.overflow='hidden'; }
+function closeAuditModal(){ document.getElementById('audit-modal').classList.add('hidden'); document.body.style.overflow=''; }
+function openLegalModal(type){ document.getElementById('legal-modal').classList.remove('hidden'); document.body.style.overflow='hidden'; loadLegalContent(type); }
+function closeLegalModal(){ document.getElementById('legal-modal').classList.add('hidden'); document.body.style.overflow=''; }
+document.addEventListener('click', function(e){
+  var m = document.getElementById('audit-modal');
+  if(e.target === m) closeAuditModal();
+  var ml = document.getElementById('legal-modal');
+  if(e.target === ml) closeLegalModal();
+});
+document.addEventListener('keydown', function(e){ if(e.key==='Escape'){ closeAuditModal(); closeLegalModal(); } });
+</script>
